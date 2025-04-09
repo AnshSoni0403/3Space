@@ -3,12 +3,15 @@
 import { motion } from "framer-motion"
 import ParallaxBackground from "@/components/ParallaxBackground"
 import styles from "@/styles/About.module.css"
+import Footer from "@/components/Footer"
 import { Users, Rocket, Globe, Award, Target, Zap } from "lucide-react"
+import Navbar from "@/components/Navbar"
 
 export default function AboutPage() {
   return (
     <>
       <ParallaxBackground />
+      <Navbar />
 
       <section className={styles.aboutHero}>
         <div className="container">
@@ -300,6 +303,8 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+      <Footer/>
     </>
+    
   )
 }

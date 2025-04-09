@@ -5,6 +5,7 @@ import { motion } from "framer-motion"
 import ParallaxBackground from "@/components/ParallaxBackground"
 import Navbar from "@/components/Navbar"
 import styles from "@/styles/Careers.module.css"
+import Footer from "@/components/Footer"
 import { MapPin, Briefcase, Clock, ChevronDown, ChevronUp, Search } from "lucide-react"
 import Link from "next/link"
 
@@ -422,6 +423,8 @@ export default function CareersPage() {
           </div>
         </div>
       </section>
+      <Footer />
+      
     </>
   )
 }

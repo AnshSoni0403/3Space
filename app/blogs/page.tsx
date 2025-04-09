@@ -5,6 +5,7 @@ import { motion } from "framer-motion"
 import ParallaxBackground from "@/components/ParallaxBackground"
 import styles from "@/styles/Blogs.module.css"
 import { Calendar, User, Clock, ArrowRight } from "lucide-react"
+import Footer from "@/components/Footer"
 import Navbar from "@/components/Navbar"
 import Link from "next/link"
 
@@ -190,6 +191,7 @@ export default function BlogsPage() {
           </div>
         </div>
       </section>
+      <Footer/>
     </>
   )
 }

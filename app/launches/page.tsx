@@ -6,6 +6,7 @@ import LaunchTimeline from "@/components/LaunchTimeline"
 import ParallaxBackground from "@/components/ParallaxBackground"
 import styles from "@/styles/Launches.module.css"
 import Navbar from "@/components/Navbar"
+import Footer from "@/components/Footer"
 
 export default function LaunchesPage() {
   const [selectedLaunch, setSelectedLaunch] = useState(null)
@@ -96,6 +97,7 @@ export default function LaunchesPage() {
           </div>
         </section>
       )}
+      <Footer/>
     </>
   )
 }
