@@ -5,6 +5,7 @@ import { motion } from "framer-motion"
 import ParallaxBackground from "@/components/ParallaxBackground"
 import styles from "@/styles/Blogs.module.css"
 import { Calendar, User, Clock, ArrowRight } from "lucide-react"
+import Navbar from "@/components/Navbar"
 import Link from "next/link"
 
 export default function BlogsPage() {
@@ -84,6 +85,7 @@ export default function BlogsPage() {
   return (
     <>
       <ParallaxBackground />
+      <Navbar/>
 
       <section className={styles.blogsHero}>
         <div className="container">

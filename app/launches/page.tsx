@@ -5,6 +5,7 @@ import { motion } from "framer-motion"
 import LaunchTimeline from "@/components/LaunchTimeline"
 import ParallaxBackground from "@/components/ParallaxBackground"
 import styles from "@/styles/Launches.module.css"
+import Navbar from "@/components/Navbar"
 
 export default function LaunchesPage() {
   const [selectedLaunch, setSelectedLaunch] = useState(null)
@@ -13,6 +14,7 @@ export default function LaunchesPage() {
   return (
     <>
       <ParallaxBackground />
+      <Navbar />
 
       <section className={styles.launchesHero}>
         <div className="container">

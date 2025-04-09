@@ -3,6 +3,7 @@
 import { useState } from "react"
 import { motion } from "framer-motion"
 import ParallaxBackground from "@/components/ParallaxBackground"
+import Navbar from "@/components/Navbar"
 import styles from "@/styles/Careers.module.css"
 import { MapPin, Briefcase, Clock, ChevronDown, ChevronUp, Search } from "lucide-react"
 import Link from "next/link"
@@ -174,6 +175,7 @@ export default function CareersPage() {
   return (
     <>
       <ParallaxBackground />
+      <Navbar/>
 
       <section className={styles.careersHero}>
         <div className="container">
