@@ -1,0 +1,272 @@
+.aboutHero {
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url("/images/about-bg.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.heroContent {
+  max-width: 800px;
+  z-index: 2;
+}
+
+.heroContent h1 {
+  font-size: 3.5rem;
+  font-weight: 800;
+  margin-bottom: 1rem;
+  background: linear-gradient(to right, #ffffff, #8338ec);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.heroContent p {
+  font-size: 1.3rem;
+  color: var(--text-secondary);
+}
+
+.missionSection {
+  position: relative;
+  z-index: 2;
+  background: linear-gradient(to bottom, rgba(15, 23, 41, 0.8), rgba(5, 7, 20, 0.9));
+  padding: 6rem 0;
+}
+
+.missionCard,
+.visionCard {
+  background-color: rgba(15, 23, 41, 0.7);
+  border-radius: 10px;
+  padding: 2rem;
+  height: 100%;
+  border: 1px solid var(--border);
+  backdrop-filter: blur(10px);
+}
+
+.missionCard h2,
+.visionCard h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--primary);
+}
+
+.visionCard h2 {
+  color: var(--secondary);
+}
+
+.missionCard p,
+.visionCard p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+}
+
+.valuesSection {
+  position: relative;
+  z-index: 2;
+  background-color: rgba(5, 7, 20, 0.9);
+}
+
+.valueCard {
+  background-color: var(--card);
+  border-radius: 10px;
+  padding: 2rem;
+  text-align: center;
+  border: 1px solid var(--border);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.valueIcon {
+  background-color: rgba(131, 56, 236, 0.1);
+  color: var(--accent);
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.valueCard h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.valueCard p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+.teamSection {
+  position: relative;
+  z-index: 2;
+  background-color: rgba(15, 23, 41, 0.8);
+}
+
+.teamCard {
+  background-color: var(--card);
+  border-radius: 10px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.teamImage {
+  height: 250px;
+  overflow: hidden;
+}
+
+.teamImage img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.teamCard:hover .teamImage img {
+  transform: scale(1.05);
+}
+
+.teamCard h3 {
+  font-size: 1.5rem;
+  margin: 1.5rem 1.5rem 0.5rem;
+  color: var(--text-primary);
+}
+
+.teamRole {
+  font-size: 1rem;
+  color: var(--primary);
+  margin: 0 1.5rem 1rem;
+  font-weight: 600;
+}
+
+.teamBio {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+  margin: 0 1.5rem 1.5rem;
+}
+
+.historySection {
+  position: relative;
+  z-index: 2;
+  background-color: rgba(5, 7, 20, 0.9);
+}
+
+.timeline {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  width: 2px;
+  background-color: var(--border);
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.timelineItem {
+  padding: 1rem 0;
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.timelineDate {
+  min-width: 120px;
+  padding: 0.5rem 1rem;
+  background-color: var(--primary);
+  color: var(--text-primary);
+  border-radius: 20px;
+  font-weight: 600;
+  text-align: center;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top: -10px;
+  z-index: 1;
+}
+
+.timelineContent {
+  width: 45%;
+  padding: 2rem;
+  background-color: var(--card);
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  margin-top: 1.5rem;
+}
+
+.timelineItem:nth-child(odd) .timelineContent {
+  margin-right: 55%;
+}
+
+.timelineItem:nth-child(even) .timelineContent {
+  margin-left: 55%;
+}
+
+.timelineContent h3 {
+  font-size: 1.3rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.timelineContent p {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+  .timeline::before {
+    left: 30px;
+  }
+
+  .timelineDate {
+    left: 30px;
+    transform: none;
+    min-width: 100px;
+  }
+
+  .timelineContent {
+    width: calc(100% - 80px);
+    margin-left: 80px !important;
+    margin-right: 0 !important;
+  }
+
+  .heroContent h1 {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroContent h1 {
+    font-size: 2.5rem;
+  }
+
+  .missionCard h2,
+  .visionCard h2 {
+    font-size: 1.8rem;
+  }
+
+  .timelineContent {
+    padding: 1.5rem;
+  }
+}

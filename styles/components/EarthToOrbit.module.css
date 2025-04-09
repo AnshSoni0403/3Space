@@ -1,0 +1,153 @@
+.container {
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.earthOrbitContainer {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.earth {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  border-radius: 50%;
+  background-image: url("/images/earth.jpg");
+  background-size: cover;
+  box-shadow: 0 0 50px rgba(0, 100, 255, 0.5);
+}
+
+.satellite {
+  position: absolute;
+  width: 60px;
+  height: 30px;
+  z-index: 2;
+}
+
+.satelliteBody {
+  width: 30px;
+  height: 15px;
+  background-color: #ddd;
+  border-radius: 3px;
+  position: relative;
+}
+
+.satellitePanel {
+  position: absolute;
+  width: 20px;
+  height: 8px;
+  background-color: #3a86ff;
+  top: 3px;
+}
+
+.satellitePanel:first-child {
+  left: -18px;
+  border-radius: 2px 0 0 2px;
+}
+
+.satellitePanel:last-child {
+  right: -18px;
+  border-radius: 0 2px 2px 0;
+}
+
+.stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: radial-gradient(2px 2px at 20px 30px, #fff, rgba(0, 0, 0, 0)),
+    radial-gradient(2px 2px at 40px 70px, #fff, rgba(0, 0, 0, 0)),
+    radial-gradient(1px 1px at 90px 40px, #fff, rgba(0, 0, 0, 0)),
+    radial-gradient(2px 2px at 160px 120px, #fff, rgba(0, 0, 0, 0)),
+    radial-gradient(1px 1px at 200px 80px, #fff, rgba(0, 0, 0, 0)),
+    radial-gradient(1px 1px at 300px 200px, #fff, rgba(0, 0, 0, 0)),
+    radial-gradient(2px 2px at 400px 250px, #fff, rgba(0, 0, 0, 0)),
+    radial-gradient(2px 2px at 500px 150px, #fff, rgba(0, 0, 0, 0)),
+    radial-gradient(1px 1px at 600px 220px, #fff, rgba(0, 0, 0, 0));
+  background-size: 1000px 1000px;
+  z-index: -1;
+}
+
+.content {
+  position: absolute;
+  bottom: 10%;
+  left: 0;
+  width: 100%;
+  z-index: 3;
+}
+
+.contentText {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 2rem;
+  background-color: rgba(15, 23, 41, 0.7);
+  border-radius: 10px;
+  backdrop-filter: blur(10px);
+}
+
+.contentText h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.contentText p {
+  font-size: 1.1rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+  .earth {
+    width: 300px;
+    height: 300px;
+  }
+
+  .contentText h2 {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .earth {
+    width: 200px;
+    height: 200px;
+  }
+
+  .satellite {
+    width: 40px;
+    height: 20px;
+  }
+
+  .satelliteBody {
+    width: 20px;
+    height: 10px;
+  }
+
+  .satellitePanel {
+    width: 15px;
+    height: 6px;
+    top: 2px;
+  }
+
+  .satellitePanel:first-child {
+    left: -13px;
+  }
+
+  .satellitePanel:last-child {
+    right: -13px;
+  }
+
+  .contentText h2 {
+    font-size: 1.8rem;
+  }
+}
