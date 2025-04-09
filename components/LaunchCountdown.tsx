@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect, useRef } from "react"
+import { useState, useEffect } from "react"
 import { motion, AnimatePresence } from "framer-motion"
 import styles from "@/styles/components/LaunchCountdown.module.css"
 
@@ -12,13 +12,9 @@ export default function LaunchCountdown() {
     seconds: 0,
   })
   const [isLaunched, setIsLaunched] = useState(false)
-  const [isMuted, setIsMuted] = useState(true)
-  const audioRef = useRef<HTMLAudioElement | null>(null)
 
-  // Set launch date to 7 days from now
   useEffect(() => {
-    const launchDate = new Date()
-    launchDate.setDate(launchDate.getDate() + 7)
+    const launchDate = new Date("2025-08-27T00:00:00") // Fixed launch date
 
     const interval = setInterval(() => {
       const now = new Date()
@@ -27,9 +23,6 @@ export default function LaunchCountdown() {
       if (difference <= 0) {
         clearInterval(interval)
         setIsLaunched(true)
-        if (audioRef.current && !isMuted) {
-          audioRef.current.play()
-        }
         return
       }
 
@@ -42,62 +35,14 @@ export default function LaunchCountdown() {
     }, 1000)
 
     return () => clearInterval(interval)
-  }, [isMuted])
+  }, [])
 
   const resetCountdown = () => {
     setIsLaunched(false)
-    // Reset launch date to 30 seconds from now for demo purposes
-    const newLaunchDate = new Date()
-    newLaunchDate.setSeconds(newLaunchDate.getSeconds() + 30)
-  }
-
-  const toggleMute = () => {
-    setIsMuted(!isMuted)
-    if (audioRef.current) {
-      audioRef.current.muted = !isMuted
-    }
   }
 
   return (
     <div className={styles.countdownContainer}>
-      <audio ref={audioRef} src="/sounds/rocket-launch.mp3" muted={isMuted} />
-
-      <div className={styles.soundToggle} onClick={toggleMute}>
-        {isMuted ? (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-            <line x1="23" y1="9" x2="17" y2="15"></line>
-            <line x1="17" y1="9" x2="23" y2="15"></line>
-          </svg>
-        ) : (
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            strokeLinecap="round"
-            strokeLinejoin="round"
-          >
-            <polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon>
-            <path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path>
-            <path d="M19.07 4.93a10 10 0 0 1 0 14.14"></path>
-          </svg>
-        )}
-      </div>
-
       <AnimatePresence mode="wait">
         {!isLaunched ? (
           <motion.div
