@@ -3,7 +3,7 @@ import Navbar from "@/components/Navbar"
 import Footer from "@/components/Footer"
 import LaunchCountdown from "@/components/LaunchCountdown"
 import ParallaxBackground from "@/components/ParallaxBackground"
-import EarthToOrbit from "@/components/EarthToOrbit"
+// import EarthToOrbit from "@/components/EarthToOrbit"
 import styles from "@/styles/Home.module.css"
 import { motion } from "framer-motion"
 import { ArrowRight } from "react-feather"
@@ -47,7 +47,7 @@ export default function Home() {
           </div>
         </section>
 
-        <EarthToOrbit />
+        {/* <EarthToOrbit /> */}
 
         <section className={`section ${styles.missionSection}`}>
           <div className="container">

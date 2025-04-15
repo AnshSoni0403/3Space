@@ -241,68 +241,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className={`section ${styles.historySection}`}>
-        <div className="container">
-          <h2 className="section-title">Our Journey</h2>
-          <div className={styles.timeline}>
-            <div className={styles.timelineItem}>
-              <div className={styles.timelineDate}>2018</div>
-              <div className={styles.timelineContent}>
-                <h3>Foundation</h3>
-                <p>3 SPACE was founded with a mission to revolutionize India's space industry.</p>
-              </div>
-            </div>
-
-            <div className={styles.timelineItem}>
-              <div className={styles.timelineDate}>2019</div>
-              <div className={styles.timelineContent}>
-                <h3>First Prototype</h3>
-                <p>Successfully tested our first rocket engine prototype, achieving 95% efficiency.</p>
-              </div>
-            </div>
-
-            <div className={styles.timelineItem}>
-              <div className={styles.timelineDate}>2020</div>
-              <div className={styles.timelineContent}>
-                <h3>Series A Funding</h3>
-                <p>Secured $50 million in funding to accelerate development of our first orbital rocket.</p>
-              </div>
-            </div>
-
-            <div className={styles.timelineItem}>
-              <div className={styles.timelineDate}>2021</div>
-              <div className={styles.timelineContent}>
-                <h3>First Launch</h3>
-                <p>Successfully launched our first rocket, placing a small satellite into low Earth orbit.</p>
-              </div>
-            </div>
-
-            <div className={styles.timelineItem}>
-              <div className={styles.timelineDate}>2022</div>
-              <div className={styles.timelineContent}>
-                <h3>Reusability Milestone</h3>
-                <p>Achieved first successful landing and recovery of our rocket's first stage.</p>
-              </div>
-            </div>
-
-            <div className={styles.timelineItem}>
-              <div className={styles.timelineDate}>2023</div>
-              <div className={styles.timelineContent}>
-                <h3>Commercial Operations</h3>
-                <p>Began commercial satellite launch services for global customers.</p>
-              </div>
-            </div>
-
-            <div className={styles.timelineItem}>
-              <div className={styles.timelineDate}>2024</div>
-              <div className={styles.timelineContent}>
-                <h3>Heavy Lift Capability</h3>
-                <p>Introduced our heavy-lift rocket capable of delivering large payloads to geostationary orbit.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      
       <Footer/>
     </>
     
