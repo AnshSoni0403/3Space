@@ -45,11 +45,11 @@ export default function Navbar() {
           <Link href="/" className={styles.navLink}>
             Home
           </Link>
-          <Link href="/launches" className={styles.navLink}>
+          {/* <Link href="/launches" className={styles.navLink}>
             Launches
-          </Link>
+          </Link> */}
           <Link href="/rockets" className={styles.navLink}>
-            Rockets
+            Products
           </Link>
           <Link href="/blogs" className={styles.navLink}>
             Blogs

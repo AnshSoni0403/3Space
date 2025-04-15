@@ -1,165 +1,66 @@
-.splashScreen {
+.splashContainer {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100vh;
-  background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  background-color: #000000;
   z-index: 9999;
   overflow: hidden;
 }
 
-.rocketContainer {
-  position: relative;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.rocketAssembly {
-  position: relative;
-  z-index: 10;
-}
-
-.rocketPart {
-  filter: drop-shadow(0px 2px 5px rgba(0, 0, 0, 0.3));
-}
-
-.mainExhaust {
+.companyTitle {
   position: absolute;
-  bottom: -20px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 20px;
-  height: 120px;
-  background: linear-gradient(
-    to top,
-    rgba(255, 120, 50, 0) 0%,
-    rgba(255, 120, 50, 0.3) 20%,
-    rgba(255, 150, 100, 0.5) 40%,
-    rgba(255, 180, 120, 0.3) 60%,
-    rgba(255, 220, 180, 0.1) 80%,
-    rgba(255, 255, 255, 0) 100%
-  );
-  filter: blur(8px);
-  transform-origin: center bottom;
-  border-radius: 50px;
-  z-index: -1;
-}
-
-.sideExhaustLeft {
-  position: absolute;
-  bottom: -15px;
-  left: 22px;
-  width: 10px;
-  height: 80px;
-  background: linear-gradient(
-    to top,
-    rgba(255, 120, 50, 0) 0%,
-    rgba(255, 120, 50, 0.2) 20%,
-    rgba(255, 150, 100, 0.4) 40%,
-    rgba(255, 180, 120, 0.2) 60%,
-    rgba(255, 220, 180, 0.1) 80%,
-    rgba(255, 255, 255, 0) 100%
-  );
-  filter: blur(5px);
-  transform-origin: center bottom;
-  border-radius: 50px;
-  z-index: -1;
-}
-
-.sideExhaustRight {
-  position: absolute;
-  bottom: -15px;
-  right: 22px;
-  width: 10px;
-  height: 80px;
-  background: linear-gradient(
-    to top,
-    rgba(255, 120, 50, 0) 0%,
-    rgba(255, 120, 50, 0.2) 20%,
-    rgba(255, 150, 100, 0.4) 40%,
-    rgba(255, 180, 120, 0.2) 60%,
-    rgba(255, 220, 180, 0.1) 80%,
-    rgba(255, 255, 255, 0) 100%
-  );
-  filter: blur(5px);
-  transform-origin: center bottom;
-  border-radius: 50px;
-  z-index: -1;
-}
-
-.starsContainer {
-  position: absolute;
-  top: 0;
+  top: 65%;
   left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: 1;
-}
-
-.star {
-  position: absolute;
-  background-color: white;
-  border-radius: 50%;
-  animation: twinkle 3s infinite alternate;
-}
-
-@keyframes twinkle {
-  0% {
-    opacity: 0.3;
-    transform: scale(0.8);
-  }
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
-
-.splashText {
-  position: absolute;
+  right: 0;
   text-align: center;
-  z-index: 20;
-  bottom: 15%;
+  z-index: 10;
+  pointer-events: none;
 }
 
-.splashText h1 {
-  font-family: "Arial", sans-serif;
-  font-size: 4rem;
-  font-weight: 800;
-  letter-spacing: 0.8rem;
+.companyTitle h1 {
+  font-family: 'Orbitron', 'Arial', sans-serif;
+  font-size: 5rem;
+  font-weight: 700;
+  letter-spacing: 0.5em;
   margin-bottom: 1rem;
   color: #ffffff;
-  text-shadow: 0 0 20px rgba(52, 152, 219, 0.7);
-  background: linear-gradient(to right, #e74c3c, #3498db);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  text-transform: uppercase;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
 }
 
-.splashText p {
-  font-family: "Arial", sans-serif;
+.companyTitle p {
+  font-family: 'Rajdhani', 'Arial', sans-serif;
   font-size: 1.2rem;
-  letter-spacing: 0.3rem;
+  letter-spacing: 0.2em;
   font-weight: 300;
-  color: rgba(255, 255, 255, 0.8);
-  text-shadow: 0 0 10px rgba(52, 152, 219, 0.5);
+  color: rgba(255, 255, 255, 0.7);
+  text-transform: uppercase;
+}
+
+.skipButton {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 14px;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.skipButton:hover {
+  color: #ffffff;
 }
 
 @media (max-width: 768px) {
-  .splashText h1 {
-    font-size: 2.8rem;
-    letter-spacing: 0.5rem;
+  .companyTitle h1 {
+    font-size: 3rem;
   }
 
-  .splashText p {
+  .companyTitle p {
     font-size: 1rem;
-    letter-spacing: 0.2rem;
   }
 }
