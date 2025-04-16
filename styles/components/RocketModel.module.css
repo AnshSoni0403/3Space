@@ -1,177 +1,143 @@
-/* styles/Rockets.module.css */
-/* styles/Rockets.module.css */
-
-/* ======== Main Layout Structure ======== */
+/* overall page wrapper */
 .container {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background: #000;
 }
 
-.mainContent {
-  flex: 1;
-}
-
-/* ======== Launch Banner ======== */
-.launchBanner {
-  width: 100%;
-  background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
-  padding: 2rem 0;
-  text-align: center;
-  margin: 0 auto;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-
-.launchBanner h1 {
-  margin: 0;
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: white;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-  animation: bounce 2s infinite;
-}
-
-@keyframes bounce {
-
-  0%,
-  100% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(-10px);
-  }
-}
-
-/* ======== Content Section ======== */
-.contentSection {
-  padding: 4rem 2rem;
-  background-color: #fff;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-/* ======== Footer Fix ======== */
-.footerWrapper {
-  margin-top: auto;
-}
-/* SECTION & CONTAINER */
-.section {
+/* HERO SECTION */
+.hero {
   position: relative;
-  padding: 4rem 2rem;
-  background-color: #fff;
-  min-height: calc(100vh - 300px);
-  /* Adjust based on your needs */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  /* consistent across all devices */
+  text-align: center;
+  color: #fff;
+  padding: 0 1rem;
 }
 
-.headingContainer {
+.heroInner {
   position: relative;
-  max-width: 800px;
-  margin: 0 auto;
-  text-align: center;
   z-index: 2;
-}
-
-/* LAUNCH BANNER */
-.launchBanner {
+  max-width: 800px;
   width: 100%;
-  background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
-  padding: 2rem 0;
+}
+
+/* main title */
+.title {
+  font-size: 3rem;
+  /* consistent size */
+  margin: 25px 0 0;
+  /* top margin to push down from navbar */
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+/* subtitle under title */
+.subtitle {
+  font-size: 1.25rem;
+  /* consistent size */
+  margin: 1rem 0 1rem;
+  /* consistent gap above & below */
+  opacity: 0.85;
+}
+
+/* CALL‑OUT SECTION */
+.callout {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #111;
+  padding: 1rem 1rem;
+  /* consistent padding */
+  margin-top: -2rem;
+  /* consistent pull‑up */
   text-align: center;
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-  z-index: 5;
 }
 
-.launchBanner h1 {
+.calloutInner {
+  max-width: 600px;
+  width: 100%;
+}
+
+.calloutText {
+  color: #fff;
+  font-size: 1.125rem;
+  /* consistent size */
   margin: 0;
-  font-size: 2.5rem;
-  font-weight: 800;
-  color: white;
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
-  animation: bounce 2s infinite;
+  opacity: 0.9;
+  padding-bottom: 15px;
+  /* consistent bottom padding */
 }
 
-@keyframes bounce {
-
-  0%,
-  100% {
-    transform: translateY(0);
+/* RESPONSIVE TWEAKS */
+@media (max-width: 1024px) {
+  .title {
+    font-size: 2.75rem;
   }
 
-  50% {
-    transform: translateY(-10px);
+  .subtitle {
+    font-size: 1.1rem;
+    margin: 0.5rem 0 1rem;
+  }
+
+  .callout {
+    padding: 0.75rem 1rem;
+    margin-top: -1.5rem;
+  }
+
+  .calloutText {
+    font-size: 1rem;
   }
 }
 
-/* PRODUCTS TITLE & SUBTITLE */
-.productsTitle {
-  font-size: 2.5rem;
-  font-weight: 600;
-  color: #222;
-  margin-top: 2rem;
-}
-
-.productsSubtitle {
-  font-size: 1.2rem;
-  color: #555;
-  margin-bottom: 2rem;
-}
-
-/* COMING SOON BOX */
-.comingSoonMessage {
-  font-size: 1.5rem;
-  font-style: italic;
-  background-color: #fff3cd;
-  color: #856404;
-  padding: 1rem 2rem;
-  border-radius: 12px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  display: inline-block;
-  margin-top: 2rem;
-}
-
-/* RESPONSIVE DESIGN */
 @media (max-width: 768px) {
-  .launchBanner h1 {
-    font-size: 2rem;
+  .hero {
+    height: 45vh;
   }
 
-  .productsTitle {
-    font-size: 2rem;
+  .title {
+    font-size: 2.25rem;
   }
 
-  .comingSoonMessage {
-    font-size: 1.2rem;
+  .subtitle {
+    font-size: 1rem;
+    margin: 0.4rem 0 0.8rem;
+  }
+
+  .callout {
+    padding: 0.5rem 1rem;
+    margin-top: -1rem;
+  }
+
+  .calloutText {
+    font-size: 0.95rem;
   }
 }
 
 @media (max-width: 480px) {
-  .launchBanner {
-    padding: 1.5rem 0;
+  .hero {
+    height: 40vh;
   }
 
-  .launchBanner h1 {
-    font-size: 1.6rem;
+  .title {
+    font-size: 1.75rem;
   }
 
-  .productsTitle {
-    font-size: 1.8rem;
-    margin-top: 1.5rem;
+  .subtitle {
+    font-size: 0.9rem;
+    margin: 0.3rem 0 0.6rem;
   }
 
-  .productsSubtitle {
-    font-size: 1rem;
+  .callout {
+    padding: 0.5rem 0.5rem;
+    margin-top: -0.8rem;
   }
 
-  .comingSoonMessage {
-    font-size: 1rem;
-    padding: 0.8rem 1.5rem;
-  }
-}
-
-/* Ensure proper spacing between sections */
-@media (min-width: 1024px) {
-  .section {
-    padding: 6rem 2rem;
+  .calloutText {
+    font-size: 0.85rem;
   }
 }

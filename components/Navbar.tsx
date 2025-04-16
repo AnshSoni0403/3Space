@@ -1,104 +1,101 @@
 "use client"
+
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { motion, AnimatePresence } from "framer-motion"
 import { Menu, X } from "lucide-react"
-import styles from "@/styles/components/Navbar.module.css"
+import styles from "@/styles/components/Navbar.module.css" // Adjust path as needed
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+
   useEffect(() => {
     const handleScroll = () => {
-      if (window.scrollY > 50) {
-        setIsScrolled(true)
-      } else {
-        setIsScrolled(false)
+      if (typeof window !== "undefined") {
+        setIsScrolled(window.scrollY > 50)
       }
     }
-    
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
+
+    if (typeof window !== "undefined") {
+      window.addEventListener("scroll", handleScroll)
+      handleScroll()
+    }
+
+    return () => {
+      if (typeof window !== "undefined") {
+        window.removeEventListener("scroll", handleScroll)
+      }
+    }
   }, [])
-  
+
+  const toggleDropdown = () => {
+    setIsDropdownOpen(prev => !prev)
+  }
+
+  const handleLinkClick = () => {
+    setIsDropdownOpen(false)
+  }
+
   return (
     <header className={`${styles.navbar} ${isScrolled ? styles.scrolled : ""}`}>
       <div className={styles.container}>
-        <Link href="/" className={styles.logo}>
-          
+        <Link href="/" className={styles.logo} onClick={handleLinkClick}>
           <div className={styles.logoContainer}>
-            
             <Image
-        src="/logo.png"
-        alt="3 SPACE"
-        width={250}
-        height={250}
-      />
-            
-            
+              src="/logo.png"
+              alt="3 SPACE"
+              width={250}
+              height={250}
+              priority
+            />
           </div>
         </Link>
-        
-        <nav className={styles.desktopNav}>
-          <Link href="/" className={styles.navLink}>
-            Home
-          </Link>
-          {/* <Link href="/launches" className={styles.navLink}>
-            Launches
-          </Link> */}
-          <Link href="/products" className={styles.navLink}>
-            Products
-          </Link>
-          <Link href="/blogs" className={styles.navLink}>
-            Blogs
-          </Link>
-          <Link href="/careers" className={styles.navLink}>
-            Careers
-          </Link>
-          <Link href="/about" className={styles.navLink}>
-            About
-          </Link>
-        </nav>
-        
-        <div className={styles.mobileMenuBtn} onClick={() => setIsMenuOpen(!isMenuOpen)}>
-          {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-        </div>
-      </div>
-      
-      <AnimatePresence>
-        {isMenuOpen && (
-          <motion.div
-            className={styles.mobileNav}
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
+
+        {/* Desktop Navigation */}
+        <nav className={styles.desktopNavWrapper} aria-label="Main Navigation">
+          <button
+            className={styles.desktopNavToggle}
+            onClick={toggleDropdown}
+            aria-expanded={isDropdownOpen}
+            aria-controls="desktop-nav-dropdown"
+            aria-label={isDropdownOpen ? "Close navigation menu" : "Open navigation menu"}
           >
-            <div className={styles.mobileNavContainer}>
-              <Link href="/" className={styles.mobileNavLink} onClick={() => setIsMenuOpen(false)}>
-                Home
-              </Link>
-              <Link href="/launches" className={styles.mobileNavLink} onClick={() => setIsMenuOpen(false)}>
-                Launches
-              </Link>
-              <Link href="/rockets" className={styles.mobileNavLink} onClick={() => setIsMenuOpen(false)}>
-                Rockets
-              </Link>
-              <Link href="/blogs" className={styles.mobileNavLink} onClick={() => setIsMenuOpen(false)}>
-                Blogs
-              </Link>
-              <Link href="/careers" className={styles.mobileNavLink} onClick={() => setIsMenuOpen(false)}>
-                Careers
-              </Link>
-              <Link href="/about" className={styles.mobileNavLink} onClick={() => setIsMenuOpen(false)}>
-                About
-              </Link>
+            {isDropdownOpen ? <X size={20} /> : <Menu size={20} />}
+          </button>
+          {isDropdownOpen && (
+            <div className={styles.desktopNavDropdown} id="desktop-nav-dropdown">
+              <Link href="/" className={styles.navLink} onClick={handleLinkClick}>Home</Link>
+              <Link href="/products" className={styles.navLink} onClick={handleLinkClick}>Products</Link>
+              <Link href="/blogs" className={styles.navLink} onClick={handleLinkClick}>Blogs</Link>
+              <Link href="/careers" className={styles.navLink} onClick={handleLinkClick}>Careers</Link>
+              <Link href="/about" className={styles.navLink} onClick={handleLinkClick}>About</Link>
             </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+          )}
+        </nav>
+
+        {/* Mobile Navigation */}
+        <nav className={styles.mobileNavWrapper} aria-label="Main Navigation">
+          <button
+            className={styles.mobileNavToggle}
+            onClick={toggleDropdown}
+            aria-expanded={isDropdownOpen}
+            aria-controls="mobile-nav-dropdown"
+            aria-label={isDropdownOpen ? "Close navigation menu" : "Open navigation menu"}
+          >
+            {isDropdownOpen ? <X size={24} /> : <Menu size={24} />}
+          </button>
+          {isDropdownOpen && (
+            <div className={styles.mobileNavDropdown} id="mobile-nav-dropdown">
+              <Link href="/" className={styles.navLink} onClick={handleLinkClick}>Home</Link>
+              <Link href="/products" className={styles.navLink} onClick={handleLinkClick}>Products</Link>
+              <Link href="/blogs" className={styles.navLink} onClick={handleLinkClick}>Blogs</Link>
+              <Link href="/careers" className={styles.navLink} onClick={handleLinkClick}>Careers</Link>
+              <Link href="/about" className={styles.navLink} onClick={handleLinkClick}>About</Link>
+            </div>
+          )}
+        </nav>
+      </div>
     </header>
   )
 }
