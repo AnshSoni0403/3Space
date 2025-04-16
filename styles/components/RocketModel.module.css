@@ -1,97 +1,177 @@
-/* Rockets.module.css */
+/* styles/Rockets.module.css */
+/* styles/Rockets.module.css */
 
-.heroSection {
-  height: 70vh;
+/* ======== Main Layout Structure ======== */
+.container {
   display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  background-color: rgba(0, 0, 0, 0.6);
-  color: white;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-.heroContent {
-  z-index: 2;
-  padding: 2rem;
-  max-width: 900px;
-  margin: 0 auto;
+.mainContent {
+  flex: 1;
 }
 
-.heroTitle {
-  font-size: 5rem;
-  font-weight: 700;
-  margin-bottom: 1rem;
+/* ======== Launch Banner ======== */
+.launchBanner {
+  width: 100%;
   background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  text-shadow: 0 0 20px rgba(255, 255, 255, 0.3);
-  animation: glow 2s ease-in-out infinite alternate;
+  padding: 2rem 0;
+  text-align: center;
+  margin: 0 auto;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
-.heroSubtitle {
-  font-size: 1.5rem;
-  color: #e0e0e0;
-  max-width: 600px;
+.launchBanner h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: white;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* ======== Content Section ======== */
+.contentSection {
+  padding: 4rem 2rem;
+  background-color: #fff;
+  max-width: 1200px;
   margin: 0 auto;
 }
 
-.rocketsSection {
+/* ======== Footer Fix ======== */
+.footerWrapper {
+  margin-top: auto;
+}
+/* SECTION & CONTAINER */
+.section {
+  position: relative;
   padding: 4rem 2rem;
-  background-color: #f5f5f7;
+  background-color: #fff;
+  min-height: calc(100vh - 300px);
+  /* Adjust based on your needs */
 }
 
-/* Product card styles can be added here */
-.productCard {
-  background-color: white;
-  border-radius: 12px;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-  overflow: hidden;
+.headingContainer {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  z-index: 2;
+}
+
+/* LAUNCH BANNER */
+.launchBanner {
+  width: 100%;
+  background: linear-gradient(135deg, #ff6b6b, #4ecdc4);
+  padding: 2rem 0;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+  z-index: 5;
+}
+
+.launchBanner h1 {
+  margin: 0;
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: white;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.4);
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+/* PRODUCTS TITLE & SUBTITLE */
+.productsTitle {
+  font-size: 2.5rem;
+  font-weight: 600;
+  color: #222;
+  margin-top: 2rem;
+}
+
+.productsSubtitle {
+  font-size: 1.2rem;
+  color: #555;
   margin-bottom: 2rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.productCard:hover {
-  transform: translateY(-10px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+/* COMING SOON BOX */
+.comingSoonMessage {
+  font-size: 1.5rem;
+  font-style: italic;
+  background-color: #fff3cd;
+  color: #856404;
+  padding: 1rem 2rem;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  display: inline-block;
+  margin-top: 2rem;
 }
 
-/* Animation for title glow effect */
-@keyframes glow {
-  from {
-    text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-  }
-
-  to {
-    text-shadow: 0 0 20px rgba(255, 255, 255, 0.6),
-      0 0 30px rgba(255, 107, 107, 0.4),
-      0 0 40px rgba(78, 205, 196, 0.3);
-  }
-}
-
-/* Media queries for responsiveness */
+/* RESPONSIVE DESIGN */
 @media (max-width: 768px) {
-  .heroTitle {
-    font-size: 3.5rem;
+  .launchBanner h1 {
+    font-size: 2rem;
   }
 
-  .heroSubtitle {
+  .productsTitle {
+    font-size: 2rem;
+  }
+
+  .comingSoonMessage {
     font-size: 1.2rem;
   }
 }
 
 @media (max-width: 480px) {
-  .heroTitle {
-    font-size: 2.5rem;
+  .launchBanner {
+    padding: 1.5rem 0;
   }
 
-  .heroSubtitle {
+  .launchBanner h1 {
+    font-size: 1.6rem;
+  }
+
+  .productsTitle {
+    font-size: 1.8rem;
+    margin-top: 1.5rem;
+  }
+
+  .productsSubtitle {
     font-size: 1rem;
   }
 
-  .heroSection {
-    height: 50vh;
+  .comingSoonMessage {
+    font-size: 1rem;
+    padding: 0.8rem 1.5rem;
+  }
+}
+
+/* Ensure proper spacing between sections */
+@media (min-width: 1024px) {
+  .section {
+    padding: 6rem 2rem;
   }
 }

@@ -176,19 +176,7 @@ export default function BlogsPage() {
             ))}
           </div>
 
-          <div className={styles.newsletterSection}>
-            <div className={styles.newsletterCard}>
-              <h2>Stay Updated</h2>
-              <p>Subscribe to our newsletter for the latest insights and updates from the space industry.</p>
-              <form className={styles.newsletterForm}>
-                <input type="email" placeholder="Your email address" required />
-                <button type="submit">Subscribe</button>
-              </form>
-              <p className={styles.newsletterDisclaimer}>
-                By subscribing, you agree to our Privacy Policy and consent to receive updates from 3 SPACE.
-              </p>
-            </div>
-          </div>
+          
         </div>
       </section>
       <Footer/>

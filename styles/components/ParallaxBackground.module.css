@@ -21,3 +21,8 @@
   /* no background-image */
   background: transparent;
 }
+.parallax {
+  position: fixed;
+  z-index: 1;
+  /* or 0 */
+}
