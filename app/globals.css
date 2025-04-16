@@ -1,8 +1,8 @@
 :root {
   --background: #000000;
   --foreground: #f8f9fa;
-  --primary: #ff4d4d;
-  --secondary: #3a86ff;
+  --primary: #504e4e;
+  --secondary: #aab1bd;
   --accent: #8338ec;
   --text-primary: #ffffff;
   --text-secondary: #b0b7c3;
@@ -80,7 +80,7 @@ button {
 }
 
 .btn-primary:hover {
-  background-color: #ff3333;
+  background-color: #3a3434;
   transform: translateY(-3px);
 }
 
