@@ -48,7 +48,7 @@ export default function Navbar() {
           {/* <Link href="/launches" className={styles.navLink}>
             Launches
           </Link> */}
-          <Link href="/rockets" className={styles.navLink}>
+          <Link href="/products" className={styles.navLink}>
             Products
           </Link>
           <Link href="/blogs" className={styles.navLink}>
