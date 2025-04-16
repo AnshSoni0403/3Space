@@ -6,9 +6,18 @@ import ParallaxBackground from "@/components/ParallaxBackground"
 // import EarthToOrbit from "@/components/EarthToOrbit"
 import styles from "@/styles/Home.module.css"
 import { motion } from "framer-motion"
+import { FaFlask } from 'react-icons/fa'; // Imported the Flask icon from react-icons
+import { Rocket, Satellite } from "lucide-react" // Removed Flask from lucide-react, as it's already in react-icons
+
 // import { ArrowRight } from "react-feather"
 
 export default function Home() {
+  // Define icon style for the feature icons
+  const iconStyle = {
+    color: "white",
+    strokeWidth: 1.5,
+  };
+
   return (
     <>
       <Navbar />
@@ -93,7 +102,9 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: 0.1 }}
                 viewport={{ once: true }}
               >
-                <div className={styles.featureIcon}>🚀</div>
+                <div className={styles.featureIcon}>
+                  <Rocket size={32} style={iconStyle} />
+                </div>
                 <h3>Reusable Rockets</h3>
                 <p>
                   Our innovative reusable rocket technology reduces launch costs by up to 70%, making space more
@@ -107,7 +118,9 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: 0.2 }}
                 viewport={{ once: true }}
               >
-                <div className={styles.featureIcon}>🛰️</div>
+                <div className={styles.featureIcon}>
+                  <Satellite size={32} style={iconStyle} />
+                </div>
                 <h3>Satellite Deployment</h3>
                 <p>
                   Precision orbital placement for satellites of all sizes, from CubeSats to large communication
@@ -121,7 +134,9 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: 0.3 }}
                 viewport={{ once: true }}
               >
-                <div className={styles.featureIcon}>🔬</div>
+                <div className={styles.featureIcon}>
+                  <FaFlask size={32} style={iconStyle} /> {/* Changed to FaFlask from react-icons */}
+                </div>
                 <h3>Research & Development</h3>
                 <p>Cutting-edge R&D in propulsion systems, materials science, and space habitation technologies.</p>
               </motion.div>
@@ -154,5 +169,5 @@ export default function Home() {
       </main>
       <Footer />
     </>
-  )
+  );
 }

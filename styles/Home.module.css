@@ -258,6 +258,19 @@
   transform: translateY(0);
 }
 
+.featureIcon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 64px;
+  height: 64px;
+  border-radius: 50%;
+  background: linear-gradient(145deg, #2a3566, #232d56);
+  box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.3),
+    -4px -4px 10px rgba(255, 255, 255, 0.05);
+  margin: 0 auto 1.5rem;
+}
+
 /* Responsive Styles */
 @media (max-width: 1200px) {
   .floatingElement:nth-child(1) {
