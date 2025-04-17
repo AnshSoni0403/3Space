@@ -20,13 +20,8 @@ export default function Footer() {
                   height={120}
                   className={styles.logoImage}
                 />
-                {/* <span className={styles.logoText}>3 SPACE</span> */}
               </Link>
             </div>
-            {/* <p className={styles.brandDescription}>
-              Making India a global leader in space exploration through cost-effective 
-              satellite launches and reusable rockets.
-            </p> */}
             <div className={styles.socialLinks}>
               <a href="https://x.com/3Space_tech?t=zISEm6mjQYrCN7ZNEd6jxg&s=09" aria-label="Twitter">
                 <RiTwitterXFill size={18} />
@@ -37,12 +32,12 @@ export default function Footer() {
               <a href="https://www.instagram.com/3space_tech?igsh=ZDBrY3Rla254MDVy" aria-label="Instagram">
                 <Instagram size={18} />
               </a>
-              <a href="https://youtube.com/@3space_tech?si=EBQQzO5K1RiG_YSj" aria-label="GitHub">
+              <a href="https://youtube.com/@3space_tech?si=EBQQzO5K1RiG_YSj" aria-label="YouTube">
                 <Youtube size={18} />
               </a>
             </div>
           </div>
-          
+
           <div className={styles.footerLinksSection}>
             <div className={styles.linkGroup}>
               <h3>Company</h3>
@@ -53,17 +48,7 @@ export default function Footer() {
                 <li><Link href="/contact">Contact</Link></li>
               </ul>
             </div>
-            
-            <div className={styles.linkGroup}>
-              <h3>Services</h3>
-              <ul>
-                <li><Link href="/services/satellite-launch">Satellite Launch</Link></li>
-                <li><Link href="/services/payload-integration">Payload Integration</Link></li>
-                <li><Link href="/services/mission-planning">Mission Planning</Link></li>
-                <li><Link href="/services/consulting">Consulting</Link></li>
-              </ul>
-            </div>
-            
+
             <div className={styles.linkGroup}>
               <h3>Resources</h3>
               <ul>
@@ -73,27 +58,46 @@ export default function Footer() {
                 <li><Link href="/resources/faq">FAQ</Link></li>
               </ul>
             </div>
-          </div>
-          
-          <div className={styles.footerContact}>
-            <h3>Contact Us</h3>
-            <div className={styles.contactList}>
-              <div className={styles.contactItem}>
-                <MapPin size={16} />
-                <a href="https://maps.app.goo.gl/oYVoFXa7JgS2cQuN8"><p>IIC PDEU, Gandhinagar, Gujarat</p></a>
-              </div>
-              <div className={styles.contactItem}>
-                <Mail size={16} />
-                <a href="mailto:3spacetechcorp@gmail.com"><p>3spacetechcorp@gmail.com</p></a>
-              </div>
-              <div className={styles.contactItem}>
-                <Phone size={16} />
-                <p>+91 6351932850</p>
+
+            <div className={styles.linkGroup}>
+              <h3>Contact Us</h3>
+              <div className={styles.contactList}>
+                <div className={styles.contactItem}>
+                  <MapPin size={16} />
+                  <a href="https://maps.app.goo.gl/oYVoFXa7JgS2cQuN8">
+                    <p>IIC PDEU, Gandhinagar, Gujarat</p>
+                  </a>
+                </div>
+                <div className={styles.contactItem}>
+                  <Mail size={16} />
+                  <a href="mailto:3spacetechcorp@gmail.com">
+                    <p>3spacetechcorp@gmail.com</p>
+                  </a>
+                </div>
+                <div className={styles.contactItem}>
+                  <Phone size={16} />
+                  <p>+91 6351932850</p>
+                </div>
               </div>
             </div>
           </div>
+
+          <div className={styles.footerForm}>
+            <h3>Send us a Message</h3>
+            <form className={styles.contactForm}>
+              <div className={styles.formGroup}>
+                <input type="text" placeholder="First Name" name="firstName" required />
+                <input type="text" placeholder="Last Name" name="lastName" required />
+              </div>
+              <input type="email" placeholder="Email" name="email" required />
+              <input type="text" placeholder="Address" name="address" />
+              <input type="tel" placeholder="Phone" name="phone" />
+              <textarea placeholder="Additional Information" name="message" rows={4}></textarea>
+              <button type="submit">Submit</button>
+            </form>
+          </div>
         </div>
-        
+
         <div className={styles.footerBottom}>
           <p>&copy; {new Date().getFullYear()} 3 SPACE. All rights reserved.</p>
           <div className={styles.footerBottomLinks}>
