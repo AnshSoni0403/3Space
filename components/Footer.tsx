@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Mail, Phone, MapPin, Twitter, Linkedin, Instagram, Github } from "lucide-react";
+import { Mail, Phone, MapPin, Linkedin, Instagram, Youtube } from "lucide-react";
+import { RiTwitterXFill } from "react-icons/ri";
+
 import styles from "@/styles/components/Footer.module.css";
 
 export default function Footer() {
@@ -26,17 +28,17 @@ export default function Footer() {
               satellite launches and reusable rockets.
             </p> */}
             <div className={styles.socialLinks}>
-              <a href="#" aria-label="Twitter">
-                <Twitter size={18} />
+              <a href="https://x.com/3Space_tech?t=zISEm6mjQYrCN7ZNEd6jxg&s=09" aria-label="Twitter">
+                <RiTwitterXFill size={18} />
               </a>
-              <a href="#" aria-label="LinkedIn">
+              <a href="https://www.linkedin.com/company/3space-aerospace-and-space-technologies-company/" aria-label="LinkedIn">
                 <Linkedin size={18} />
               </a>
-              <a href="#" aria-label="Instagram">
+              <a href="https://www.instagram.com/3space_tech?igsh=ZDBrY3Rla254MDVy" aria-label="Instagram">
                 <Instagram size={18} />
               </a>
-              <a href="#" aria-label="GitHub">
-                <Github size={18} />
+              <a href="https://youtube.com/@3space_tech?si=EBQQzO5K1RiG_YSj" aria-label="GitHub">
+                <Youtube size={18} />
               </a>
             </div>
           </div>
@@ -78,15 +80,15 @@ export default function Footer() {
             <div className={styles.contactList}>
               <div className={styles.contactItem}>
                 <MapPin size={16} />
-                <p>123 Space Park, Bangalore, India</p>
+                <a href="https://maps.app.goo.gl/oYVoFXa7JgS2cQuN8"><p>IIC PDEU, Gandhinagar, Gujarat</p></a>
               </div>
               <div className={styles.contactItem}>
                 <Mail size={16} />
-                <p>info@3space.in</p>
+                <a href="mailto:3spacetechcorp@gmail.com"><p>3spacetechcorp@gmail.com</p></a>
               </div>
               <div className={styles.contactItem}>
                 <Phone size={16} />
-                <p>+91 1234567890</p>
+                <p>+91 6351932850</p>
               </div>
             </div>
           </div>
