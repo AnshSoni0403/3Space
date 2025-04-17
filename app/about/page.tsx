@@ -6,8 +6,49 @@ import styles from "@/styles/About.module.css"
 import Footer from "@/components/Footer"
 import { Users, Rocket, Globe, Award, Target, Zap } from "lucide-react"
 import Navbar from "@/components/Navbar"
+import { useEffect, useState } from "react"
 
 export default function AboutPage() {
+  const [scrollY, setScrollY] = useState(0)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrollY(window.scrollY)
+    }
+    
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
+  const missionSteps = [
+    {
+      title: "Our Mission",
+      content: "To make India a global leader in space exploration, enabling humanity to become a spacefaring species through cost-effective satellite launches and reusable rockets."
+    },
+    {
+      title: "What we aim at",
+      content: [
+        "100km Rocket: Focus on scaling from PoC to commercially viable models.",
+        "Community Growth: Building a robust ecosystem of space enthusiasts and professionals.",
+        "Expand Partnerships: Collaborating with global entities to accelerate innovation."
+      ]
+    }
+  ]
+
+  const visionSteps = [
+    {
+      title: "Our Vision",
+      content: "To create a sustainable multi-planetary existence by exploring our precious cosmos, enabling deep space travel, and advancing technology for the betterment of humanity."
+    },
+    {
+      title: "What we do",
+      content: [
+        "Making Space Exploration Affordable, Accessible, and Sustainable.",
+        "We provide affordable satellite launches, focusing on reusable rockets and self-landing cryogenic engine technology for scalability."
+      ]
+    }
+  ]
+
   return (
     <>
       <ParallaxBackground />
@@ -27,43 +68,69 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className={`section ${styles.missionSection}`}>
-        <div className="container">
-          <div className="grid grid-2">
-            <motion.div
-              className={styles.missionCard}
-              initial={{ opacity: 0, x: -50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-            >
-              <h2>Our Mission</h2>
-              <p>
-                To make India a global leader in space exploration, enabling humanity to become a spacefaring species
-                through cost-effective satellite launches and reusable rockets.
-              </p>
-              <p>
-                We are committed to pushing the boundaries of what's possible in space technology, making access to
-                space more affordable and sustainable for everyone.
-              </p>
-            </motion.div>
-            <motion.div
-              className={styles.visionCard}
-              initial={{ opacity: 0, x: 50 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              viewport={{ once: true }}
-            >
-              <h2>Our Vision</h2>
-              <p>
-                To create a sustainable multi-planetary existence by exploring our precious cosmos, enabling deep space
-                travel, and advancing technology for the betterment of humanity.
-              </p>
-              <p>
-                We envision a future where humans live and work beyond Earth, with thriving communities on the Moon,
-                Mars, and beyond.
-              </p>
-            </motion.div>
+      <section className={`section ${styles.timelineSection}`}>
+        <div className={styles.timelineContainer}>
+          <div className={styles.timelineLine}>
+            <div 
+              className={styles.timelineProgress} 
+              style={{ height: `${Math.min((scrollY - 300) / 500 * 100, 100)}%` }}
+            />
+          </div>
+          
+          {/* Left Side - Mission */}
+          <div className={styles.timelineLeft}>
+            {missionSteps.map((step, index) => (
+              <motion.div
+                key={`mission-${index}`}
+                className={styles.timelineStep}
+                initial={{ opacity: 0, x: -50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7, delay: index * 0.2 }}
+                viewport={{ once: true, margin: "-100px" }}
+              >
+                <div className={styles.timelineStepContent}>
+                  <h2>{step.title}</h2>
+                  {typeof step.content === 'string' ? (
+                    <p>{step.content}</p>
+                  ) : (
+                    <ul>
+                      {step.content.map((item, idx) => (
+                        <li key={idx}>{item}</li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+                <div className={styles.timelinePoint}></div>
+              </motion.div>
+            ))}
+          </div>
+          
+          {/* Right Side - Vision */}
+          <div className={styles.timelineRight}>
+            {visionSteps.map((step, index) => (
+              <motion.div
+                key={`vision-${index}`}
+                className={styles.timelineStep}
+                initial={{ opacity: 0, x: 50 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.7, delay: 0.3 + index * 0.2 }}
+                viewport={{ once: true, margin: "-100px" }}
+              >
+                <div className={styles.timelinePoint}></div>
+                <div className={styles.timelineStepContent}>
+                  <h2>{step.title}</h2>
+                  {typeof step.content === 'string' ? (
+                    <p>{step.content}</p>
+                  ) : (
+                    <ul>
+                      {step.content.map((item, idx) => (
+                        <li key={idx}>{item}</li>
+                      ))}
+                    </ul>
+                  )}
+                </div>
+              </motion.div>
+            ))}
           </div>
         </div>
       </section>
@@ -241,9 +308,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      
       <Footer/>
     </>
-    
   )
 }

@@ -29,57 +29,178 @@
   color: var(--text-secondary);
 }
 
-.missionSection {
+/* Timeline Section Styles - Alternating Ladder Form */
+.timelineSection {
   position: relative;
   z-index: 2;
-  background: linear-gradient(to bottom, rgba(15, 23, 41, 0.8), rgba(5, 7, 20, 0.9));
-  padding: 6rem 0;
+  background: #000000;
+  padding: 8rem 0;
+  min-height: 100vh;
 }
 
-.missionCard,
-.visionCard {
-  background-color: rgba(15, 23, 41, 0.7);
+.timelineContainer {
+  position: relative;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.timelineLine {
+  position: absolute;
+  width: 4px;
+  background-color: #111;
+  height: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1;
+}
+
+.timelineProgress {
+  position: absolute;
+  width: 4px;
+  background: linear-gradient(to bottom, #8338ec, #3a86ff);
+  top: 0;
+  left: 0;
+  transition: height 0.3s ease;
+}
+
+/* Alternating Ladder Layout */
+.timelineStep {
+  position: relative;
+  display: flex;
+  width: 100%;
+  min-height: 150px;
+  margin-bottom: 80px;
+}
+
+.timelineStep:nth-child(odd) {
+  justify-content: flex-start;
+}
+
+.timelineStep:nth-child(even) {
+  justify-content: flex-end;
+}
+
+.timelinePoint {
+  position: absolute;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #8338ec;
+  border: 3px solid #000;
+  box-shadow: 0 0 0 3px rgba(131, 56, 236, 0.3);
+  z-index: 2;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Horizontal connector lines */
+.timelineStep::before {
+  content: "";
+  position: absolute;
+  height: 4px;
+  background-color: #111;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+.timelineStep:nth-child(odd)::before {
+  right: 50%;
+  left: calc(42% - 25px);
+}
+
+.timelineStep:nth-child(even)::before {
+  left: 50%;
+  right: calc(42% - 25px);
+}
+
+.timelineStepContent {
+  background-color: #0A0A0A;
   border-radius: 10px;
   padding: 2rem;
-  height: 100%;
-  border: 1px solid var(--border);
-  backdrop-filter: blur(10px);
+  width: 42%;
+  border: 1px solid #111;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
 
-.missionCard h2,
-.visionCard h2 {
-  font-size: 2rem;
+.timelineStepContent h2 {
+  font-size: 1.8rem;
   margin-bottom: 1rem;
-  color: var(--primary);
+  background: linear-gradient(to right, #8338ec, #3a86ff);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
-.visionCard h2 {
-  color: var(--secondary);
-}
-
-.missionCard p,
-.visionCard p {
+.timelineStepContent p {
   font-size: 1.1rem;
   line-height: 1.6;
-  margin-bottom: 1rem;
+  color: #aaa;
+  margin-bottom: 0.5rem;
 }
 
+.timelineStepContent ul {
+  padding-left: 1.2rem;
+  list-style-type: none;
+}
+
+.timelineStepContent li {
+  font-size: 1rem;
+  line-height: 1.6;
+  color: #aaa;
+  margin-bottom: 0.5rem;
+  position: relative;
+}
+
+.timelineStepContent li::before {
+  content: "→";
+  position: absolute;
+  left: -1.2rem;
+  color: #8338ec;
+}
+
+/* Add arrow tips to the content boxes */
+.timelineStep:nth-child(odd) .timelineStepContent::after {
+  content: "";
+  position: absolute;
+  right: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-width: 10px 0 10px 10px;
+  border-style: solid;
+  border-color: transparent transparent transparent #0A0A0A;
+}
+
+.timelineStep:nth-child(even) .timelineStepContent::after {
+  content: "";
+  position: absolute;
+  left: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-width: 10px 10px 10px 0;
+  border-style: solid;
+  border-color: transparent #0A0A0A transparent transparent;
+}
+
+/* Values Section */
 .valuesSection {
   position: relative;
   z-index: 2;
-  background-color: rgba(5, 7, 20, 0.9);
+  background-color: #000000;
 }
 
 .valueCard {
-  background-color: var(--card);
+  background-color: #0A0A0A;
   border-radius: 10px;
   padding: 2rem;
   text-align: center;
-  border: 1px solid var(--border);
+  border: 1px solid #111;
   height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
 
 .valueIcon {
@@ -97,29 +218,31 @@
 .valueCard h3 {
   font-size: 1.5rem;
   margin-bottom: 1rem;
-  color: var(--text-primary);
+  color: #fff;
 }
 
 .valueCard p {
   font-size: 1rem;
   line-height: 1.6;
-  color: var(--text-secondary);
+  color: #aaa;
 }
 
+/* Team Section */
 .teamSection {
   position: relative;
   z-index: 2;
-  background-color: rgba(15, 23, 41, 0.8);
+  background-color: #000000;
 }
 
 .teamCard {
-  background-color: var(--card);
+  background-color: #0A0A0A;
   border-radius: 10px;
   overflow: hidden;
-  border: 1px solid var(--border);
+  border: 1px solid #111;
   height: 100%;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
 }
 
 .teamImage {
@@ -141,12 +264,12 @@
 .teamCard h3 {
   font-size: 1.5rem;
   margin: 1.5rem 1.5rem 0.5rem;
-  color: var(--text-primary);
+  color: #fff;
 }
 
 .teamRole {
   font-size: 1rem;
-  color: var(--primary);
+  color: #8338ec;
   margin: 0 1.5rem 1rem;
   font-weight: 600;
 }
@@ -154,101 +277,46 @@
 .teamBio {
   font-size: 0.95rem;
   line-height: 1.6;
-  color: var(--text-secondary);
+  color: #aaa;
   margin: 0 1.5rem 1.5rem;
 }
 
-.historySection {
-  position: relative;
-  z-index: 2;
-  background-color: rgba(5, 7, 20, 0.9);
-}
-
-.timeline {
-  position: relative;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 2rem 0;
-}
-
-.timeline::before {
-  content: "";
-  position: absolute;
-  width: 2px;
-  background-color: var(--border);
-  top: 0;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-}
-
-.timelineItem {
-  padding: 1rem 0;
-  position: relative;
-  width: 100%;
-  display: flex;
-  justify-content: center;
-}
-
-.timelineDate {
-  min-width: 120px;
-  padding: 0.5rem 1rem;
-  background-color: var(--primary);
-  color: var(--text-primary);
-  border-radius: 20px;
-  font-weight: 600;
-  text-align: center;
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-  top: -10px;
-  z-index: 1;
-}
-
-.timelineContent {
-  width: 45%;
-  padding: 2rem;
-  background-color: var(--card);
-  border-radius: 10px;
-  border: 1px solid var(--border);
-  margin-top: 1.5rem;
-}
-
-.timelineItem:nth-child(odd) .timelineContent {
-  margin-right: 55%;
-}
-
-.timelineItem:nth-child(even) .timelineContent {
-  margin-left: 55%;
-}
-
-.timelineContent h3 {
-  font-size: 1.3rem;
-  margin-bottom: 0.5rem;
-  color: var(--text-primary);
-}
-
-.timelineContent p {
-  font-size: 1rem;
-  line-height: 1.6;
-  color: var(--text-secondary);
+/* Responsive styles */
+@media (max-width: 992px) {
+  .timelineStepContent {
+    width: 80%;
+  }
 }
 
 @media (max-width: 768px) {
-  .timeline::before {
-    left: 30px;
-  }
-
-  .timelineDate {
-    left: 30px;
+  .timelineLine {
+    left: 20px;
     transform: none;
-    min-width: 100px;
   }
 
-  .timelineContent {
+  .timelineStep {
+    justify-content: flex-start !important;
+    margin-left: 30px;
+  }
+
+  .timelinePoint {
+    left: 20px !important;
+    transform: translateY(-50%);
+  }
+
+  .timelineStep::before {
+    left: 20px !important;
+    right: auto !important;
+    width: 40px;
+  }
+
+  .timelineStepContent {
+    margin-left: 60px !important;
     width: calc(100% - 80px);
-    margin-left: 80px !important;
-    margin-right: 0 !important;
+  }
+
+  .timelineStep .timelineStepContent::after {
+    display: none;
   }
 
   .heroContent h1 {
@@ -261,12 +329,11 @@
     font-size: 2.5rem;
   }
 
-  .missionCard h2,
-  .visionCard h2 {
-    font-size: 1.8rem;
+  .timelineStepContent h2 {
+    font-size: 1.5rem;
   }
 
-  .timelineContent {
+  .timelineStepContent {
     padding: 1.5rem;
   }
 }
