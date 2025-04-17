@@ -1,5 +1,4 @@
 .aboutHero {
-  margin-top:150px;
   height: 50vh;
   display: flex;
   align-items: center;
@@ -19,7 +18,7 @@
   font-size: 3.5rem;
   font-weight: 800;
   margin-bottom: 1rem;
-  background: linear-gradient(to right, #ffffff, #ffffff);
+  background: linear-gradient(to right, #ffffff, #8338ec);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
