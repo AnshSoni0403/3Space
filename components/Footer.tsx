@@ -2,10 +2,51 @@ import Image from "next/image";
 import Link from "next/link";
 import { Mail, Phone, MapPin, Linkedin, Instagram, Youtube } from "lucide-react";
 import { RiTwitterXFill } from "react-icons/ri";
+import { useState } from "react";
 
 import styles from "@/styles/components/Footer.module.css";
 
 export default function Footer() {
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    message: ""
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        alert('Message sent successfully!');
+        setFormData({
+          firstName: "",
+          lastName: "",
+          email: "",
+          message: ""
+        });
+      } else {
+        alert('Failed to send message. Please try again.');
+      }
+    } catch (error) {
+      console.error('Error sending message:', error);
+      alert('An error occurred. Please try again later.');
+    }
+  };
+
   return (
     <footer className={styles.footer}>
       <div className={styles.container}>
@@ -84,16 +125,33 @@ export default function Footer() {
 
           <div className={styles.footerForm}>
             <h3>Send us a Message</h3>
-            <form className={styles.contactForm}>
-              <div className={styles.formGroup}>
-                <input type="text" placeholder="First Name" name="firstName" required />
-                <input type="text" placeholder="Last Name" name="lastName" required />
+            <form className={styles.contactForm} onSubmit={handleSubmit}>
+              <div className={styles.formRow}>
+                <input 
+                  type="text" 
+                  placeholder="Name" 
+                  name="firstName" 
+                  value={formData.firstName}
+                  onChange={handleChange}
+                  required 
+                />
+                <input 
+                  type="email" 
+                  placeholder="Email" 
+                  name="email" 
+                  value={formData.email}
+                  onChange={handleChange}
+                  required 
+                />
               </div>
-              <input type="email" placeholder="Email" name="email" required />
-              <input type="text" placeholder="Address" name="address" />
-              <input type="tel" placeholder="Phone" name="phone" />
-              <textarea placeholder="Additional Information" name="message" rows={4}></textarea>
-              <button type="submit">Submit</button>
+              <textarea 
+                placeholder="Your message" 
+                name="message" 
+                value={formData.message}
+                onChange={handleChange}
+                rows={2}
+              ></textarea>
+              <button type="submit">Send</button>
             </form>
           </div>
         </div>

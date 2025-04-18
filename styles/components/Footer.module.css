@@ -337,3 +337,75 @@
     align-items: center;
   }
 }
+
+/* Only adding the modified form styles, keeping the rest the same */
+
+.footerForm {
+  width: 100%;
+}
+
+.footerForm h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+  position: relative;
+}
+
+.footerForm h3::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 2rem;
+  height: 2px;
+  background-color: var(--primary);
+}
+
+.contactForm {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 0.75rem;
+}
+
+.formRow {
+  display: flex;
+  gap: 0.75rem;
+  width: 100%;
+}
+
+.contactForm input,
+.contactForm textarea {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  background-color: var(--background);
+  color: var(--text-primary);
+}
+
+.contactForm textarea {
+  min-height: 60px;
+  resize: vertical;
+}
+
+.contactForm button {
+  padding: 0.6rem 1.25rem;
+  background-color: var(--primary);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  align-self: flex-start;
+}
+
+.contactForm button:hover {
+  background-color: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
