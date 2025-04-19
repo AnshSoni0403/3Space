@@ -208,25 +208,20 @@
 
 /* --- Media Query for Responsiveness --- */
 @media (max-width: 1024px) {
-  .desktopNavWrapper {
-    display: none;
-    /* Hide desktop nav */
+  .container {
+    justify-content: center;
   }
 
   .mobileNavWrapper {
-    display: flex;
-    /* Show mobile nav toggle */
-    /* No need for flex-direction/align-items here unless you add more siblings */
+    position: absolute;
+    right: 20px;
   }
 
-  /* Optional: Adjust padding for mobile links if needed */
-  .mobileNavDropdown .navLink {
-    padding: 12px 16px;
-    /* More vertical padding for touch */
-    text-align: left;
-    /* Ensure text aligns left */
+  .logo {
+    margin: 0 auto;
   }
 }
+
 
 /* Optional: Add focus-visible styling for keyboard navigation */
 .desktopNavToggle:focus-visible,
