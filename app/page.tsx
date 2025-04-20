@@ -38,7 +38,7 @@ export default function Home() {
                 <a href="#countdown" className="btn btn-primary">
                   Next Launch
                 </a>
-                <a href="/rockets" className="btn btn-secondary">
+                <a href="/launches" className="btn btn-secondary">
                   Explore Rockets
                 </a>
               </div>
@@ -55,41 +55,7 @@ export default function Home() {
             <LaunchCountdown />
           </div>
         </section>
-
-        {/* <EarthToOrbit /> */}
-
-        <section className={`section ${styles.missionSection}`}>
-          <div className="container">
-            <div className="grid grid-2">
-              <motion.div
-                className={styles.missionCard}
-                initial={{ opacity: 0, x: -50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
-              >
-                <h2>Our Mission</h2>
-                <p>
-                  To make India a global leader in space exploration, enabling humanity to become a spacefaring
-                  species through cost-effective satellite launches and reusable rockets.
-                </p>
-              </motion.div>
-              <motion.div
-                className={styles.visionCard}
-                initial={{ opacity: 0, x: 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.6 }}
-                viewport={{ once: true }}
-              >
-                <h2>Our Vision</h2>
-                <p>
-                  To create a sustainable multi-planetary existence by exploring our precious cosmos, enabling deep
-                  space travel, and advancing technology for the betterment of humanity.
-                </p>
-              </motion.div>
-            </div>
-          </div>
-        </section>
+ 
 
         <section className={`section ${styles.featuresSection}`}>
           <div className="container">
