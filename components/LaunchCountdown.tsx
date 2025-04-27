@@ -75,8 +75,7 @@ export default function LaunchCountdown() {
             </div>
 
             <div className={styles.launchInfo}>
-              <h3>Next Mission: Orbital Deployment</h3>
-              <p>Launching from Satish Dhawan Space Centre, Sriharikota</p>
+              <h3>Countdown to the Future: Our Next Orbital Deployment Awaits</h3>
             </div>
           </motion.div>
         ) : (
