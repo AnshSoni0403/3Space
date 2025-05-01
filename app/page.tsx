@@ -132,11 +132,9 @@ export default function Home() {
                 <div className={styles.featureIcon}>
                   <Satellite size={32} style={iconStyle} />
                 </div>
-                <h3>Satellite Deployment</h3>
+                <h3>Sustainable Space</h3>
                 <p>
-                  Precision orbital placement for satellites of all sizes, from CubeSats to large communication
-                  arrays.
-                </p>
+                At 3 Space, we reduce launch emissions, enhance reusability, and prevent debris—because sustainability in space is our mission.</p>
               </motion.div>
               <motion.div
                 className={styles.featureCard}

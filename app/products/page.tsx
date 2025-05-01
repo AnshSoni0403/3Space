@@ -14,7 +14,7 @@ export default function Rockets() {
       <section className={styles.hero}>
         <ParallaxBackground />
         <div className={styles.heroInner}>
-          <h1 className={styles.title}> Launching Soon</h1>
+          <h1 className={styles.title}>Coming Soon</h1>
           <p className={styles.subtitle}>
             Explore our fleet of advanced model rockets and launch kits
           </p>

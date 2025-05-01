@@ -367,12 +367,15 @@
   flex-direction: column;
   gap: 0.75rem;
   margin-top: 0.75rem;
+  color: aquamarine;
 }
 
 .formRow {
   display: flex;
   gap: 0.75rem;
   width: 100%;
+  color: aquamarine;
+  
 }
 
 .contactForm input,
@@ -393,7 +396,7 @@
 
 .contactForm button {
   padding: 0.6rem 1.25rem;
-  background-color: var(--primary);
+  background-color: black;
   color: white;
   border: none;
   border-radius: 6px;
