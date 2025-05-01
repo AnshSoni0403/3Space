@@ -77,8 +77,8 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <h1>Pioneering the Future of Space Exploration</h1>
-              <p>Launching dreams into reality with cutting-edge technology and innovation</p>
+              <h1>Welcome to 3SPACE, </h1>
+              <p>where we're redefining access to space with reusable rockets and advanced Space technologies.</p>
               <div className={styles.heroBtns}>
                 <a href="#countdown" className="btn btn-primary">
                   Next Launch

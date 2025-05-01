@@ -245,7 +245,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className={`section ${styles.teamSection}`}>
+      {/* <section className={`section ${styles.teamSection}`}>
         <div className="container">
           <h2 className="section-title">Our Leadership Team</h2>
           <p className="section-subtitle">Meet the visionaries behind 3 SPACE</p>
@@ -306,7 +306,7 @@ export default function AboutPage() {
             </motion.div>
           </div>
         </div>
-      </section>
+      </section> */}
 
       <Footer/>
     </>
