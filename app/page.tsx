@@ -1,4 +1,5 @@
 "use client"
+import { useState } from "react" // Added for accordion functionality
 import Navbar from "@/components/Navbar"
 import Footer from "@/components/Footer"
 import LaunchCountdown from "@/components/LaunchCountdown"
@@ -6,8 +7,8 @@ import ParallaxBackground from "@/components/ParallaxBackground"
 // import EarthToOrbit from "@/components/EarthToOrbit"
 import styles from "@/styles/Home.module.css"
 import { motion } from "framer-motion"
-import { FaFlask } from 'react-icons/fa'; // Imported the Flask icon from react-icons
-import { Rocket, Satellite } from "lucide-react" // Removed Flask from lucide-react, as it's already in react-icons
+import { FaFlask, FaChevronDown } from 'react-icons/fa'; // Added FaChevronDown for accordion
+import { Rocket, Satellite, FileQuestion } from "lucide-react" // Added FileQuestion icon for PYQs section
 
 // import { ArrowRight } from "react-feather"
 
@@ -16,6 +17,50 @@ export default function Home() {
   const iconStyle = {
     color: "white",
     strokeWidth: 1.5,
+  };
+
+  // Sample PYQ data with questions and brief answers
+  const pyqs = [
+    {
+      id: 1,
+      year: "2024",
+      title: "Space Propulsion Systems",
+      question: "Explain the principles of ion propulsion and its applications in deep space missions.",
+      answer: "Ion propulsion accelerates ions using electrical fields to create thrust. It's ideal for deep space missions due to high specific impulse and fuel efficiency, used in missions like NASA's Dawn and JAXA's Hayabusa.",
+      difficulty: "Advanced"
+    },
+    {
+      id: 2,
+      year: "2023",
+      title: "Orbital Mechanics",
+      question: "Calculate the delta-v required for a Hohmann transfer from LEO to GEO.",
+      answer: "For a Hohmann transfer from LEO (400km) to GEO (35,786km), the total delta-v is approximately 3.8 km/s: 2.5 km/s for transfer orbit insertion and 1.3 km/s for circularization at GEO.",
+      difficulty: "Intermediate"
+    },
+    {
+      id: 3,
+      year: "2023",
+      title: "Spacecraft Materials",
+      question: "Discuss the challenges of material selection for re-entry vehicles.",
+      answer: "Re-entry vehicles face extreme temperatures (1500°C+), thermal shock, and ablation. Materials must balance thermal protection, structural integrity, and weight constraints. Common solutions include carbon-carbon composites and ceramic tiles.",
+      difficulty: "Advanced"
+    },
+    {
+      id: 4,
+      year: "2022",
+      title: "Satellite Communication",
+      question: "Explain the advantages of Ka-band over Ku-band for satellite communications.",
+      answer: "Ka-band (26.5-40 GHz) offers higher bandwidth, smaller antennas, and greater frequency reuse than Ku-band (12-18 GHz), enabling higher data rates. However, it's more susceptible to rain fade and requires more sophisticated signal processing.",
+      difficulty: "Intermediate"
+    }
+  ];
+
+  // State to track which FAQ item is open
+  const [activePyq, setActivePyq] = useState(null);
+
+  // Toggle FAQ item
+  const togglePyq = (id) => {
+    setActivePyq(activePyq === id ? null : id);
   };
 
   return (
@@ -129,6 +174,66 @@ export default function Home() {
                   Learn More
                 </a>
               </div>
+            </motion.div>
+          </div>
+        </section>
+
+        {/* Updated PYQs Section with FAQ Style */}
+        <section className={`section ${styles.pyqsSection}`}>
+          <div className="container">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              viewport={{ once: true }}
+              className={styles.pyqsHeader}
+            >
+              
+              <h2 className={styles.pyqsTitle}>Frequently Asked Questions</h2>
+              <p className="section-subtitle">
+                Find answers to common queries below. Still have questions? Reach out to us!
+              </p>
+            </motion.div>
+            
+            <div className={styles.pyqsList}>
+              {pyqs.map((pyq) => (
+                <motion.div
+                  key={pyq.id}
+                  className={`${styles.pyqItem} ${activePyq === pyq.id ? styles.pyqOpen : ''}`}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.5 }}
+                  viewport={{ once: true }}
+                >
+                  <div 
+                    className={styles.pyqQuestion}
+                    onClick={() => togglePyq(pyq.id)}
+                  >
+                    <h3>
+                      <span className={styles.pyqYear}>{pyq.year}</span> {pyq.title}
+                    </h3>
+                    <FaChevronDown 
+                      className={`${styles.pyqChevron} ${activePyq === pyq.id ? styles.rotateChevron : ''}`} 
+                    />
+                  </div>
+                  <div className={styles.pyqAnswer}>
+                    <p className={styles.pyqQuestion}>{pyq.question}</p>
+                    <p className={styles.pyqAnswerText}><strong>Answer:</strong> {pyq.answer}</p>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
+            
+            <motion.div
+              className={styles.pyqsViewMore}
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              transition={{ duration: 0.5, delay: 0.4 }}
+              viewport={{ once: true }}
+            >
+              <a href="/pyqs" className="btn btn-secondary">
+                View All Questions
+              </a>
             </motion.div>
           </div>
         </section>

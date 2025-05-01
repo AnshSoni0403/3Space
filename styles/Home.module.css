@@ -271,6 +271,158 @@
   margin: 0 auto 1.5rem;
 }
 
+/* Simple PYQs Section (FAQ Style) */
+.pyqsSection {
+  position: relative;
+  z-index: 2;
+  background-color: var(--background-secondary);
+  padding: 5rem 0;
+  border-top: 1px solid var(--border);
+}
+
+.pyqsTitle {
+  font-size: 2.2rem;
+  text-align: center;
+  margin-bottom: 3rem;
+  color: var(--text-primary);
+  font-weight: 700;
+}
+
+.pyqsList {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.pyqItem {
+  border-bottom: 1px solid var(--border);
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.pyqItem:first-child {
+  border-top: 1px solid var(--border);
+}
+
+.pyqQuestion {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1.5rem 0;
+  position: relative;
+}
+
+.pyqQuestion h3 {
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  padding-right: 2rem;
+  margin: 0;
+}
+
+.pyqChevron {
+  transition: transform 0.3s ease;
+}
+
+.rotateChevron {
+  transform: rotate(180deg);
+}
+
+.pyqAnswer {
+  max-height: 0;
+  overflow: hidden;
+  padding: 0 1rem 0 0;
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.pyqAnswer .pyqQuestion {
+  margin: 0;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.6;
+  font-style: italic;
+  margin-bottom: 0.75rem;
+  margin-left: 4rem;
+}
+
+.pyqAnswer .pyqAnswerText {
+  margin: 0;
+  padding-bottom: 1.5rem;
+  color: var(--text-secondary);
+  font-size: 1rem;
+  line-height: 1.6;
+  border-left: 3px solid var(--accent-color);
+  padding-left: 1rem;
+  margin-left: 3rem;
+}
+
+.pyqOpen .pyqAnswer {
+  max-height: 1000px;
+  /* Large enough value to accommodate any answer */
+  opacity: 1;
+}
+
+.pyqYear {
+  background-color: var(--accent-color);
+  color: var(--background);
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  margin-right: 0.8rem;
+  display: inline-block;
+}
+
+/* Removed .pyqLink styles as they're no longer needed */
+
+.pyqsViewMore {
+  text-align: center;
+  margin-top: 3rem;
+}
+
+.sectionIconWrapper {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+
+.pyqsHeader {
+  text-align: center;
+  margin-bottom: 3rem;
+}
+/* Responsive styles */
+@media (max-width: 768px) {
+  .pyqsTitle {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+
+  .pyqQuestion h3 {
+    font-size: 1.1rem;
+  }
+
+  .pyqAnswer p {
+    font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .pyqsSection {
+    padding: 4rem 0;
+  }
+
+  .pyqsTitle {
+    font-size: 1.5rem;
+  }
+
+  .pyqQuestion {
+    padding: 1.25rem 0;
+  }
+
+  .pyqQuestion h3 {
+    font-size: 1rem;
+  }
+}
+
 /* Responsive Styles */
 @media (max-width: 1200px) {
   .floatingElement:nth-child(1) {
