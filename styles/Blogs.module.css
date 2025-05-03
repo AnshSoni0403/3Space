@@ -57,7 +57,7 @@
 }
 
 .categoryBtn.active {
-  background-color: var(--primary);
+  background-color:   ;
   color: var(--text-primary);
   border-color: var(--primary);
 }
@@ -113,7 +113,8 @@
   top: 1rem;
   left: 1rem;
   padding: 0.3rem 0.8rem;
-  background-color: var(--primary);
+  background-color: black;
+  border-color: rgb(148, 148, 148);
   color: var(--text-primary);
   border-radius: 20px;
   font-size: 0.8rem;

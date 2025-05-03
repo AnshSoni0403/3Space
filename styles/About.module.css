@@ -29,7 +29,6 @@
   color: var(--text-secondary);
 }
 
-/* Timeline Section Styles - Alternating Ladder Form */
 .timelineSection {
   position: relative;
   z-index: 2;
@@ -57,7 +56,7 @@
 .timelineProgress {
   position: absolute;
   width: 4px;
-  background: linear-gradient(to bottom, #8338ec, #3a86ff);
+  background: linear-gradient(to bottom, #ffffff, #383838);
   top: 0;
   left: 0;
   transition: height 0.3s ease;
@@ -85,9 +84,9 @@
   width: 16px;
   height: 16px;
   border-radius: 50%;
-  background: #8338ec;
+  background: #bdbcbd;
   border: 3px solid #000;
-  box-shadow: 0 0 0 3px rgba(131, 56, 236, 0.3);
+  box-shadow: 0 0 0 3px rgba(149, 147, 152, 0.3);
   z-index: 2;
   left: 50%;
   top: 50%;
@@ -127,7 +126,7 @@
 .timelineStepContent h2 {
   font-size: 1.8rem;
   margin-bottom: 1rem;
-  background: linear-gradient(to right, #8338ec, #3a86ff);
+  background: linear-gradient(to right, #dddddd, #ffffff);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -157,7 +156,7 @@
   content: "→";
   position: absolute;
   left: -1.2rem;
-  color: #8338ec;
+  color: #9a9a9a;
 }
 
 /* Add arrow tips to the content boxes */
@@ -204,8 +203,8 @@
 }
 
 .valueIcon {
-  background-color: rgba(131, 56, 236, 0.1);
-  color: var(--accent);
+  background-color: rgba(255, 255, 255, 0.1);
+  color: rgb(255, 255, 255);
   width: 60px;
   height: 60px;
   border-radius: 50%;
@@ -242,7 +241,7 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+  box-shadow: 0 5px 15px rgba(255, 255, 255, 0.5);
 }
 
 .teamImage {
@@ -269,7 +268,7 @@
 
 .teamRole {
   font-size: 1rem;
-  color: #8338ec;
+  color: #ffffff;
   margin: 0 1.5rem 1rem;
   font-weight: 600;
 }
