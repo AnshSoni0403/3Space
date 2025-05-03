@@ -1,25 +1,20 @@
 "use client"
-import { useState } from "react" // Added for accordion functionality
+import { useState } from "react"
 import Navbar from "@/components/Navbar"
 import Footer from "@/components/Footer"
 import LaunchCountdown from "@/components/LaunchCountdown"
-import ParallaxBackground from "@/components/ParallaxBackground"
-// import EarthToOrbit from "@/components/EarthToOrbit"
 import styles from "@/styles/Home.module.css"
 import { motion } from "framer-motion"
-import { FaFlask, FaChevronDown } from 'react-icons/fa'; // Added FaChevronDown for accordion
-import { Rocket, Satellite, FileQuestion } from "lucide-react" // Added FileQuestion icon for PYQs section
-
-// import { ArrowRight } from "react-feather"
+import { FaFlask, FaChevronDown } from 'react-icons/fa'
+import { Rocket, Satellite, FileQuestion } from "lucide-react"
+import Image from 'next/image'
 
 export default function Home() {
-  // Define icon style for the feature icons
   const iconStyle = {
     color: "white",
     strokeWidth: 1.5,
   };
 
-  // Sample PYQ data with questions and brief answers
   const pyqs = [
     {
       id: 1,
@@ -55,10 +50,8 @@ export default function Home() {
     }
   ];
 
-  // State to track which FAQ item is open
   const [activePyq, setActivePyq] = useState(null);
 
-  // Toggle FAQ item
   const togglePyq = (id) => {
     setActivePyq(activePyq === id ? null : id);
   };
@@ -67,7 +60,33 @@ export default function Home() {
     <>
       <Navbar />
       <main>
-        <ParallaxBackground />
+        {/* Starfield background with stars */}
+        <div className={styles.starfield}>
+          <div className={styles.stars}></div>
+          <div className={styles.stars}></div>
+          <div className={styles.stars}></div>
+        </div>
+
+        {/* Rotating planet and orbital satellite */}
+        <div className={styles.backgroundImageContainer}>
+          <Image
+            src="/image/mars.png" 
+            
+            alt="Mars planet"
+            fill
+            priority
+            quality={85}
+            className={styles.planet}
+          />
+          <Image
+            src="/image/satellite.png" 
+            alt="Satellite"
+            width={200}
+            height={200}
+            className={styles.satellite}
+          />
+          <div className={styles.backgroundOverlay}></div>
+        </div>
 
         <section className={styles.hero}>
           <div className="container">
@@ -77,7 +96,7 @@ export default function Home() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
             >
-              <h1>Welcome to 3SPACE, </h1>
+              <h1>Welcome to 3SPACE</h1>
               <p>where we're redefining access to space with reusable rockets and advanced Space technologies.</p>
               <div className={styles.heroBtns}>
                 <a href="#countdown" className="btn btn-primary">
@@ -100,7 +119,6 @@ export default function Home() {
             <LaunchCountdown />
           </div>
         </section>
- 
 
         <section className={`section ${styles.featuresSection}`}>
           <div className="container">
@@ -144,7 +162,7 @@ export default function Home() {
                 viewport={{ once: true }}
               >
                 <div className={styles.featureIcon}>
-                  <FaFlask size={32} style={iconStyle} /> {/* Changed to FaFlask from react-icons */}
+                  <FaFlask size={32} style={iconStyle} />
                 </div>
                 <h3>Research & Development</h3>
                 <p>Cutting-edge R&D in propulsion systems, materials science, and space habitation technologies.</p>
@@ -176,7 +194,6 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Updated PYQs Section with FAQ Style */}
         <section className={`section ${styles.pyqsSection}`}>
           <div className="container">
             <motion.div
@@ -186,7 +203,6 @@ export default function Home() {
               viewport={{ once: true }}
               className={styles.pyqsHeader}
             >
-              
               <h2 className={styles.pyqsTitle}>Frequently Asked Questions</h2>
               <p className="section-subtitle">
                 Find answers to common queries below. Still have questions? Reach out to us!
