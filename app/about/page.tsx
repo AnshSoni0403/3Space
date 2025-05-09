@@ -245,68 +245,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* <section className={`section ${styles.teamSection}`}>
-        <div className="container">
-          <h2 className="section-title">Our Leadership Team</h2>
-          <p className="section-subtitle">Meet the visionaries behind 3 SPACE</p>
-
-          <div className="grid grid-3">
-            <motion.div
-              className={styles.teamCard}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              viewport={{ once: true }}
-            >
-              <div className={styles.teamImage}>
-                <img src="/images/ceo.jpg" alt="CEO" />
-              </div>
-              <h3>Vikram Sharma</h3>
-              <p className={styles.teamRole}>CEO & Founder</p>
-              <p className={styles.teamBio}>
-                Aerospace engineer with 15+ years of experience in rocket propulsion systems and a vision to make India
-                a leader in space technology.
-              </p>
-            </motion.div>
-
-            <motion.div
-              className={styles.teamCard}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              <div className={styles.teamImage}>
-                <img src="/images/cto.jpg" alt="CTO" />
-              </div>
-              <h3>Priya Patel</h3>
-              <p className={styles.teamRole}>CTO</p>
-              <p className={styles.teamBio}>
-                Former ISRO scientist specializing in guidance systems and autonomous landing technologies for reusable
-                rockets.
-              </p>
-            </motion.div>
-
-            <motion.div
-              className={styles.teamCard}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              viewport={{ once: true }}
-            >
-              <div className={styles.teamImage}>
-                <img src="/images/coo.jpg" alt="COO" />
-              </div>
-              <h3>Rajiv Mehta</h3>
-              <p className={styles.teamRole}>COO</p>
-              <p className={styles.teamBio}>
-                Operations expert with experience scaling manufacturing processes for aerospace components and managing
-                complex supply chains.
-              </p>
-            </motion.div>
-          </div>
-        </div>
-      </section> */}
+      
 
       <Footer/>
     </>

@@ -15,14 +15,15 @@ export default function BlogsPage() {
   const blogs = [
     {
       id: 1,
-      title: "Advancements in Reusable Rocket Technology",
+      slug: "blog1",
+      title: "COSMIC FRONTIERS",
       excerpt:
-        "Exploring the latest innovations in reusable rocket technology that are revolutionizing the space industry and reducing launch costs.",
-      date: "April 15, 2024",
-      author: "Dr. Vikram Sharma",
+        "Exploring the final frontier of humanity's journey beyond Earth, from quantum space travel to Mars colonization.",
+      date: "May 9, 2025",
+      author: "Unknown",
       readTime: "8 min read",
       category: "technology",
-      image: "/images/blog-rocket-tech.jpg",
+      image: "/images/blogs/download.jpg",
     },
     {
       id: 2,
@@ -35,58 +36,18 @@ export default function BlogsPage() {
       category: "industry",
       image: "/images/blog-satellite.jpg",
     },
-    {
-      id: 3,
-      title: "India's Growing Role in Space Exploration",
-      excerpt:
-        "An analysis of India's expanding presence in the global space industry and its contributions to scientific advancement.",
-      date: "March 20, 2024",
-      author: "Rajiv Mehta",
-      readTime: "10 min read",
-      category: "industry",
-      image: "/images/blog-india-space.jpg",
-    },
-    {
-      id: 4,
-      title: "Propulsion Systems: Past, Present, and Future",
-      excerpt:
-        "A technical deep dive into the evolution of rocket propulsion systems and what innovations lie on the horizon.",
-      date: "March 5, 2024",
-      author: "Dr. Ananya Singh",
-      readTime: "12 min read",
-      category: "technology",
-      image: "/images/blog-propulsion.jpg",
-    },
-    {
-      id: 5,
-      title: "The Economics of Space: Investment Trends",
-      excerpt:
-        "Examining the current investment landscape in the space industry and identifying emerging opportunities for growth.",
-      date: "February 18, 2024",
-      author: "Arjun Kapoor",
-      readTime: "7 min read",
-      category: "business",
-      image: "/images/blog-economics.jpg",
-    },
-    {
-      id: 6,
-      title: "Environmental Considerations in Rocket Launches",
-      excerpt:
-        "Analyzing the environmental impact of rocket launches and the industry's efforts to develop more sustainable practices.",
-      date: "February 3, 2024",
-      author: "Dr. Neha Gupta",
-      readTime: "9 min read",
-      category: "sustainability",
-      image: "/images/blog-environment.jpg",
-    },
+    // ...other blogs
   ]
 
-  const filteredBlogs = selectedCategory === "all" ? blogs : blogs.filter((blog) => blog.category === selectedCategory)
+  const filteredBlogs =
+    selectedCategory === "all"
+      ? blogs
+      : blogs.filter((blog) => blog.category === selectedCategory)
 
   return (
     <>
       <ParallaxBackground />
-      <Navbar/>
+      <Navbar />
 
       <section className={styles.blogsHero}>
         <div className="container">
@@ -97,7 +58,9 @@ export default function BlogsPage() {
             className={styles.heroContent}
           >
             <h1>Space Insights</h1>
-            <p>Expert analysis and thought leadership from the frontier of space exploration</p>
+            <p>
+              Expert analysis and thought leadership from the frontier of space exploration
+            </p>
           </motion.div>
         </div>
       </section>
@@ -105,36 +68,15 @@ export default function BlogsPage() {
       <section className={`section ${styles.blogsSection}`}>
         <div className="container">
           <div className={styles.categoryFilter}>
-            <button
-              className={`${styles.categoryBtn} ${selectedCategory === "all" ? styles.active : ""}`}
-              onClick={() => setSelectedCategory("all")}
-            >
-              All
-            </button>
-            <button
-              className={`${styles.categoryBtn} ${selectedCategory === "technology" ? styles.active : ""}`}
-              onClick={() => setSelectedCategory("technology")}
-            >
-              Technology
-            </button>
-            <button
-              className={`${styles.categoryBtn} ${selectedCategory === "industry" ? styles.active : ""}`}
-              onClick={() => setSelectedCategory("industry")}
-            >
-              Industry
-            </button>
-            <button
-              className={`${styles.categoryBtn} ${selectedCategory === "business" ? styles.active : ""}`}
-              onClick={() => setSelectedCategory("business")}
-            >
-              Business
-            </button>
-            <button
-              className={`${styles.categoryBtn} ${selectedCategory === "sustainability" ? styles.active : ""}`}
-              onClick={() => setSelectedCategory("sustainability")}
-            >
-              Sustainability
-            </button>
+            {["all", "technology", "industry", "business", "sustainability"].map((category) => (
+              <button
+                key={category}
+                className={`${styles.categoryBtn} ${selectedCategory === category ? styles.active : ""}`}
+                onClick={() => setSelectedCategory(category)}
+              >
+                {category.charAt(0).toUpperCase() + category.slice(1)}
+              </button>
+            ))}
           </div>
 
           <div className={styles.blogGrid}>
@@ -148,7 +90,7 @@ export default function BlogsPage() {
                 viewport={{ once: true }}
               >
                 <div className={styles.blogImage}>
-                  <img src={blog.image || "/placeholder.svg"} alt={blog.title} />
+                  <img src={blog.image} alt={blog.title} />
                   <div className={styles.blogCategory}>{blog.category}</div>
                 </div>
                 <div className={styles.blogContent}>
@@ -168,18 +110,21 @@ export default function BlogsPage() {
                       <span>{blog.readTime}</span>
                     </div>
                   </div>
-                  <Link href={`/blogs/${blog.id}`} className={styles.readMoreLink}>
+
+                  <Link
+                    href={`/blogs/${blog.slug}`}
+                    className={styles.readMoreLink}
+                  >
                     Read More <ArrowRight size={16} />
                   </Link>
                 </div>
               </motion.div>
             ))}
           </div>
-
-          
         </div>
       </section>
-      <Footer/>
+
+      <Footer />
     </>
   )
 }
