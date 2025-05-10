@@ -88,6 +88,21 @@
   border: 1px solid #ffffff;
 }
 
+.notFound {
+  text-align: center;
+  padding: 100px 20px;
+  color: white;
+}
+
+.notFound h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+
+.notFound p {
+  color: #aaa;
+}
+
 @media (max-width: 768px) {
   .blogContainer {
     padding: 15px;
@@ -101,7 +116,7 @@
   .contentSection,
   .timelineSection,
   .conclusionSection {
-    padding: 20px 14.9px;
+    padding: 20px 15px;
   }
   
   .milestone {
@@ -112,4 +127,4 @@
   .year {
     margin-bottom: 5px;
   }
-}
+} 
