@@ -16,9 +16,9 @@ export default function BlogsPage() {
     {
       id: 1,
       slug: "blog1",
-      title: "COSMIC FRONTIERS",
+      title: "From Fire Arrows to the Moon: India's Rocket Journey Through Time",
       excerpt:
-        "Exploring the final frontier of humanity's journey beyond Earth, from quantum space travel to Mars colonization.",
+        "How India carved out its space in the stars - from ancient dreams to modern missions",
       date: "May 9, 2025",
       author: "Unknown",
       readTime: "8 min read",
