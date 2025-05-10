@@ -25,17 +25,17 @@ export default function BlogsPage() {
       category: "technology",
       image: "/images/blogs/download.jpg",
     },
-    {
-      id: 2,
-      title: "The Future of Satellite Constellations",
-      excerpt:
-        "How mega-constellations of satellites are transforming global communications and creating new opportunities for connectivity.",
-      date: "April 2, 2024",
-      author: "Priya Patel",
-      readTime: "6 min read",
-      category: "industry",
-      image: "/images/blog-satellite.jpg",
-    },
+    // {
+    //   id: 2,
+    //   title: "The Future of Satellite Constellations",
+    //   excerpt:
+    //     "How mega-constellations of satellites are transforming global communications and creating new opportunities for connectivity.",
+    //   date: "April 2, 2024",
+    //   author: "Priya Patel",
+    //   readTime: "6 min read",
+    //   category: "industry",
+    //   image: "/images/blog-satellite.jpg",
+    // },
     // ...other blogs
   ]
 
