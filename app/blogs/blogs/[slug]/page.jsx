@@ -1,15 +1,14 @@
-import { notFound } from "next/navigation"
-import dynamic from "next/dynamic"
+import Blog1Page from "../blog1/page";
+
+const blogComponents = {
+  blog1: Blog1Page,
+};
 
 export default function BlogPage({ params }) {
-  const { slug } = params
+  const { slug } = params;
+  const BlogComponent = blogComponents[slug];
 
-  // Dynamically import based on slug
-  const BlogComponent = dynamic(() => import(`../${slug}/page`).catch(() => notFound()))
+  if (!BlogComponent) return notFound();
 
-  try {
-    return <BlogComponent />
-  } catch (e) {
-    return notFound()
-  }
+  return <BlogComponent />;
 }

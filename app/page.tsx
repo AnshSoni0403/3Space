@@ -97,7 +97,7 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               <h1>Welcome to 3SPACE</h1>
-              <p>where we're redefining access to space with reusable rockets and advanced Space technologies.</p>
+              <p>Redefining access to space with Reusable Rockets and Advanced Space Technologies.</p>
               <div className={styles.heroBtns}>
                 <a href="#countdown" className="btn btn-primary">
                   Next Launch
