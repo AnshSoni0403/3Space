@@ -5,7 +5,7 @@
   align-items: center;
   position: relative;
   overflow: hidden;
-  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("/images/Blogs/blog-hero.jpg");
+  background: linear-gradient(rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)), url("/images/blog-hero.jpg");
   background-size: cover;
   background-position: center;
 }
