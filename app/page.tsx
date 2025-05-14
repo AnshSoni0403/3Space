@@ -3,6 +3,7 @@ import { useState } from "react"
 import Navbar from "@/components/Navbar"
 import Footer from "@/components/Footer"
 import LaunchCountdown from "@/components/LaunchCountdown"
+import CollaborativeNetworkSection from "@/components/collab"
 import styles from "@/styles/Home.module.css"
 import { motion } from "framer-motion"
 import { FaFlask, FaChevronDown } from 'react-icons/fa'
@@ -59,6 +60,7 @@ export default function Home() {
   return (
     <>
       <Navbar />
+      
       <main>
         {/* Starfield background with stars */}
         <div className={styles.starfield}>
@@ -119,7 +121,7 @@ export default function Home() {
             <LaunchCountdown />
           </div>
         </section>
-
+        <CollaborativeNetworkSection />
         <section className={`section ${styles.featuresSection}`}>
           <div className="container">
             <h2 className="section-title">Why Choose 3 SPACE?</h2>
