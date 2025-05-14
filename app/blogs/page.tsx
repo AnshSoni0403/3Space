@@ -23,11 +23,7 @@ export default function BlogsPage() {
       author: "Unknown",
       readTime: "8 min read",
       category: "technology",
-<<<<<<< HEAD
-      image: "/images/Blogs/download.jpg",
-=======
       image: "../images/blogs/download.jpg",
->>>>>>> 40084e9 (Updated by Krish)
     },
     // {
     //   id: 2,
