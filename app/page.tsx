@@ -62,35 +62,22 @@ export default function Home() {
       <Navbar />
       
       <main>
-        {/* Starfield background with stars */}
-        <div className={styles.starfield}>
-          <div className={styles.stars}></div>
-          <div className={styles.stars}></div>
-          <div className={styles.stars}></div>
-        </div>
-
-        {/* Rotating planet and orbital satellite */}
-        <div className={styles.backgroundImageContainer}>
-          <Image
-            src="/image/mars.png" 
-            
-            alt="Mars planet"
-            fill
-            priority
-            quality={85}
-            className={styles.planet}
-          />
-          <Image
-            src="/image/satellite.png" 
-            alt="Satellite"
-            width={200}
-            height={200}
-            className={styles.satellite}
-          />
-          <div className={styles.backgroundOverlay}></div>
-        </div>
-
+        {/* Fullscreen video hero section */}
         <section className={styles.hero}>
+          {/* Video background */}
+          <div className={styles.videoBackground}>
+            <video
+              src="/image/marsvideo.mp4"
+              autoPlay
+              muted
+              loop
+              playsInline
+              className={styles.fullscreenVideo}
+            />
+            <div className={styles.videoOverlay}></div>
+          </div>
+          
+          {/* Hero content */}
           <div className="container">
             <motion.div
               className={styles.heroContent}
@@ -99,7 +86,7 @@ export default function Home() {
               transition={{ duration: 0.8, delay: 0.2 }}
             >
               <h1>Welcome to 3SPACE</h1>
-              <p>Redefining access to space with Reusable Rockets and Advanced Space Technologies.</p>
+              <p>Redefining access to space with Reusable Rockets and Advanced Space Technologies.</p>
               <div className={styles.heroBtns}>
                 <a href="#countdown" className="btn btn-primary">
                   Next Launch
@@ -110,7 +97,18 @@ export default function Home() {
               </div>
             </motion.div>
           </div>
+          
+          {/* Floating elements from your existing CSS */}
+          <div className={styles.floatingElement}></div>
+          <div className={styles.floatingElement}></div>
         </section>
+
+        {/* Starfield background with stars */}
+        <div className={styles.starfield}>
+          <div className={styles.stars}></div>
+          <div className={styles.stars}></div>
+          <div className={styles.stars}></div>
+        </div>
 
         <section id="countdown" className={`section ${styles.countdownSection}`}>
           <div className="container">
@@ -121,7 +119,9 @@ export default function Home() {
             <LaunchCountdown />
           </div>
         </section>
+        
         <CollaborativeNetworkSection />
+        
         <section className={`section ${styles.featuresSection}`}>
           <div className="container">
             <h2 className="section-title">Why Choose 3 SPACE?</h2>
