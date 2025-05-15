@@ -2,7 +2,7 @@
   width: 100%;
   background-color: var(--background);
   color: var(--text-primary);
-  padding: 4rem 1rem;
+  padding: 2rem 1rem;
   border-top: 1px solid var(--border);
   border-bottom: 1px solid var(--border);
   text-align: center;
@@ -16,25 +16,24 @@
 }
 
 .title {
-  font-size: 3.5rem;
+  font-size: 2.5rem;
   font-weight: 800;
   line-height: 1.4;
   text-align: left;
   flex: 1;
+  
 }
 
 .grid {
   flex: 3;
   display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
   justify-content: center;
   align-items: center;
 }
 
-.partnerBox {
+/* .partnerBox {
   border: none;
-  padding: 2.5rem 2rem 2rem 2rem;
+  padding: 1.5rem 1rem 1rem 1rem;
   background-color: black;
   display: flex;
   flex-direction: column;
@@ -43,21 +42,47 @@
   width: 570px;
   height: 320px;
   transition: transform 0.3s ease;
-  margin: 1rem;
+  margin: 0 0;
+} */
+
+.partnerBox {
+  border: none;
+  padding: 1rem;
+  background-color: black;
+  display: flex;
+  flex-direction: row; /* changed from column to row */
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 600px; /* Optional: limits box width */
+  height: 200px; /* Adjusted height for better fit */
+  transition: transform 0.3s ease;
+  margin: 0 auto;
+  gap: 1rem; /* space between logo and text */
 }
 
 .partnerBox:hover {
   transform: scale(1.02);
 }
 
-.logo {
+/* .logo {
   max-height: 150px;
   max-width: 150px;
   width: auto;
   margin-bottom: 1rem;
-  margin-top: 0.5rem;
-  margin-left: 0.5rem;
-  margin-right: 0.5rem;
+  background: #fff;
+  border-radius: 16px;
+  padding: 14px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.10);
+  border: 2px solid #e0e0e0;
+  object-fit: contain;
+} */
+
+.logo {
+  max-height: 100px;
+  max-width: 100px;
+  width: auto;
+  margin: 0; /* remove margin-bottom */
   background: #fff;
   border-radius: 16px;
   padding: 14px;
@@ -65,9 +90,15 @@
   border: 2px solid #e0e0e0;
   object-fit: contain;
 }
-
-.companyName {
+/* .companyName {
   font-size: 1rem;
   font-weight: 600;
   color: white;
+} */
+.companyName {
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: white;
+  text-align: center;
+  line-height: 1.2;
 }
