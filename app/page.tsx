@@ -71,33 +71,32 @@ export default function Home() {
       <main>
         {/* Hero Section */}
         <section className={styles.hero}>
-          <div className={styles.earthImageContainer}>
-            <Image
-              src="/image/try1.png"
-              alt="Earth from space"
-              fill
-              className={styles.earthImage}
-              priority // Automatically preloads
-            />
-            <div className={styles.imageOverlay}></div>
+          <div className={styles.heroFlexContainer}>
+            <div className={styles.earthImageContainer}>
+              <Image
+                src="/image/try1.png"
+                alt="Earth from space"
+                fill
+                className={styles.earthImage}
+                priority
+              />
+            </div>
+            <div className={styles.heroContentWrapper}>
+              <motion.div
+                className={styles.heroContent}
+                initial={{ opacity: 0, y: 50 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.2 }}
+              >
+                <h1>Pioneering The Future Of Space Exploration</h1>
+                <p>Launching Dreams into Reality With Cutting-Edge Technology And Innovation</p>
+                <div className={styles.heroBtns}>
+                  <a href="#countdown" className="btn btn-primary">Next Launch</a>
+                  <a href="/launches" className="btn btn-secondary">Explore Rockets</a>
+                </div>
+              </motion.div>
+            </div>
           </div>
-
-          <div className={styles.heroContentWrapper}>
-            <motion.div
-              className={styles.heroContent}
-              initial={{ opacity: 0, y: 50 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-            >
-              <h1>Pioneering The Future Of Space Exploration</h1>
-              <p>Launching Dreams into Reality With Cutting-Edge Technology And Innovation</p>
-              <div className={styles.heroBtns}>
-                <a href="#countdown" className="btn btn-primary">Next Launch</a>
-                <a href="/launches" className="btn btn-secondary">Explore Rockets</a>
-              </div>
-            </motion.div>
-          </div>
-
           <div className={styles.floatingElement}></div>
           <div className={styles.floatingElement}></div>
         </section>

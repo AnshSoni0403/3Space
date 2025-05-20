@@ -8,12 +8,20 @@
   background: #000000;
 }
 
+/* Flex container for hero section */
+.heroFlexContainer {
+  display: flex;
+  flex-direction: row;
+  align-items: stretch;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
 /* Earth image container */
 .earthImageContainer {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
+  position: relative;
+  width: 50%;
   height: 100%;
   z-index: 1;
   overflow: hidden;
@@ -25,34 +33,26 @@
   object-position: center right;
   width: 100%;
   height: 100%;
-  opacity: 0.9;
-  transform: scale(1.2);
+  opacity: 1;
+  filter: brightness(1.15) contrast(1.1);
+  transform: none;
 }
 
-/* Overlay for better text visibility and to darken image slightly */
+/* Remove or lighten overlay */
 .imageOverlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(90deg, 
-    rgba(0,0,0,0.95) 0%, 
-    rgba(0,0,0,0.8) 30%, 
-    rgba(0,0,0,0.4) 100%
-  );
-  z-index: 2;
+  display: none;
 }
 
 /* Hero content wrapper to position content on the right */
 .heroContentWrapper {
-  width: 100%;
+  width: 50%;
   display: flex;
-  justify-content: flex-start;
   align-items: center;
-  padding-left: 10%;
-  z-index: 3;
+  justify-content: center;
+  padding: 0 5vw;
+  z-index: 2;
   position: relative;
+  background: transparent;
 }
 
 /* Hero content positioned on top of image */
@@ -516,21 +516,23 @@
 }
 
 @media (max-width: 992px) {
+  .heroFlexContainer {
+    flex-direction: column;
+    height: auto;
+    min-height: 100vh;
+  }
+  .earthImageContainer, .heroContentWrapper {
+    width: 100%;
+    height: 50vh;
+    min-height: 300px;
+    max-height: 400px;
+  }
   .heroContentWrapper {
-    justify-content: center;
-    padding-right: 0;
-  }
-  
-  .imageOverlay {
-    background: rgba(0, 0, 0, 0.7);
-  }
-  
-  .heroContent {
-    text-align: center;
-  }
-  
-  .heroBtns {
-    justify-content: center;
+    height: auto;
+    min-height: unset;
+    max-height: unset;
+    padding: 2rem 1rem;
+    justify-content: flex-start;
   }
 }
 
@@ -581,6 +583,24 @@
 
   .pyqAnswer p {
     font-size: 0.95rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .earthImageContainer, .heroContentWrapper {
+    height: auto;
+    min-height: 200px;
+    max-height: none;
+    padding: 1rem 0;
+  }
+  .heroContentWrapper {
+    padding: 1rem 0.5rem;
+  }
+  .heroContent h1 {
+    font-size: 2rem;
+  }
+  .heroContent p {
+    font-size: 1rem;
   }
 }
 
