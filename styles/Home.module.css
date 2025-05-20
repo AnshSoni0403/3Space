@@ -1,64 +1,77 @@
-/* Add these styles to your existing Home.module.css file */
-
-/* Hero section with fullscreen video */
+/* Hero section with Earth image */
 .hero {
   height: 100vh;
   display: flex;
   align-items: center;
   position: relative;
   overflow: hidden;
-  background: var(--gradient-dark);
+  background: #000000;
 }
 
-/* Video background container */
-.videoBackground {
+/* Earth image container */
+.earthImageContainer {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   z-index: 1;
+  overflow: hidden;
 }
 
-/* Fullscreen video styling */
-.fullscreenVideo {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
+/* Earth image styling */
+.earthImage {
   object-fit: cover;
+  object-position: center right;
+  width: 100%;
+  height: 100%;
+  opacity: 0.9;
+  transform: scale(1.2);
 }
 
-/* Overlay for better text visibility */
-.videoOverlay {
+/* Overlay for better text visibility and to darken image slightly */
+.imageOverlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background: linear-gradient(90deg, 
+    rgba(0,0,0,0.95) 0%, 
+    rgba(0,0,0,0.8) 30%, 
+    rgba(0,0,0,0.4) 100%
+  );
+  z-index: 2;
 }
 
-/* Hero content positioned on top of video */
-.heroContent {
-  max-width: 800px;
-  z-index: 2;
-  padding: 0 2rem;
+/* Hero content wrapper to position content on the right */
+.heroContentWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding-left: 10%;
+  z-index: 3;
   position: relative;
 }
 
-/* Keep your existing hero content styles */
+/* Hero content positioned on top of image */
+.heroContent {
+  max-width: 800px;
+  z-index: 3;
+  padding: 0 2rem;
+  position: relative;
+  text-align: left;
+}
+
+/* Hero content styles */
 .heroContent h1 {
-  font-size: 4rem;
+  font-size: 4.5rem;
   font-weight: 800;
   margin-bottom: 1.5rem;
-  line-height: 1.2;
-  background: linear-gradient(to right, var(--text-primary), var(--primary));
-  -webkit-background-clip: text;
-  background-clip: text;
-  color: transparent;
-  letter-spacing: 0.5px;
+  line-height: 1.1;
+  color: var(--text-primary);
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
 .heroContent p {
@@ -67,11 +80,13 @@
   color: var(--text-secondary);
   max-width: 650px;
   line-height: 1.4;
+  margin: 0 auto 2.5rem;
 }
 
 .heroBtns {
   display: flex;
   gap: 1.25rem;
+  justify-content: center;
 }
 
 /* Ensure floating elements are on top of video but behind text */
@@ -413,8 +428,6 @@
   display: inline-block;
 }
 
-/* Removed .pyqLink styles as they're no longer needed */
-
 .pyqsViewMore {
   text-align: center;
   margin-top: 3rem;
@@ -430,51 +443,100 @@
   text-align: center;
   margin-bottom: 3rem;
 }
+
+/* Starfield for background animation */
+.starfield {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  background: #000;
+  pointer-events: none;
+}
+
+.stars {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    radial-gradient(1px 1px at 10px 10px, white, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 150px 150px, white, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 300px 300px, white, rgba(0,0,0,0));
+  background-size: 600px 600px;
+  animation: starAnimation 60s linear infinite;
+}
+
+.stars:nth-child(2) {
+  background-image: 
+    radial-gradient(1px 1px at 50px 50px, white, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 200px 200px, white, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 350px 350px, white, rgba(0,0,0,0));
+  background-size: 500px 500px;
+  animation: starAnimation 80s linear infinite;
+  opacity: 0.5;
+}
+
+.stars:nth-child(3) {
+  background-image: 
+    radial-gradient(1px 1px at 100px 100px, white, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 250px 250px, white, rgba(0,0,0,0)),
+    radial-gradient(1px 1px at 400px 400px, white, rgba(0,0,0,0));
+  background-size: 700px 700px;
+  animation: starAnimation 100s linear infinite;
+  opacity: 0.3;
+}
+
+@keyframes starAnimation {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(600px);
+  }
+}
+
 /* Responsive styles */
-@media (max-width: 768px) {
-  .pyqsTitle {
-    font-size: 1.8rem;
-    margin-bottom: 2rem;
-  }
-
-  .pyqQuestion h3 {
-    font-size: 1.1rem;
-  }
-
-  .pyqAnswer p {
-    font-size: 0.95rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .pyqsSection {
-    padding: 4rem 0;
-  }
-
-  .pyqsTitle {
-    font-size: 1.5rem;
-  }
-
-  .pyqQuestion {
-    padding: 1.25rem 0;
-  }
-
-  .pyqQuestion h3 {
-    font-size: 1rem;
-  }
-}
-
-/* Responsive Styles */
 @media (max-width: 1200px) {
   .floatingElement:nth-child(1) {
     width: 300px;
     height: 300px;
   }
+  
+  .heroContentWrapper {
+    padding-right: 3%;
+  }
+  
+  .heroContent h1 {
+    font-size: 3rem;
+  }
+}
+
+@media (max-width: 992px) {
+  .heroContentWrapper {
+    justify-content: center;
+    padding-right: 0;
+  }
+  
+  .imageOverlay {
+    background: rgba(0, 0, 0, 0.7);
+  }
+  
+  .heroContent {
+    text-align: center;
+  }
+  
+  .heroBtns {
+    justify-content: center;
+  }
 }
 
 @media (max-width: 768px) {
   .heroContent h1 {
-    font-size: 3rem;
+    font-size: 2.75rem;
   }
 
   .heroContent p {
@@ -483,7 +545,7 @@
 
   .heroBtns {
     flex-direction: column;
-    align-items: flex-start;
+    align-items: center;
   }
 
   .ctaContent h2 {
@@ -507,11 +569,24 @@
   .floatingElement {
     opacity: 0.2;
   }
+  
+  .pyqsTitle {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+  }
+
+  .pyqQuestion h3 {
+    font-size: 1.1rem;
+  }
+
+  .pyqAnswer p {
+    font-size: 0.95rem;
+  }
 }
 
 @media (max-width: 480px) {
   .heroContent h1 {
-    font-size: 2.5rem;
+    font-size: 2.25rem;
   }
 
   .heroContent p {
@@ -532,29 +607,20 @@
   .ctaContent h2 {
     font-size: 2rem;
   }
-}
-/* Media queries for responsiveness */
-@media (max-width: 768px) {
-  .heroContent h1 {
-    font-size: 3rem;
+  
+  .pyqsSection {
+    padding: 4rem 0;
   }
 
-  .heroContent p {
-    font-size: 1.2rem;
+  .pyqsTitle {
+    font-size: 1.5rem;
   }
 
-  .heroBtns {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-}
-
-@media (max-width: 480px) {
-  .heroContent h1 {
-    font-size: 2.5rem;
+  .pyqQuestion {
+    padding: 1.25rem 0;
   }
 
-  .heroContent p {
+  .pyqQuestion h3 {
     font-size: 1rem;
   }
 }
