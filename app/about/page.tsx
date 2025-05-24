@@ -28,9 +28,7 @@ export default function AboutPage() {
     {
       title: "What we aim at",
       content: [
-        "100km Rocket: Focus on scaling from PoC to commercially viable models.",
-        "Community Growth: Building a robust ecosystem of space enthusiasts and professionals.",
-        "Expand Partnerships: Collaborating with global entities to accelerate innovation."
+        "100km Rocket: Focus on scaling from PoC to commercially viable models.Community Growth: Building a robust ecosystem of space enthusiasts and professionals.Expand Partnerships: Collaborating with global entities to accelerate innovation.",
       ]
     }
   ]
@@ -43,8 +41,8 @@ export default function AboutPage() {
     {
       title: "What we do",
       content: [
-        "Making Space Exploration Affordable, Accessible, and Sustainable.",
-        "We provide affordable satellite launches, focusing on reusable rockets and self-landing cryogenic engine technology for scalability."
+        "Making Space Exploration Affordable, Accessible, and Sustainable.We provide affordable satellite launches, focusing on reusable rockets and self-landing cryogenic engine technology for scalability.",
+        
       ]
     }
   ]

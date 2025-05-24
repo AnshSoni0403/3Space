@@ -18,24 +18,26 @@
   position: relative;
 }
 
-/* Earth image container */
+/* Earth image container - Made much larger to fill more space */
 .earthImageContainer {
-  position: relative;
-  width: 50%;
-  height: 100%;
+  position: absolute;
+  width: 85%;
+  height: 140%;
+  top: 50%;
+  left: -10%;
+  transform: translateY(-50%);
   z-index: 1;
   overflow: hidden;
 }
 
-/* Earth image styling */
+/* Earth image styling - Enhanced size and positioning */
 .earthImage {
   object-fit: cover;
-  object-position: center right;
+  object-position: center;
   width: 100%;
-  height: 100%;
+  height: 80%;
   opacity: 1;
   filter: brightness(1.15) contrast(1.1);
-  transform: none;
 }
 
 /* Remove or lighten overlay */
@@ -43,58 +45,61 @@
   display: none;
 }
 
-/* Hero content wrapper to position content on the right */
+/* Hero content wrapper - Centered and overlaid */
 .heroContentWrapper {
-  width: 50%;
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 0 5vw;
+  padding: 0 3vw;
   z-index: 2;
   position: relative;
   background: transparent;
 }
 
-/* Hero content positioned on top of image */
+/* Hero content positioned and sized to match reference */
 .heroContent {
   max-width: 800px;
   z-index: 3;
   padding: 0 2rem;
   position: relative;
-  text-align: left;
+  text-align: center;
+  margin-left: 10%;
 }
 
-/* Hero content styles */
+/* Hero content styles - Adjusted sizing */
 .heroContent h1 {
-  font-size: 4.5rem;
+  font-size: 4rem;
   font-weight: 800;
   margin-bottom: 1.5rem;
   line-height: 1.1;
   color: var(--text-primary);
-  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+  text-shadow: 0 4px 8px rgba(0,0,0,0.5);
 }
 
 .heroContent p {
-  font-size: 1.5rem;
+  font-size: 1.3rem;
   margin-bottom: 2.5rem;
   color: var(--text-secondary);
-  max-width: 650px;
-  line-height: 1.4;
-  margin: 0 auto 2.5rem;
+  max-width: 600px;
+  line-height: 1.5;
+  margin-left: auto;
+  margin-right: auto;
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
 }
 
 .heroBtns {
   display: flex;
-  gap: 1.25rem;
+  gap: 1.5rem;
   justify-content: center;
 }
 
-/* Ensure floating elements are on top of video but behind text */
+/* Ensure floating elements are on top of Earth but behind text */
 .floatingElement {
   z-index: 1;
 }
 
-/* Floating Elements */
+/* Floating Elements - Adjusted for new layout */
 .floatingElement {
   position: absolute;
   width: 300px;
@@ -107,7 +112,7 @@
 
 .floatingElement:nth-child(1) {
   top: 20%;
-  right: 10%;
+  right: 5%;
   width: 400px;
   height: 400px;
   border-width: 2px;
@@ -116,7 +121,7 @@
 
 .floatingElement:nth-child(2) {
   bottom: 15%;
-  left: 5%;
+  right: 25%;
   width: 200px;
   height: 200px;
   animation: float 20s linear infinite reverse;
@@ -126,7 +131,6 @@
   0% {
     transform: rotate(0deg);
   }
-
   100% {
     transform: rotate(360deg);
   }
@@ -499,7 +503,27 @@
   }
 }
 
-/* Responsive styles */
+/* Responsive styles - Comprehensive Earth image responsiveness */
+@media (max-width: 1400px) {
+  .heroContent h1 {
+    font-size: 3.5rem;
+  }
+  
+  .heroContent p {
+    font-size: 1.2rem;
+  }
+  
+  .earthImageContainer {
+    width: 65%;
+    height: 130%;
+    left: -8%;
+  }
+  
+  .heroContent {
+    margin-left: 8%;
+  }
+}
+
 @media (max-width: 1200px) {
   .floatingElement:nth-child(1) {
     width: 300px;
@@ -507,11 +531,25 @@
   }
   
   .heroContentWrapper {
-    padding-right: 3%;
+    padding: 0 2vw;
   }
   
   .heroContent h1 {
-    font-size: 3rem;
+    font-size: 3.2rem;
+  }
+  
+  .heroContent p {
+    font-size: 1.15rem;
+  }
+  
+  .earthImageContainer {
+    width: 60%;
+    height: 120%;
+    left: -5%;
+  }
+  
+  .heroContent {
+    margin-left: 5%;
   }
 }
 
@@ -521,33 +559,61 @@
     height: auto;
     min-height: 100vh;
   }
-  .earthImageContainer, .heroContentWrapper {
+  
+  .earthImageContainer {
+    position: relative;
     width: 100%;
-    height: 50vh;
-    min-height: 300px;
-    max-height: 400px;
+    height: 60vh;
+    min-height: 400px;
+    max-height: 500px;
+    top: auto;
+    left: auto;
+    transform: none;
+    order: 1;
   }
+  
   .heroContentWrapper {
+    width: 100%;
     height: auto;
     min-height: unset;
     max-height: unset;
-    padding: 2rem 1rem;
-    justify-content: flex-start;
+    padding: 3rem 2rem;
+    justify-content: center;
+    order: 2;
+  }
+  
+  .heroContent {
+    text-align: center;
+    max-width: 700px;
+    margin-left: 0;
+  }
+  
+  .heroBtns {
+    justify-content: center;
+  }
+  
+  .earthImage {
+    width: 100%;
+    height: 100%;
+    object-position: center;
+    object-fit: cover;
   }
 }
 
 @media (max-width: 768px) {
   .heroContent h1 {
-    font-size: 2.75rem;
+    font-size: 2.8rem;
   }
 
   .heroContent p {
-    font-size: 1.2rem;
+    font-size: 1.1rem;
+    max-width: 100%;
   }
 
   .heroBtns {
     flex-direction: column;
     align-items: center;
+    gap: 1rem;
   }
 
   .ctaContent h2 {
@@ -584,29 +650,58 @@
   .pyqAnswer p {
     font-size: 0.95rem;
   }
+  
+  .earthImageContainer {
+    height: 50vh;
+    min-height: 350px;
+    max-height: 450px;
+    /* Add 90-degree rotation for mobile aesthetic */
+    transform: rotate(-90deg);
+    transform-origin: center center;
+  }
+  
+  .earthImage {
+    /* Counter-rotate to maintain proper orientation */
+    transform: rotate(90deg);
+    transform-origin: center center;
+  }
+  
+  .heroContentWrapper {
+    padding: 2rem 1.5rem;
+  }
 }
 
 @media (max-width: 600px) {
-  .earthImageContainer, .heroContentWrapper {
-    height: auto;
-    min-height: 200px;
-    max-height: none;
-    padding: 1rem 0;
+  .earthImageContainer {
+    height: 45vh;
+    min-height: 300px;
+    max-height: 400px;
+    /* Maintain rotation */
+    transform: rotate(-90deg);
   }
+  
+  .earthImage {
+    /* Counter-rotate */
+    transform: rotate(90deg);
+  }
+  
   .heroContentWrapper {
-    padding: 1rem 0.5rem;
+    padding: 1.5rem 1rem;
   }
+  
   .heroContent h1 {
-    font-size: 2rem;
+    font-size: 2.5rem;
+    line-height: 1.2;
   }
+  
   .heroContent p {
-    font-size: 1rem;
+    font-size: 1.05rem;
   }
 }
 
 @media (max-width: 480px) {
   .heroContent h1 {
-    font-size: 2.25rem;
+    font-size: 2.2rem;
   }
 
   .heroContent p {
@@ -642,5 +737,47 @@
 
   .pyqQuestion h3 {
     font-size: 1rem;
+  }
+  
+  .earthImageContainer {
+    height: 40vh;
+    min-height: 280px;
+    max-height: 350px;
+    /* Enhanced rotation with slight scale for better visual */
+    transform: rotate(-90deg) scale(1.1);
+  }
+  
+  .earthImage {
+    transform: rotate(90deg);
+  }
+  
+  .heroContentWrapper {
+    padding: 1rem 0.75rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .heroContent h1 {
+    font-size: 2rem;
+  }
+
+  .heroContent p {
+    font-size: 0.95rem;
+  }
+  
+  .earthImageContainer {
+    height: 35vh;
+    min-height: 250px;
+    max-height: 300px;
+    /* Maintain aesthetic rotation */
+    transform: rotate(-90deg) scale(1.15);
+  }
+  
+  .earthImage {
+    transform: rotate(90deg);
+  }
+  
+  .heroContentWrapper {
+    padding: 1rem 0.5rem;
   }
 }
