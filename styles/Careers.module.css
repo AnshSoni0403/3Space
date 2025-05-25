@@ -240,7 +240,7 @@
 .perksSection {
   position: relative;
   z-index: 2;
-  background-color: rgba(5, 7, 20, 0.95);
+  background-color: rgba(0, 2, 12, 0.95);
 }
 
 .perkCard {

@@ -1,7 +1,7 @@
 import type React from "react"
 import { Inter } from "next/font/google"
 import "./globals.css"
-import CustomCursor from "@/components/CustomCursor"
+// import CustomCursor from "@/components/CustomCursor"
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -20,7 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         
-        <CustomCursor />
+        {/* <CustomCursor /> */}
         {children}
       </body>
     </html>

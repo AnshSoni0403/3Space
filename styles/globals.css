@@ -5,9 +5,12 @@
 /* Ensure normal cursor is visible */
 html,
 body {
-  cursor: default !important;
+  cursor: pointer;
 }
 
+*{
+  cursor: pointer;
+}
 /* Interactive elements should show pointer cursor naturally */
 a,
 button,

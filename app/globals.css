@@ -32,8 +32,11 @@ a {
   text-decoration: none;
 }
 
+cursor{
+  cursor: pointer;
+}
 button {
-  cursor: none;
+  cursor: pointer;
 }
 
 .container {
@@ -157,7 +160,4 @@ button {
   }
 }
 
-/* Hide default cursor */
-* {
-  cursor: none;
-}
+
