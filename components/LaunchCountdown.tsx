@@ -74,7 +74,7 @@ export default function LaunchCountdown() {
             </div>
 
             <div className={styles.launchInfo}>
-              <h3>Countdown to the Future: Our Next Orbital Deployment Awaits</h3>
+              <h3>Countdown to the Future: We are launching soon</h3>
             </div>
           </motion.div>
         ) : (
