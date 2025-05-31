@@ -92,7 +92,7 @@ export default function Home() {
                 <p>Building Tomorrow’s Launch Technologies, Today</p>
                 <div className={styles.heroBtns}>
                   <a href="#countdown" className="btn btn-primary">Next Launch</a>
-                  <a href="/launches" className="btn btn-secondary">Explore Rockets</a>
+                  <a href="/products" className="btn btn-secondary">Explore Rockets</a>
                 </div>
               </motion.div>
             </div>
