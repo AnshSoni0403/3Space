@@ -19,9 +19,9 @@ export default function BlogsPage() {
       title: "From Fire Arrows to the Moon: India's Rocket Journey Through Time",
       excerpt:
         "How India carved out its space in the stars - from ancient dreams to modern missions",
-      date: "May 9, 2025",
-      author: "Unknown",
-      readTime: "8 min read",
+      date: "Aug 27, 2025",
+      author: "3 Space",
+      readTime: "2 min read",
       category: "technology",
       image: "../images/blogs/download.jpg",
     },

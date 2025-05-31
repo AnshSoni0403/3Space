@@ -24,14 +24,14 @@ const socialLinks = [
 const companyLinks = [
   { id: 'about', path: '/about', label: 'About Us' },
   { id: 'careers', path: '/careers', label: 'Careers' },
-  { id: 'news', path: '/news', label: 'News' },
-  { id: 'contact', path: '/contact', label: 'Contact' }
+  // { id: 'news', path: '/news', label: 'News' },
+  // { id: 'contact', path: '/contact', label: 'Contact' }
 ];
 
 const resourceLinks = [
-  { id: 'research', path: '/resources/research', label: 'Research' },
+  // { id: 'research', path: '/resources/research', label: 'Research' },
   { id: 'blog', path: '/resources/blog', label: 'Blog' },
-  { id: 'gallery', path: '/resources/gallery', label: 'Gallery' },
+  // { id: 'gallery', path: '/resources/gallery', label: 'Gallery' },
   { id: 'faq', path: '/resources/faq', label: 'FAQ' }
 ];
 
