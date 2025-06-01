@@ -128,17 +128,17 @@ export default function Home() {
             <div className="grid grid-3">
               {[
                 {
-                  icon: <Rocket size={32} style={iconStyle} />,
+                  icon: <Rocket size={32} color={iconStyle.color} strokeWidth={iconStyle.strokeWidth} />,
                   title: "Reusable Rockets",
                   text: "Our innovative reusable rocket technology reduces launch costs by up to 70%, making space more accessible.",
                 },
                 {
-                  icon: <Satellite size={32} style={iconStyle} />,
+                  icon: <Satellite size={32} color={iconStyle.color} strokeWidth={iconStyle.strokeWidth} />,
                   title: "Sustainable Space",
                   text: "We reduce launch emissions, enhance reusability, and prevent debris—because sustainability in space is our mission.",
                 },
                 {
-                  icon: <FaFlask size={32} style={iconStyle} />,
+                  icon: <FaFlask size={32} color={iconStyle.color} />,
                   title: "Research & Development",
                   text: "Cutting-edge R&D in propulsion systems, materials science, and space habitation technologies.",
                 },
@@ -181,7 +181,7 @@ export default function Home() {
         </section>
 
         {/* PYQs */}
-        <section className={`section ${styles.pyqsSection}`}>
+        <section id="faqs-section" className={`section ${styles.pyqsSection}`}>
           <div className="container">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -213,11 +213,13 @@ export default function Home() {
                     <h3>
                       <span className={styles.pyqYear}>{pyq.year}</span> {pyq.title}
                     </h3>
-                    <FaChevronDown
-                      className={`${styles.pyqChevron} ${
-                        activePyq === pyq.id ? styles.rotateChevron : ""
-                      }`}
-                    />
+                    <div className={`${styles.pyqChevron} ${
+                      activePyq === pyq.id ? styles.rotateChevron : ""
+                    }`}>
+                      <FaChevronDown
+                        size={20}
+                      />
+                    </div>
                   </div>
                   <div className={styles.pyqAnswer}>
                     <p className={styles.pyqQuestion}>{pyq.question}</p>

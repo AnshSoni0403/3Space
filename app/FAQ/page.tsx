@@ -1,11 +1,11 @@
 "use client";
 
-
 import React, { useState, useEffect } from 'react';
 import { ChevronDown, ChevronUp, Search, Filter } from 'lucide-react';
 import '../../styles/components/faqs.css'; 
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import styles from '@/styles/components/FAQ.module.css';
 
 interface FAQ {
   id: number;
@@ -16,6 +16,34 @@ interface FAQ {
   difficulty: 'Beginner' | 'Intermediate' | 'Advanced';
   category: string;
 }
+
+interface FAQItem {
+  question: string;
+  answer: string;
+}
+
+const faqData: FAQItem[] = [
+  {
+    question: "What is 3Space?",
+    answer: "3Space is a collaborative platform that brings together space enthusiasts, researchers, and professionals to share knowledge and work on space-related projects."
+  },
+  {
+    question: "How can I join 3Space?",
+    answer: "You can join 3Space by creating an account on our platform. Simply click the 'Sign Up' button and follow the registration process."
+  },
+  {
+    question: "What kind of projects can I work on?",
+    answer: "3Space hosts a variety of space-related projects, from research initiatives to educational programs and collaborative experiments. Browse our project listings to find something that matches your interests."
+  },
+  {
+    question: "Is 3Space free to use?",
+    answer: "Yes, 3Space offers a free tier with basic features. We also have premium plans for users who need advanced features and capabilities."
+  },
+  {
+    question: "How can I contribute to the community?",
+    answer: "You can contribute by participating in discussions, sharing your knowledge, joining projects, or starting your own initiatives. We welcome all forms of constructive participation."
+  }
+];
 
 export default function FAQPage() {
   const [faqs] = useState<FAQ[]>([
@@ -99,6 +127,7 @@ export default function FAQPage() {
   const [difficultyFilter, setDifficultyFilter] = useState<string>('');
   const [categoryFilter, setCategoryFilter] = useState<string>('');
   const [expandedItems, setExpandedItems] = useState<Set<number>>(new Set());
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
 
   useEffect(() => {
     let filtered = faqs.filter(faq => {
@@ -125,6 +154,10 @@ export default function FAQPage() {
     setExpandedItems(newExpanded);
   };
 
+  const toggleFAQ = (index: number) => {
+    setExpandedIndex(expandedIndex === index ? null : index);
+  };
+
   const clearFilters = () => {
     setSearchTerm('');
     setYearFilter('');
@@ -139,119 +172,48 @@ export default function FAQPage() {
     <>
       <Navbar />
       <main>
-        <div className="faqs-container">
-          <header className="faqs-header">
-            <h1>Frequently Asked Questions</h1>
-            <p className="faqs-subtitle">Aerospace Engineering</p>
-          </header>
-
-          <div className="search-section">
-            <div className="search-box">
-              <Search className="search-icon" size={20} />
-              <input
-                type="text"
-                placeholder="Search FAQs..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="search-input"
-              />
-            </div>
+        <div className={styles.faqContainer}>
+          <div className={styles.faqHeader}>
+            <h1 className={styles.faqTitle}>Frequently Asked Questions</h1>
+            <p className={styles.faqSubtitle}>
+              Find answers to common questions about 3Space and our community
+            </p>
           </div>
 
-          <div className="filters-section">
-            <div className="filters-grid">
-              <select
-                value={yearFilter}
-                onChange={(e) => setYearFilter(e.target.value)}
-                className="filter-select"
-              >
-                <option value="">All Years</option>
-                {uniqueYears.map(year => (
-                  <option key={year} value={year}>{year}</option>
-                ))}
-              </select>
-
-              <select
-                value={difficultyFilter}
-                onChange={(e) => setDifficultyFilter(e.target.value)}
-                className="filter-select"
-              >
-                <option value="">All Difficulties</option>
-                <option value="Beginner">Beginner</option>
-                <option value="Intermediate">Intermediate</option>
-                <option value="Advanced">Advanced</option>
-              </select>
-
-              <select
-                value={categoryFilter}
-                onChange={(e) => setCategoryFilter(e.target.value)}
-                className="filter-select"
-              >
-                <option value="">All Categories</option>
-                {uniqueCategories.map(category => (
-                  <option key={category} value={category}>{category}</option>
-                ))}
-              </select>
-
-              <button onClick={clearFilters} className="clear-filters-btn">
-                <Filter size={18} />
-                Clear Filters
-              </button>
-            </div>
-          </div>
-
-          <div className="stats-section">
-            <div className="stat-card">
-              <span className="stat-number">{faqs.length}</span>
-              <span className="stat-label">Total FAQs</span>
-            </div>
-            <div className="stat-card">
-              <span className="stat-number">{filteredFAQs.length}</span>
-              <span className="stat-label">Showing</span>
-            </div>
-            <div className="stat-card">
-              <span className="stat-number">{expandedItems.size}</span>
-              <span className="stat-label">Expanded</span>
-            </div>
-          </div>
-
-          <div className="faqs-list">
-            {filteredFAQs.length === 0 ? (
-              <div className="no-results">
-                <p>No FAQs match your search criteria.</p>
-                <button onClick={clearFilters} className="clear-filters-btn">
-                  Clear all filters
-                </button>
-              </div>
-            ) : (
-              filteredFAQs.map((faq) => (
-                <div key={faq.id} className="faq-item">
-                  <div className="faq-header" onClick={() => toggleExpanded(faq.id)}>
-                    <div className="faq-meta">
-                      <span className="year-badge">{faq.year}</span>
-                      <span className={`difficulty-badge difficulty-${faq.difficulty.toLowerCase()}`}>
-                        {faq.difficulty}
-                      </span>
-                      <span className="category-badge">{faq.category}</span>
-                    </div>
-                    <div className="faq-question-section">
-                      <h3 className="faq-title">{faq.title}</h3>
-                      <p className="faq-question">{faq.question}</p>
-                    </div>
-                    <button className="expand-btn">
-                      {expandedItems.has(faq.id) ? <ChevronUp size={24} /> : <ChevronDown size={24} />}
-                    </button>
-                  </div>
-                  
-                  {expandedItems.has(faq.id) && (
-                    <div className="faq-answer">
-                      <div className="answer-label">Answer</div>
-                      <p className="answer-text">{faq.answer}</p>
-                    </div>
-                  )}
+          <div className={styles.faqList}>
+            {faqData.map((faq, index) => (
+              <div key={index} className={styles.faqItem}>
+                <div
+                  className={styles.faqQuestion}
+                  onClick={() => toggleFAQ(index)}
+                >
+                  <span className={styles.questionText}>{faq.question}</span>
+                  <svg
+                    className={`${styles.expandIcon} ${
+                      expandedIndex === index ? styles.expanded : ''
+                    }`}
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M19 9L12 16L5 9"
+                      stroke="currentColor"
+                      strokeWidth="2"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                  </svg>
                 </div>
-              ))
-            )}
+                <div
+                  className={`${styles.faqAnswer} ${
+                    expandedIndex === index ? styles.expanded : ''
+                  }`}
+                >
+                  <p className={styles.answerText}>{faq.answer}</p>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </main>
