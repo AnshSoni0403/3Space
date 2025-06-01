@@ -82,9 +82,17 @@
 /* Links Section */
 .footerLinksSection {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
   gap: 2rem;
+  grid-template-areas:
+    "company resources contact"
+    "email email contact";
+  grid-template-columns: 1fr 1fr 1fr;
 }
+
+.linkGroup[data-area="company"] { grid-area: company; }
+.linkGroup[data-area="resources"] { grid-area: resources; }
+.linkGroup[data-area="email"] { grid-area: email; }
+.linkGroup[data-area="contact"] { grid-area: contact; }
 
 .linkGroup h3 {
   font-size: 1.1rem;
@@ -266,6 +274,14 @@
     grid-column: span 2;
     margin-top: 2rem;
   }
+  .footerLinksSection {
+    grid-template-areas:
+      "company resources"
+      "email email"
+      "contact contact";
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+  }
 }
 
 @media (max-width: 768px) {
@@ -274,8 +290,13 @@
   }
 
   .footerLinksSection {
-    grid-column: span 1;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "company"
+      "resources"
+      "email"
+      "contact";
+    grid-template-columns: 1fr;
+    gap: 2rem;
   }
   
   .footerForm {
@@ -323,6 +344,11 @@
   .footerLinksSection {
     grid-template-columns: 1fr;
     gap: 2rem;
+    grid-template-areas:
+      "company"
+      "resources"
+      "email"
+      "contact";
   }
 
   .footerBottom {

@@ -41,6 +41,12 @@ const contactItems = [
   { id: 'phone', icon: <Phone size={16} />, content: '+91 6351932850' }
 ];
 
+// New email links
+const emailLinks = [
+  { id: 'contactus', path: 'mailto:contactus@3spacecorp.com', label: 'contactus@3spacecorp.com' },
+  { id: 'careers', path: 'mailto:careers@3spacecorp.com', label: 'careers@3spacecorp.com' }
+];
+
 export default function Footer() {
   const [formData, setFormData] = useState<FormData>({ name: '', email: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -116,7 +122,7 @@ export default function Footer() {
 
           {/* Links */}
           <div className={styles.footerLinksSection}>
-            <div className={styles.linkGroup}>
+            <div className={styles.linkGroup} data-area="company">
               <h3>Company</h3>
               <ul>
                 {companyLinks.map((link) => (
@@ -130,7 +136,7 @@ export default function Footer() {
               </ul>
             </div>
 
-            <div className={styles.linkGroup}>
+            <div className={styles.linkGroup} data-area="resources">
               <h3>Resources</h3>
               <ul>
                 {resourceLinks.map((link) => (
@@ -144,7 +150,23 @@ export default function Footer() {
               </ul>
             </div>
 
-            <div className={styles.linkGroup}>
+            {/* New Email Links Group */}
+            <div className={styles.linkGroup} data-area="email">
+              <h3>Email Us</h3>
+              <ul>
+                {emailLinks.map((link) => (
+                  <motion.li 
+                    key={`email-${link.id}`}
+                    whileHover={{ x: 5 }}
+                  >
+                    <a href={link.path}>{link.label}</a>
+                  </motion.li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Contact List */}
+            <div className={styles.linkGroup} data-area="contact">
               <h3>Contact Us</h3>
               <div className={styles.contactList}>
                 {contactItems.map((item) => (
@@ -155,7 +177,7 @@ export default function Footer() {
                   >
                     {item.icon}
                     {item.url ? (
-                      <a href={item.url}>{item.content}</a>
+                      <a href={item.url} target="_blank" rel="noopener noreferrer">{item.content}</a>
                     ) : (
                       <p>{item.content}</p>
                     )}
