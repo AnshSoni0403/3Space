@@ -123,6 +123,10 @@
     height: 40vh;
   }
 
+  .heroInner {
+    margin-top: 100px;
+  }
+
   .title {
     font-size: 1.75rem;
   }

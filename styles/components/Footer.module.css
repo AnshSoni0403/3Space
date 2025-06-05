@@ -1,7 +1,7 @@
 .footer {
   background-color: var(--card);
   border-top: 1px solid var(--border);
-  padding: 5rem 0 2rem;
+  padding: 2.5rem 0 1.5rem;
   position: relative;
   z-index: 10;
 }
@@ -10,20 +10,23 @@
   width: 100%;
   max-width: 1201px;
   margin: 0 auto;
-  padding: 0 1.5rem;
+  padding: 0 1.25rem;
 }
 
 .footerContent {
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
-  gap: 2rem;
-  margin-bottom: 3rem;
+  grid-template-columns: 1fr;
+  gap: 2.5rem;
+  margin-bottom: 2rem;
 }
 
 /* Brand Section */
 .footerBrand {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 0 1rem;
 }
 
 .logoContainer {
@@ -38,12 +41,14 @@
 }
 
 .logoImage {
+  width: 40px;
+  height: 40px;
   border-radius: 8px;
   object-fit: contain;
 }
 
 .logoText {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   font-weight: 700;
   color: var(--text-primary);
   letter-spacing: 0.5px;
@@ -52,21 +57,23 @@
 .brandDescription {
   color: var(--text-secondary);
   line-height: 1.6;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
   font-size: 0.95rem;
+  max-width: 320px;
 }
 
 .socialLinks {
   display: flex;
   gap: 1rem;
+  justify-content: center;
 }
 
 .socialLinks a {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 36px;
-  height: 36px;
+  width: 38px;
+  height: 38px;
   border-radius: 50%;
   background-color: rgba(var(--primary-rgb), 0.1);
   color: var(--text-secondary);
@@ -82,32 +89,27 @@
 /* Links Section */
 .footerLinksSection {
   display: grid;
-  gap: 2rem;
-  grid-template-areas:
-    "company resources contact"
-    "email email contact";
-  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.5rem;
+  padding: 0 1rem;
 }
-
-.linkGroup[data-area="company"] { grid-area: company; }
-.linkGroup[data-area="resources"] { grid-area: resources; }
-.linkGroup[data-area="email"] { grid-area: email; }
-.linkGroup[data-area="contact"] { grid-area: contact; }
 
 .linkGroup h3 {
   font-size: 1.1rem;
   font-weight: 600;
-  margin-bottom: 1.2rem;
+  margin-bottom: 1.25rem;
   color: var(--text-primary);
   position: relative;
+  text-align: center;
 }
 
 .linkGroup h3::after {
   content: '';
   position: absolute;
   bottom: -8px;
-  left: 0;
-  width: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2.5rem;
   height: 2px;
   background-color: var(--primary);
 }
@@ -116,10 +118,11 @@
   list-style: none;
   padding: 0;
   margin: 0;
+  text-align: center;
 }
 
 .linkGroup li {
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.875rem;
 }
 
 .linkGroup a {
@@ -135,73 +138,51 @@
   transform: translateX(3px);
 }
 
-/* Contact List */
-.contactList {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-}
-
-.contactItem {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.8rem;
-}
-
-.contactItem svg {
-  color: var(--primary);
-  flex-shrink: 0;
-  margin-top: 3px;
-}
-
-.contactItem p {
-  color: var(--text-secondary);
-  line-height: 1.5;
-  margin: 0;
-  font-size: 0.95rem;
-}
-
 /* Contact Form */
 .footerForm {
   width: 100%;
+  max-width: 450px;
+  margin: 0 auto;
+  padding: 0 1rem;
 }
 
 .footerForm h3 {
   font-size: 1.1rem;
   font-weight: 600;
-  margin-bottom: 1.5rem;
+  margin-bottom: 1.25rem;
   color: var(--text-primary);
   position: relative;
+  text-align: center;
 }
 
 .footerForm h3::after {
   content: '';
   position: absolute;
   bottom: -8px;
-  left: 0;
-  width: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2.5rem;
   height: 2px;
   background-color: var(--primary);
 }
 
 .contactForm {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  margin-top: 1rem;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin-top: 1.25rem;
 }
 
 .formGroup {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1rem;
-  grid-column: 1 / -1;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
 }
 
 .contactForm input,
 .contactForm textarea {
   width: 100%;
-  padding: 0.75rem 1rem;
+  padding: 0.875rem;
   border: 1px solid var(--border);
   border-radius: 8px;
   font-size: 0.95rem;
@@ -210,14 +191,13 @@
 }
 
 .contactForm textarea {
-  grid-column: 1 / -1;
-  min-height: 100px;
+  min-height: 120px;
   resize: vertical;
 }
 
 .contactForm button {
-  grid-column: 1 / -1;
-  padding: 0.75rem 1.5rem;
+  width: 100%;
+  padding: 0.875rem;
   background-color: var(--primary);
   color: white;
   border: none;
@@ -225,7 +205,7 @@
   font-weight: 600;
   font-size: 0.95rem;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: all 0.3s ease;
 }
 
 .contactForm button:hover {
@@ -236,10 +216,13 @@
 /* Footer Bottom */
 .footerBottom {
   display: flex;
-  justify-content: space-between;
+  flex-direction: column;
   align-items: center;
+  gap: 1.25rem;
   padding-top: 2rem;
   border-top: 1px solid var(--border);
+  text-align: center;
+  margin-top: 1rem;
 }
 
 .footerBottom p {
@@ -250,7 +233,9 @@
 
 .footerBottomLinks {
   display: flex;
-  gap: 1.5rem;
+  flex-direction: column;
+  gap: 1rem;
+  align-items: center;
 }
 
 .footerBottomLinks a {
@@ -265,176 +250,84 @@
 }
 
 /* Responsive Styles */
-@media (max-width: 1024px) {
-  .footerContent {
-    grid-template-columns: 1fr 1fr;
-  }
-  
-  .footerForm {
-    grid-column: span 2;
-    margin-top: 2rem;
-  }
+@media (min-width: 600px) {
   .footerLinksSection {
-    grid-template-areas:
-      "company resources"
-      "email email"
-      "contact contact";
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .formGroup {
     grid-template-columns: 1fr 1fr;
-    gap: 2rem;
   }
 }
 
-@media (max-width: 768px) {
-  .footerContent {
-    grid-template-columns: 1fr;
+@media (min-width: 900px) {
+  .footer {
+    padding: 4rem 0 2rem;
   }
 
-  .footerLinksSection {
-    grid-template-areas:
-      "company"
-      "resources"
-      "email"
-      "contact";
-    grid-template-columns: 1fr;
-    gap: 2rem;
+  .container {
+    padding: 0 2rem;
   }
-  
-  .footerForm {
-    grid-column: span 1;
+
+  .footerContent {
+    grid-template-columns: 1fr 2fr 1fr;
+    gap: 3rem;
   }
 
   .footerBrand {
-    text-align: center;
-    margin-bottom: 1rem;
+    align-items: flex-start;
+    text-align: left;
+    padding: 0;
   }
 
-  .logoContainer {
-    justify-content: center;
-    display: flex;
+  .brandDescription {
+    max-width: none;
   }
 
   .socialLinks {
-    justify-content: center;
+    justify-content: flex-start;
   }
 
-  .linkGroup h3::after,
-  .footerForm h3::after {
-    left: 50%;
-    transform: translateX(-50%);
-  }
-
-  .linkGroup {
-    text-align: center;
-  }
-
-  .contactItem {
-    justify-content: center;
-  }
-  
-  .formGroup {
-    grid-template-columns: 1fr;
-  }
-
-  .contactForm {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (max-width: 576px) {
   .footerLinksSection {
-    grid-template-columns: 1fr;
-    gap: 2rem;
-    grid-template-areas:
-      "company"
-      "resources"
-      "email"
-      "contact";
+    grid-template-columns: repeat(3, 1fr);
+    padding: 0;
+  }
+
+  .linkGroup h3 {
+    text-align: left;
+  }
+
+  .linkGroup h3::after {
+    left: 0;
+    transform: none;
+  }
+
+  .linkGroup ul {
+    text-align: left;
+  }
+
+  .footerForm {
+    margin: 0;
+    padding: 0;
+  }
+
+  .footerForm h3 {
+    text-align: left;
+  }
+
+  .footerForm h3::after {
+    left: 0;
+    transform: none;
   }
 
   .footerBottom {
-    flex-direction: column;
-    gap: 1rem;
-    text-align: center;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: left;
+    margin-top: 2rem;
   }
 
   .footerBottomLinks {
-    flex-direction: column;
-    gap: 0.75rem;
-    align-items: center;
+    flex-direction: row;
   }
 }
-
-/* Only adding the modified form styles, keeping the rest the same */
-
-.footerForm {
-  width: 100%;
-}
-
-.footerForm h3 {
-  font-size: 1rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  color: var(--text-primary);
-  position: relative;
-}
-
-.footerForm h3::after {
-  content: '';
-  position: absolute;
-  bottom: -5px;
-  left: 0;
-  width: 2rem;
-  height: 2px;
-  background-color: var(--primary);
-}
-
-.contactForm {
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  margin-top: 0.75rem;
-  color: aquamarine;
-}
-
-.formRow {
-  display: flex;
-  gap: 0.75rem;
-  width: 100%;
-  color: aquamarine;
-  
-}
-
-.contactForm input,
-.contactForm textarea {
-  width: 100%;
-  padding: 0.6rem 0.75rem;
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  font-size: 0.9rem;
-  background-color: var(--background);
-  color: var(--text-primary);
-}
-
-.contactForm textarea {
-  min-height: 60px;
-  resize: vertical;
-}
-
-.contactForm button {
-  padding: 0.6rem 1.25rem;
-  background-color: black;
-  color: white;
-  border: none;
-  border-radius: 6px;
-  font-weight: 600;
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  align-self: flex-start;
-}
-
-.contactForm button:hover {
-  background-color: var(--primary-dark);
-  transform: translateY(-2px);
-}
-
