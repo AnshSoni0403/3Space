@@ -4,7 +4,7 @@ import { useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import LaunchCountdown from "@/components/LaunchCountdown";
-import CollaborativeNetworkSection from "@/components/collab";
+// import CollaborativeNetworkSection from "@/components/collab";
 import styles from "@/styles/Home.module.css";
 import { motion } from "framer-motion";
 import { FaFlask, FaChevronDown } from "react-icons/fa";
@@ -119,7 +119,7 @@ export default function Home() {
           </div>
         </section>
 
-        <CollaborativeNetworkSection />
+        {/* <CollaborativeNetworkSection /> */}
 
         {/* Features */}
         <section className={`section ${styles.featuresSection}`}>
