@@ -20,7 +20,7 @@ export default function Home() {
   const pyqs = [
     {
       id: 1,
-      year: "2024",
+      // year: "2024",
       title: "Space Propulsion Systems",
       question:
         "Explain the principles of ion propulsion and its applications in deep space missions.",
@@ -30,7 +30,7 @@ export default function Home() {
     },
     {
       id: 2,
-      year: "2023",
+      // year: "2023",
       title: "Orbital Mechanics",
       question:
         "Calculate the delta-v required for a Hohmann transfer from LEO to GEO.",
@@ -40,7 +40,7 @@ export default function Home() {
     },
     {
       id: 3,
-      year: "2023",
+      // year: "2023",
       title: "Spacecraft Materials",
       question: "Discuss the challenges of material selection for re-entry vehicles.",
       answer:
@@ -49,7 +49,7 @@ export default function Home() {
     },
     {
       id: 4,
-      year: "2022",
+      // year: "2022",
       title: "Satellite Communication",
       question:
         "Explain the advantages of Ka-band over Ku-band for satellite communications.",
