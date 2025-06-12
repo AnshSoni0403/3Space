@@ -92,7 +92,7 @@ export default function Home() {
                 <p>Building Tomorrow's Launch Technologies, Today</p>
                 <div className={styles.heroBtns}>
                   <a href="#countdown" className="btn btn-primary">Next Launch</a>
-                  <a href="/products" className="btn btn-secondary">Explore Rockets</a>
+                  {/* <a href="/products" className="btn btn-secondary">Explore Rockets</a> */}
                 </div>
               </motion.div>
             </div>
@@ -170,11 +170,11 @@ export default function Home() {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <h2>Ready to Join the Space Revolution?</h2>
-              <p>Discover how 3 SPACE is making space exploration accessible, sustainable, and revolutionary.</p>
+              <h2>Join us at 3SPACE and become a part of something bigger.</h2>
+              <p>Explore a wide range of career paths that empower you to shape the future of sustainable and inclusive space exploration.</p>
               <div className={styles.ctaBtns}>
-                <a href="/launches" className="btn btn-primary">View Launch History</a>
-                <a href="/about" className="btn btn-secondary">Learn More</a>
+                <a href="/careers" className="btn btn-primary">Explore</a>
+                {/* <a href="/about" className="btn btn-secondary">Learn More</a> */}
               </div>
             </motion.div>
           </div>
