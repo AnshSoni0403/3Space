@@ -44,7 +44,7 @@ export default function Navbar() {
           <div className={styles.logoContainer}>
             <Image
               src="/logo.png"
-              alt="3 SPACE"
+              alt="3SPACE"
               width={250}
               height={250}
               priority

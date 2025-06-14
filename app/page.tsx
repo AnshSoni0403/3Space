@@ -124,7 +124,7 @@ export default function Home() {
         {/* Features */}
         <section className={`section ${styles.featuresSection}`}>
           <div className="container">
-            <h2 className="section-title">Why Choose 3 SPACE?</h2>
+            <h2 className="section-title">Why Choose 3SPACE?</h2>
             <div className="grid grid-3">
               {[
                 {

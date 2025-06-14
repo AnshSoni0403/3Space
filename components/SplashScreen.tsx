@@ -77,7 +77,7 @@ export default function SplashScreen() {
                   animate={{ letterSpacing: "0.5em" }}
                   transition={{ duration: 3, ease: "easeOut" }}
                 >
-                  3 SPACE
+                  3SPACE
                 </motion.h1>
                 <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2.5, duration: 1.5 }}>
                   BEYOND THE FRONTIER

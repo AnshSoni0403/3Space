@@ -30,9 +30,9 @@ const companyLinks = [
 
 const resourceLinks = [
   // { id: 'research', path: '/resources/research', label: 'Research' },
-  { id: 'blog', path: '/resources/blogs', label: 'Blog' },
+  { id: 'blog', path: 'blogs', label: 'Blog' },
   // { id: 'gallery', path: '/resources/gallery', label: 'Gallery' },
-  { id: 'faq', path: '/resources/faq', label: 'FAQ' }
+  { id: 'faq', path: 'FAQ', label: 'FAQ' }
 ];
 
 const contactItems = [
@@ -97,7 +97,7 @@ export default function Footer() {
               <Link href="/" className={styles.logo}>
                 <Image
                   src="/logo.png"
-                  alt="3 SPACE Logo"
+                  alt="3SPACE Logo"
                   width={120}
                   height={120}
                   className={styles.logoImage}

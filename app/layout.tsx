@@ -6,7 +6,7 @@ import "./globals.css"
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
-  title: "3 SPACE - Leading Space Exploration",
+  title: "3SPACE - Leading Space Exploration",
   description:
     "Making India a global leader in space exploration through cost-effective satellite launches and reusable rockets.",
 }

@@ -119,7 +119,7 @@ export default function CareersPage() {
           >
             <h1>Join Our Mission</h1>
             {/* <p>
-              At 3 SPACE, we're on a mission to make India a global leader in space exploration. We're looking for
+              At 3SPACE, we're on a mission to make India a global leader in space exploration. We're looking for
               passionate individuals who share our vision and want to be part of this exciting journey. Join our team of
               innovators, engineers, and dreamers as we push the boundaries of what's possible in space technology.
             </p> */}
@@ -130,9 +130,9 @@ export default function CareersPage() {
       <section className={`section ${styles.careersSection}`}>
         <div className="container">
           <div className={styles.careersIntro}>
-            {/* <h2>Careers at 3 SPACE</h2> */}
+            {/* <h2>Careers at 3SPACE</h2> */}
             <p>
-              At 3 SPACE, we're on a mission to make India a global leader in space exploration. We're looking for
+              At 3SPACE, we're on a mission to make India a global leader in space exploration. We're looking for
               passionate individuals who share our vision and want to be part of this exciting journey. Join our team of
               innovators, engineers, and dreamers as we push the boundaries of what's possible in space technology.
             </p>
@@ -268,7 +268,7 @@ export default function CareersPage() {
         <div className="container">
           <h2 className="section-title">Why Work With Us</h2>
           <p className="section-subtitle">
-            At 3 SPACE, we offer more than just a job. Join us and be part of a team that's making history.
+            At 3SPACE, we offer more than just a job. Join us and be part of a team that's making history.
           </p>
 
           <div className="grid grid-3">

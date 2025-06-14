@@ -60,7 +60,7 @@ export default function AboutPage() {
             transition={{ duration: 0.6 }}
             className={styles.heroContent}
           >
-            <h1>About 3 SPACE</h1>
+            <h1>About 3SPACE</h1>
             <p>Pioneering the future of space exploration</p>
           </motion.div>
         </div>

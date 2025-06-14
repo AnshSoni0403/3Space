@@ -20,10 +20,10 @@ export default function BlogsPage() {
       excerpt:
         "How India carved out its space in the stars - from ancient dreams to modern missions",
       date: "Aug 27, 2025",
-      author: "3 Space",
+      author: "3Space",
       readTime: "2 min read",
       category: "technology",
-      image: "../images/blogs/download.jpg",
+      image: "/images/blogs/download.jpg",
     },
     // {
     //   id: 2,
