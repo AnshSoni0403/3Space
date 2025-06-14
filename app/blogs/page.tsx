@@ -57,7 +57,7 @@ export default function BlogsPage() {
             transition={{ duration: 0.6 }}
             className={styles.heroContent}
           >
-            <h1>Space Insights</h1>
+            <h1 className="spaceinsights">Space Insights</h1>
             <p>
               Expert analysis and thought leadership from the frontier of space exploration
             </p>
