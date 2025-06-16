@@ -50,7 +50,8 @@ const emailLinks = [
 export default function Footer() {
   const [formData, setFormData] = useState<FormData>({ name: '', email: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+  const API_URL = 'https://threespacebackend.onrender.com';
+  // const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
 
   const handleChange = (e: ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -63,19 +64,35 @@ export default function Footer() {
     
     setIsSubmitting(true);
     try {
-      const response = await fetch(`${API_URL}/api/contact`, {
+      console.log('Sending request with data:', formData); // Debug log
+      
+      const response = await fetch('https://threespacebackend.onrender.com/api/contact', {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
         body: JSON.stringify(formData)
       });
 
+      console.log('Response status:', response.status); // Debug log
+      
+      if (!response.ok) {
+        const errorData = await response.json().catch(() => ({}));
+        throw new Error(errorData.message || `HTTP error! status: ${response.status}`);
+      }
+
       const data = await response.json();
-      if (!response.ok) throw new Error(data.message || 'Failed to send message');
+      console.log('Response data:', data); // Debug log
 
       alert(data.message || '✅ Message sent successfully!');
       setFormData({ name: '', email: '', message: '' });
     } catch (err) {
-      console.error('Submission error:', err);
+      console.error('Detailed submission error:', {
+        error: err,
+        message: err instanceof Error ? err.message : 'Unknown error',
+        stack: err instanceof Error ? err.stack : undefined
+      });
       alert(`❌ ${err instanceof Error ? err.message : 'An error occurred. Please try again.'}`);
     } finally {
       setIsSubmitting(false);
