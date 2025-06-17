@@ -1,6 +1,6 @@
 "use client"
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 import { motion } from "framer-motion"
 import ParallaxBackground from "@/components/ParallaxBackground"
 import Navbar from "@/components/Navbar"
@@ -13,6 +13,9 @@ export default function CareersPage() {
   const [activeTab, setActiveTab] = useState("all")
   const [expandedJob, setExpandedJob] = useState<number | null>(null)
   const [searchTerm, setSearchTerm] = useState("")
+  const [apiJobs, setApiJobs] = useState([])
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState(null)
 
   const toggleJob = (id: number) => {
     if (expandedJob === id) {
@@ -22,7 +25,8 @@ export default function CareersPage() {
     }
   }
 
-  const jobs = [
+  // Constant jobs (existing 3 careers)
+  const constantJobs = [
     {
       id: 1,
       title: "Avionics Hardware Engineer",
@@ -39,10 +43,10 @@ export default function CareersPage() {
         "Document schematics, layouts, and test procedures.",
       ],
       requirements: [
-        "Bachelor’s or Masters in Electronics, Electrical, or related field.",
+        "Bachelor's or Masters in Electronics, Electrical, or related field.",
         "Experience with PCB design tools (e.g., Altium, KiCAD).",
         "Understanding of signal integrity, power electronics, and embedded systems.",
-        "Familiar with aerospace standards and testing."
+        "Familiar with aerospace standards and testing."
       ],
     },
     {
@@ -62,10 +66,10 @@ export default function CareersPage() {
         "Collaborate with hardware and systems teams for integration and testing."
       ],
       requirements: [
-        "Bachelor’s in ECE, CSE, or related field.",
+        "Bachelor's in ECE, CSE, or related field.",
         "Strong in embedded C/C++, RTOS, and low-level programming.",
         "Experience with IDEs, debuggers, and hardware tools (oscilloscope, logic analyzer).",
-        "Familiar with version control (Git) and real-time systems.",
+        "Familiar with version control (Git) and real-time systems.",
       ],
     },
     {
@@ -85,16 +89,59 @@ export default function CareersPage() {
         "Collaborate with mechanical, electronics, and software teams."
       ],
       requirements: [
-        "Bachelor’s in Electrical, Mechatronics, or related field.",
+        "Bachelor's in Electrical, Mechatronics, or related field.",
         "Strong foundation in control theory and system dynamics.",
         "Experience with MATLAB/Simulink and real-time implementation.",
-        "Familiar with sensors, actuators, and embedded control systems."
+        "Familiar with sensors, actuators, and embedded control systems."
       ],
 
     }
   ]
 
-  const filteredJobs = jobs.filter((job) => {
+  // Fetch careers from API
+  useEffect(() => {
+    const fetchCareers = async () => {
+      try {
+        setLoading(true)
+        const response = await fetch('https://threespacebackend.onrender.com/api/careers/all')
+        
+        if (!response.ok) {
+          throw new Error(`HTTP error! status: ${response.status}`)
+        }
+        
+        const data = await response.json()
+        
+        // Transform API data to match the frontend structure
+        const transformedJobs = data.map((job, index) => ({
+          id: constantJobs.length + index + 1, // Ensure unique IDs
+          title: job.JobTitle,
+          department: job.Field,
+          location: job.workType,
+          type: job.employmentType,
+          description: job.description,
+          responsibilities: job.responsibilities || [],
+          requirements: job.requirements || [],
+          isFromAPI: true // Flag to identify API jobs
+        }))
+        
+        setApiJobs(transformedJobs)
+        setError(null)
+      } catch (err) {
+        console.error('Error fetching careers:', err)
+        setError('')
+        setApiJobs([])
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchCareers()
+  }, [])
+
+  // Combine constant jobs with API jobs
+  const allJobs = [...constantJobs, ...apiJobs]
+
+  const filteredJobs = allJobs.filter((job) => {
     const matchesSearch =
       job.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
       job.department.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -182,6 +229,18 @@ export default function CareersPage() {
               </button>
             </div>
           </div>
+
+          {loading && (
+            <div className={styles.loading}>
+              <p></p>
+            </div>
+          )}
+
+          {error && (
+            <div className={styles.error}>
+              <p>{error}</p>
+            </div>
+          )}
 
           <div className={styles.jobsList}>
             {filteredJobs.length > 0 ? (
