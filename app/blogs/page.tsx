@@ -23,7 +23,7 @@ export default function BlogsPage() {
       author: "3Space",
       readTime: "2 min read",
       category: "technology",
-      image: "/images/blogs/download.jpg",
+      image: "/images/Blogs/download.jpg",
     },
     // {
     //   id: 2,
