@@ -74,7 +74,7 @@ export default function Home() {
           <div className={styles.heroFlexContainer}>
             <div className={styles.earthImageContainer}>
               <Image
-                src="/image/try1.png"
+                src="/image/mars.png"
                 alt="Earth from space"
                 fill
                 className={styles.earthImage}
@@ -130,17 +130,17 @@ export default function Home() {
                 {
                   icon: <Rocket size={32} style={iconStyle} />,
                   title: "Reusable Rockets",
-                  text: "Our innovative reusable rocket technology reduces launch costs by up to 70%, making space more accessible.",
+                  text: "Slash launch costs by up to 70% with next-gen reusability.",
                 },
                 {
                   icon: <Satellite size={32} style={iconStyle} />,
                   title: "Sustainable Space",
-                  text: "We reduce launch emissions, enhance reusability, and prevent debris—because sustainability in space is our mission.",
+                  text: "Eco-conscious launches with low emissions and zero space debris.",
                 },
                 {
                   icon: <FaFlask size={32} style={iconStyle} />,
                   title: "Research & Development",
-                  text: "Cutting-edge R&D in propulsion systems, materials science, and space habitation technologies.",
+                  text: "Pioneering advances in propulsion, materials, and space living systems.",
                 },
               ].map((feature, idx) => (
                 <motion.div

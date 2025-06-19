@@ -23,12 +23,13 @@ export default function AboutPage() {
   const missionSteps = [
     {
       title: "Our Mission",
-      content: "To make India a global leader in space exploration, enabling humanity to become a spacefaring species through cost-effective satellite launches and reusable rockets."
+      content: "To position India as a global space leader by enabling cost-effective satellite launches and developing reusable rockets—paving the way for a spacefaring humanity."
+
     },
     {
       title: "What we aim at",
       content: [
-        "100km Rocket: Focus on scaling from PoC to commercially viable models.Community Growth: Building a robust ecosystem of space enthusiasts and professionals.Expand Partnerships: Collaborating with global entities to accelerate innovation.",
+        "We make space affordable, accessible, and sustainable through low-cost satellite launches, reusable rockets, and self-landing cryogenic engine technology.",
       ]
     }
   ]
@@ -36,12 +37,12 @@ export default function AboutPage() {
   const visionSteps = [
     {
       title: "Our Vision",
-      content: "To create a sustainable multi-planetary existence by exploring our precious cosmos, enabling deep space travel, and advancing technology for the betterment of humanity."
+      content: "A sustainable multi-planetary future—advancing deep space travel and space tech for the betterment of humankind."
     },
     {
       title: "What we do",
       content: [
-        "Making Space Exploration Affordable, Accessible, and Sustainable.We provide affordable satellite launches, focusing on reusable rockets and self-landing cryogenic engine technology for scalability.",
+        "100km Rocket: From proof-of-concept to commercial launch systems.Community Growth: Building a vibrant space ecosystem.Global Partnerships: Collaborating worldwide to fast-track innovation.",
         
       ]
     }
