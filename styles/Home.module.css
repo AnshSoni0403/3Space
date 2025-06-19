@@ -18,34 +18,35 @@
   position: relative;
 }
 
-/* Earth image container - Made much larger to fill more space */
+/* Earth image container - Adjusted to not extend beyond navbar */
 .earthImageContainer {
   position: absolute;
-  width: 85%;
-  height: 140%;
-  top: 50%;
-  left: -10%;
+  width: 75%;
+  height: 120%;
+  top: 62%;
+  left: -8%;
   transform: translateY(-50%);
   z-index: 1;
   overflow: hidden;
 }
 
 .earthImageContainer img{
-  /* position: absolute; */
-  width: 65%;
-  height: 60%;
-  margin-top: 40%;
-  left: -10%;
+  width: 70%;
+  height: 65%;
+  margin-top: 32%;
+  left: -8%;
   transform: translateY(-50%);
   z-index: 1;
   overflow: hidden;
+  margin-left: 45px;
 }
-/* Earth image styling - Enhanced size and positioning */
+
+/* Earth image styling - Reduced size to prevent navbar overlap */
 .earthImage {
   object-fit: cover;
   object-position: center;
-  width: 50%;
-  height: 60%;
+  width: 45%;
+  height: 50%;
   opacity: 1;
   filter: brightness(1.15) contrast(1.1);
 }
@@ -428,7 +429,6 @@
 
 .pyqOpen .pyqAnswer {
   max-height: 1000px;
-  /* Large enough value to accommodate any answer */
   opacity: 1;
 }
 
@@ -524,9 +524,10 @@
   }
   
   .earthImageContainer {
-    width: 65%;
-    height: 130%;
-    left: -8%;
+    width: 60%;
+    height: 100%;
+    left: -6%;
+    top: 58%;
   }
   
   .heroContent {
@@ -553,9 +554,10 @@
   }
   
   .earthImageContainer {
-    width: 60%;
-    height: 120%;
-    left: -5%;
+    width: 55%;
+    height: 95%;
+    left: -4%;
+    top: 60%;
   }
   
   .heroContent {
@@ -573,9 +575,9 @@
   .earthImageContainer {
     position: relative;
     width: 100%;
-    height: 60vh;
-    min-height: 400px;
-    max-height: 500px;
+    height: 50vh;
+    min-height: 350px;
+    max-height: 450px;
     top: auto;
     left: auto;
     transform: none;
@@ -662,16 +664,14 @@
   }
   
   .earthImageContainer {
-    height: 50vh;
-    min-height: 350px;
-    max-height: 450px;
-    /* Add 90-degree rotation for mobile aesthetic */
+    height: 45vh;
+    min-height: 320px;
+    max-height: 400px;
     transform: rotate(-90deg);
     transform-origin: center center;
   }
   
   .earthImage {
-    /* Counter-rotate to maintain proper orientation */
     transform: rotate(90deg);
     transform-origin: center center;
   }
@@ -683,15 +683,13 @@
 
 @media (max-width: 600px) {
   .earthImageContainer {
-    height: 45vh;
-    min-height: 300px;
-    max-height: 400px;
-    /* Maintain rotation */
+    height: 40vh;
+    min-height: 280px;
+    max-height: 350px;
     transform: rotate(-90deg);
   }
   
   .earthImage {
-    /* Counter-rotate */
     transform: rotate(90deg);
   }
   
@@ -750,11 +748,10 @@
   }
   
   .earthImageContainer {
-    height: 40vh;
-    min-height: 280px;
-    max-height: 350px;
-    /* Enhanced rotation with slight scale for better visual */
-    transform: rotate(-90deg) scale(1.1);
+    height: 35vh;
+    min-height: 250px;
+    max-height: 320px;
+    transform: rotate(-90deg) scale(1.05);
   }
   
   .earthImage {
@@ -776,11 +773,10 @@
   }
   
   .earthImageContainer {
-    height: 35vh;
-    min-height: 250px;
-    max-height: 300px;
-    /* Maintain aesthetic rotation */
-    transform: rotate(-90deg) scale(1.15);
+    height: 32vh;
+    min-height: 220px;
+    max-height: 280px;
+    transform: rotate(-90deg) scale(1.1);
   }
   
   .earthImage {
