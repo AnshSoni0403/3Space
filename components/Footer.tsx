@@ -18,7 +18,7 @@ const socialLinks = [
   { id: 'twitter', icon: <RiTwitterXFill size={18} />, url: 'https://x.com/3Space_tech' },
   { id: 'linkedin', icon: <Linkedin size={18} />, url: 'https://linkedin.com/company/3space' },
   { id: 'instagram', icon: <Instagram size={18} />, url: 'https://instagram.com/3space_tech' },
-  { id: 'youtube', icon: <Youtube size={18} />, url: 'https://youtube.com/@3space_tech' }
+  // { id: 'youtube', icon: <Youtube size={18} />, url: 'https://youtube.com/@3space_tech' }
 ];
 
 const companyLinks = [
