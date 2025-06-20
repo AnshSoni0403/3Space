@@ -1,3 +1,40 @@
+/* Email Icon Button */
+.emailIconButton {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  color: white;
+  text-decoration: none;
+  background: transparent;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  transition: all 0.2s ease;
+  margin-right: auto; /* Push logo to center */
+  cursor: pointer;
+}
+
+.emailIconButton:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.4);
+  transform: scale(1.1);
+}
+
+.emailIconButton:active {
+  transform: scale(0.95);
+}
+
+/* Centered Logo Container */
+.logoCenter {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  justify-content: center;
+  width: auto;
+}
+
 /* Base Navbar Styles */
 .navbar {
   position: fixed;
@@ -28,9 +65,11 @@
   margin: 0 auto;
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: flex-end;
   position: relative;
-  /* Needed for absolute positioning of mobile dropdown */
+  /* Needed for absolute positioning of mobile dropdown and logo */
+  padding: 0 20px;
+  /* Add some padding on the sides */
 }
 
 /* Logo Styles */

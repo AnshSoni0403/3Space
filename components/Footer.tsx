@@ -37,7 +37,7 @@ const resourceLinks = [
 
 const contactItems = [
   { id: 'address', icon: <MapPin size={16} />, content: 'Incubated at:- IIC PDEU, Gandhinagar, Gujarat', url: 'https://maps.app.goo.gl/oYVoFXa7JgS2cQuN8' },
-  { id: 'email', icon: <Mail size={16} />, content: '3spacetechcorp@gmail.com', url: 'mailto:3spacetechcorp@gmail.com' },
+  // { id: 'email', icon: <Mail size={16} />, content: '3spacetechcorp@gmail.com', url: 'mailto:3spacetechcorp@gmail.com' },
   { id: 'phone', icon: <Phone size={16} />, content: '+91 6351932850' }
 ];
 

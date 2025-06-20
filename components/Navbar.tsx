@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { Menu, X } from "lucide-react"
+import { Menu, X, Mail } from "lucide-react"
 import styles from "@/styles/components/Navbar.module.css" // Adjust path as needed
 
 export default function Navbar() {
@@ -40,17 +40,30 @@ export default function Navbar() {
   return (
     <header className={`${styles.navbar} ${isScrolled ? styles.scrolled : ""}`}>
       <div className={styles.container}>
-        <Link href="/" className={styles.logo} onClick={handleLinkClick}>
-          <div className={styles.logoContainer}>
-            <Image
-              src="/logo.png"
-              alt="3SPACE"
-              width={250}
-              height={250}
-              priority
-            />
-          </div>
-        </Link>
+        {/* Email Button - Icon Only */}
+        <a 
+          href="mailto:contactus@3spacecorp.com" 
+          className={styles.emailIconButton}
+          aria-label="Email us at contactus@3spacecorp.com"
+          title="Email us at contactus@3spacecorp.com"
+        >
+          <Mail size={20} />
+        </a>
+        
+        {/* Centered Logo */}
+        <div className={styles.logoCenter}>
+          <Link href="/" className={styles.logo} onClick={handleLinkClick}>
+            <div className={styles.logoContainer}>
+              <Image
+                src="/logo.png"
+                alt="3SPACE"
+                width={250}
+                height={250}
+                priority
+              />
+            </div>
+          </Link>
+        </div>
 
         {/* Desktop Navigation */}
         <nav className={styles.desktopNavWrapper} aria-label="Main Navigation">
