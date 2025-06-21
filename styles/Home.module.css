@@ -23,7 +23,7 @@
   position: absolute;
   width: 75%;
   height: 120%;
-  top: 62%;
+  top: 64%;
   left: -8%;
   transform: translateY(-50%);
   z-index: 1;
@@ -527,7 +527,7 @@
     width: 60%;
     height: 100%;
     left: -6%;
-    top: 58%;
+    top: 68%;
   }
   
   .heroContent {
@@ -554,10 +554,10 @@
   }
   
   .earthImageContainer {
-    width: 55%;
+    width: 75%;
     height: 95%;
     left: -4%;
-    top: 60%;
+    top: 65%;
   }
   
   .heroContent {
@@ -573,13 +573,13 @@
   }
   
   .earthImageContainer {
-    position: relative;
-    width: 100%;
-    height: 50vh;
-    min-height: 350px;
-    max-height: 450px;
-    top: auto;
-    left: auto;
+    position: absolute ;
+    width: 96%;
+    height: 100%;
+    min-height: 450px;
+    /* max-height: 450px; */
+    top: 10%;
+    left: -20%;
     transform: none;
     order: 1;
   }
@@ -595,6 +595,7 @@
   }
   
   .heroContent {
+    margin-top: 20%;
     text-align: center;
     max-width: 700px;
     margin-left: 0;
@@ -614,15 +615,19 @@
 
 @media (max-width: 768px) {
   .heroContent h1 {
+    margin-top: 20%;
+    margin-left: 10%;
     font-size: 2.8rem;
   }
 
   .heroContent p {
     font-size: 1.1rem;
+    margin-left: 20%;
     max-width: 100%;
   }
 
   .heroBtns {
+    margin-left: 20%;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
@@ -664,9 +669,12 @@
   }
   
   .earthImageContainer {
-    height: 45vh;
-    min-height: 320px;
-    max-height: 400px;
+    height: 70vh;
+    top:10%;
+    left: -10%;
+    
+    min-height: 420px;
+    /* max-height: 400px; */
     transform: rotate(-90deg);
     transform-origin: center center;
   }
@@ -683,9 +691,10 @@
 
 @media (max-width: 600px) {
   .earthImageContainer {
-    height: 40vh;
-    min-height: 280px;
-    max-height: 350px;
+    height: 30vh;
+    min-height: 350px;
+    top: 20%;
+    left: -20%;
     transform: rotate(-90deg);
   }
   
@@ -698,7 +707,9 @@
   }
   
   .heroContent h1 {
-    font-size: 2.5rem;
+    top: 50%;
+    left: 1%;
+    font-size: 2rem;
     line-height: 1.2;
   }
   
@@ -709,6 +720,7 @@
 
 @media (max-width: 480px) {
   .heroContent h1 {
+    margin-top: 40%;
     font-size: 2.2rem;
   }
 
@@ -751,6 +763,7 @@
     height: 35vh;
     min-height: 250px;
     max-height: 320px;
+    top: 25%;
     transform: rotate(-90deg) scale(1.05);
   }
   
