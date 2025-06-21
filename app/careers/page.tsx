@@ -66,7 +66,8 @@ export default function CareersPage() {
         "Collaborate with hardware and systems teams for integration and testing."
       ],
       requirements: [
-        "Bachelor's in ECE, CSE, or related field.",
+        "Bachelor's or Masters in Electronics, Electrical, or related field.",
+        "Familiar with microcontroller protocols such as SPI, I2C, and UART.",
         "Strong in embedded C/C++, RTOS, and low-level programming.",
         "Experience with IDEs, debuggers, and hardware tools (oscilloscope, logic analyzer).",
         "Familiar with version control (Git) and real-time systems.",
@@ -74,7 +75,7 @@ export default function CareersPage() {
     },
     {
       id: 3,
-      title: "Control System Design Engineer",
+      title: "Guidance Navigation and Control Engineer",
       department: "Engineering",
       location: "Remote",
       type: "Full-time",
@@ -89,7 +90,7 @@ export default function CareersPage() {
         "Collaborate with mechanical, electronics, and software teams."
       ],
       requirements: [
-        "Bachelor's in Electrical, Mechatronics, or related field.",
+        "Bachelor's in Electronics, Electrical, Mechatronics, Aerospace, Mechanical or related fields.",
         "Strong foundation in control theory and system dynamics.",
         "Experience with MATLAB/Simulink and real-time implementation.",
         "Familiar with sensors, actuators, and embedded control systems."
