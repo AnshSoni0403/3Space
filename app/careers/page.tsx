@@ -306,7 +306,7 @@ export default function CareersPage() {
                       </div>
 
                       <div className={styles.applySection}>
-                        <Link href={`/careers/apply/${job.id}`} className={styles.applyButton}>
+                        <Link href={`https://forms.zohopublic.in/3space/form/Jobapplication/formperma/SK8629fXnU96aYIryG-GWZRdAgcJJz7wd3fqufv4qfw`} className={styles.applyButton}>
                           Apply Now
                         </Link>
                       </div>
