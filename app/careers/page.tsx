@@ -341,8 +341,8 @@ export default function CareersPage() {
             >
               <h3>Cutting-Edge Technology</h3>
               <p>
-                Work with the latest aerospace technologies and contribute to innovations that are pushing the
-                boundaries of what's possible in space exploration.
+              Work with the latest aerospace innovations shaping the future of space exploration.
+
               </p>
             </motion.div>
 
@@ -353,10 +353,10 @@ export default function CareersPage() {
               transition={{ duration: 0.5, delay: 0.2 }}
               viewport={{ once: true }}
             >
-              <h3>Professional Growth</h3>
+              <h3>Growth Opportunities</h3>
               <p>
-                Continuous learning opportunities, mentorship programs, and a clear career progression path to help you
-                reach your full potential.
+              Learn, grow, and progress with mentorship and clear career paths.
+
               </p>
             </motion.div>
 
@@ -367,10 +367,10 @@ export default function CareersPage() {
               transition={{ duration: 0.5, delay: 0.3 }}
               viewport={{ once: true }}
             >
-              <h3>Meaningful Impact</h3>
+              <h3>Meaningful Work</h3>
               <p>
-                Be part of a mission that's making a real difference in advancing India's position in the global space
-                industry and enabling humanity's future in space.
+              Join a mission advancing India’s role in global space and shaping humanity’s future.
+
               </p>
             </motion.div>
 
@@ -381,10 +381,10 @@ export default function CareersPage() {
               transition={{ duration: 0.5, delay: 0.4 }}
               viewport={{ once: true }}
             >
-              <h3>Comprehensive Benefits</h3>
+              <h3>Great Benefits</h3>
               <p>
-                Competitive salary, health insurance, retirement plans, and additional perks designed to support your
-                wellbeing and work-life balance.
+              Enjoy competitive pay, insurance, retirement plans, and wellness perks.
+
               </p>
             </motion.div>
 
@@ -395,10 +395,9 @@ export default function CareersPage() {
               transition={{ duration: 0.5, delay: 0.4 }}
               viewport={{ once: true }}
             >
-              <h3>Collaborative Environment</h3>
+              <h3>Team Culture</h3>
               <p>
-                Work alongside some of the brightest minds in the industry in a culture that values teamwork,
-                innovation, and open communication.
+              Collaborate with brilliant minds in a culture of innovation and openness.
               </p>
             </motion.div>
 
@@ -409,10 +408,9 @@ export default function CareersPage() {
               transition={{ duration: 0.5, delay: 0.5 }}
               viewport={{ once: true }}
             >
-              <h3>Flexible Work Arrangements</h3>
+              <h3>Flexible Work</h3>
               <p>
-                We understand the importance of work-life balance and offer flexible scheduling options to help you
-                perform at your best.
+              Balance life and work with supportive, flexible scheduling.
               </p>
             </motion.div>
           </div>

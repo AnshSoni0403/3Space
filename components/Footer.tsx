@@ -257,7 +257,7 @@ export default function Footer() {
 
         {/* Bottom */}
         <div className={styles.footerBottom}>
-          <p>&copy; {new Date().getFullYear()} 3 SPACE. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} 3SPACE. All rights reserved.</p>
           <div className={styles.footerBottomLinks}>
             {['privacy', 'terms', 'cookies'].map((link) => (
               <motion.div 
