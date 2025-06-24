@@ -86,7 +86,7 @@ export default function FAQPage() {
       // year: "2024",
       title: "Mission Planning",
       question: "What is a planetary launch window and how is it calculated?",
-      answer: "A planetary launch window is the optimal time to launch a spacecraft for minimal energy use, calculated based on planetary alignments and orbital mechanics.",
+      answer: "Requirements, mission duration, and arrival conditions. Optimal windows minimize delta-v requirements and occur when planets are favorably positioned, typically every 26 months for Mars missions.",
       // difficulty: "Beginner",
       category: "Mission Planning"
     }
