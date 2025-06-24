@@ -22,8 +22,8 @@ export default function FAQPage() {
       id: 1,
       // year: "2024",
       title: "Space Propulsion Systems",
-      question: "What are the principles of ion propulsion and how are they applied in deep space missions?",
-      answer: "Ion propulsion accelerates ions using electrical fields to create thrust. It's ideal for deep space missions due to high specific impulse and fuel efficiency, used in missions like NASA's Dawn and JAXA's Hayabusa.",
+      question: "What are the differences between electric, chemical, and nuclear propulsion?",
+      answer: "Electric uses electricity to accelerate ions, chemical burns fuel for high thrust, and nuclear uses nuclear reactions for propulsion.",
       // difficulty: "Advanced",
       category: "Propulsion"
     },
@@ -31,8 +31,8 @@ export default function FAQPage() {
       id: 2,
       // year: "2023",
       title: "Orbital Mechanics",
-      question: "How do you calculate the delta-v required for a Hohmann transfer from LEO to GEO?",
-      answer: "For a Hohmann transfer from LEO (400km) to GEO (35,786km), the total delta-v is approximately 3.8 km/s: 2.5 km/s for transfer orbit insertion and 1.3 km/s for circularization at GEO.",
+      question: "How do gravitational slingshots (gravity assists) work?",
+      answer: "Gravitational slingshots use a planet's gravity and motion to change a spacecraft’s speed and direction without using extra fuel.",
       // difficulty: "Intermediate",
       category: "Orbital Mechanics"
     },
@@ -40,8 +40,8 @@ export default function FAQPage() {
       id: 3,
       // year: "2023",
       title: "Spacecraft Materials",
-      question: "What are the main challenges in material selection for re-entry vehicles?",
-      answer: "Re-entry vehicles face extreme temperatures (1500°C+), thermal shock, and ablation. Materials must balance thermal protection, structural integrity, and weight constraints. Common solutions include carbon-carbon composites and ceramic tiles.",
+      question: "What materials are used for thermal protection systems (TPS)?",
+      answer: "Thermal protection systems use materials like reinforced carbon-carbon, ablative composites, silica tiles, and ceramic blankets to withstand extreme heat during re-entry.",
       // difficulty: "Advanced",
       category: "Materials"
     },
@@ -49,8 +49,8 @@ export default function FAQPage() {
       id: 4,
       // year: "2022",
       title: "Satellite Communication",
-      question: "What are the advantages of Ka-band over Ku-band for satellite communications?",
-      answer: "Ka-band (26.5-40 GHz) offers higher bandwidth, smaller antennas, and greater frequency reuse than Ku-band (12-18 GHz), enabling higher data rates. However, it's more susceptible to rain fade and requires more sophisticated signal processing.",
+      question: "How is signal delay managed in deep space communication?",
+      answer: "Signal delay in deep space communication is managed by using pre-programmed commands, autonomous systems, and time-tagged instructions.",
       // difficulty: "Intermediate",
       category: "Communications"
     },
@@ -67,8 +67,8 @@ export default function FAQPage() {
       id: 6,
       // year: "2022",
       title: "Aerodynamics",
-      question: "What is hypersonic flow and what challenges does it present in vehicle design?",
-      answer: "Hypersonic flow (Mach >5) involves complex phenomena like shock-boundary layer interactions, real gas effects, and extreme heating. Design challenges include thermal protection, control surface effectiveness, and structural integrity under intense aerothermal loads.",
+      question: "What is boundary layer transition and how does it affect high-speed flight?",
+      answer: "Boundary layer transition is the change from smooth laminar flow to turbulent flow over a surface, increasing skin friction and heat during high-speed flight.",
       // difficulty: "Advanced",
       category: "Aerodynamics"
     },
@@ -76,8 +76,8 @@ export default function FAQPage() {
       id: 7,
       // year: "2023",
       title: "Guidance and Control",
-      question: "How do inertial navigation systems work in spacecraft?",
-      answer: "Inertial navigation uses accelerometers and gyroscopes to track position and orientation without external references. It provides autonomous navigation capability but suffers from drift over time, requiring periodic corrections from other navigation sources.",
+      question: "What is the difference between open-loop and closed-loop guidance?",
+      answer: "Open-loop guidance follows a preset path without feedback, while closed-loop guidance uses real-time data to adjust the trajectory.",
       // difficulty: "Intermediate",
       category: "Navigation"
     },
@@ -85,8 +85,8 @@ export default function FAQPage() {
       id: 8,
       // year: "2024",
       title: "Mission Planning",
-      question: "What factors influence the selection of launch windows for interplanetary missions?",
-      answer: "Launch windows depend on planetary alignment, energy requirements, mission duration, and arrival conditions. Optimal windows minimize delta-v requirements and occur when planets are favorably positioned, typically every 26 months for Mars missions.",
+      question: "What is a planetary launch window and how is it calculated?",
+      answer: "A planetary launch window is the optimal time to launch a spacecraft for minimal energy use, calculated based on planetary alignments and orbital mechanics.",
       // difficulty: "Beginner",
       category: "Mission Planning"
     }
