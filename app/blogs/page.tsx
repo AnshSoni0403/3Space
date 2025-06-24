@@ -29,7 +29,7 @@ export default function BlogsPage() {
       id: 2,
       title: "Women in Indian Space: A Journey of Excellence and Empowerment",
       excerpt:
-        "From mission control to launch leadership, Indian women are reshaping the future of space exploration. At 3SPACE, we honor their journey and commit to empowering the next generation of trailblazers who will carry India’s cosmic legacy forward.",
+        "Indian women are redefining space science — at 3SPACE, we celebrate their legacy and fuel the dreams of future pioneers.",
       date: "June 24, 2024",
       author: "3Space",
       readTime: "1 min read",
