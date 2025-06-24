@@ -17,45 +17,42 @@ export default function Home() {
     strokeWidth: 1.5,
   };
 
-  const pyqs = [
+  interface FAQItem {
+    id: number;
+    title: string;
+    question: string;
+    answer: string;
+    difficulty: string;
+  }
+
+  const faqs: FAQItem[] = [
     {
       id: 1,
-      // year: "2024",
-      title: "Core Offerings of 3SPACE",
-      question:
-        "What are our main products and services?",
-      answer:
-        "3SPACE provides affordable satellite launches using reusable rockets and self-landing cryogenic engine technology.",
-      difficulty: "Advanced",
+      title: "What are our main products and services?",
+      question: "What are our main products and services?",
+      answer: "We offer reusable rockets, satellite launch services, payload deployment, simulation-based design, 3D-printed components, and educational rocketry kits—providing scalable, cost-effective solutions for commercial clients, researchers, and space enthusiasts.",
+      difficulty: "General",
     },
     {
       id: 2,
-      // year: "2023",
-      title: "Orbital Mechanics",
-      question:
-        "Calculate the delta-v required for a Hohmann transfer from LEO to GEO.",
-      answer:
-        "For a Hohmann transfer from LEO (400km) to GEO (35,786km), the total delta-v is approximately 3.8 km/s: 2.5 km/s for transfer orbit insertion and 1.3 km/s for circularization at GEO.",
-      difficulty: "Intermediate",
+      title: "How can startups or research institutions or any organization collaborate with us?",
+      question: "How can startups or research institutions or any organization collaborate with us?",
+      answer: "Organizations can collaborate through payload partnerships, joint research, sponsorships, or co-development. We're open to teaming up with startups, institutions, and engineers to drive innovation and launch missions together.",
+      difficulty: "Partnerships",
     },
     {
       id: 3,
-      // year: "2023",
-      title: "Spacecraft Materials",
-      question: "Discuss the challenges of material selection for re-entry vehicles.",
-      answer:
-        "Re-entry vehicles face extreme temperatures (1500°C+), thermal shock, and ablation. Materials must balance thermal protection, structural integrity, and weight constraints. Common solutions include carbon-carbon composites and ceramic tiles.",
-      difficulty: "Advanced",
+      title: "Does our company offer internship or career opportunities?",
+      question: "Does our company offer internship or career opportunities?",
+      answer: "Yes, we offer various career opportunities. You can visit our Careers page for more information and to explore current openings or internship programs.",
+      difficulty: "Careers",
     },
     {
       id: 4,
-      // year: "2022",
-      title: "Satellite Communication",
-      question:
-        "Explain the advantages of Ka-band over Ku-band for satellite communications.",
-      answer:
-        "Ka-band (26.5-40 GHz) offers higher bandwidth, smaller antennas, and greater frequency reuse than Ku-band (12-18 GHz), enabling higher data rates. However, it's more susceptible to rain fade and requires more sophisticated signal processing.",
-      difficulty: "Intermediate",
+      title: "How can you contact our team for business or technical inquiries?",
+      question: "How can you contact our team for business or technical inquiries?",
+      answer: "Reach out to our core team—Yashraj Patel (CEO), Aayushi Thakkar (CFO), and others—via official channels or social media for collaboration, technical discussions, or business inquiries.",
+      difficulty: "Contact",
     },
   ];
 
@@ -197,10 +194,10 @@ export default function Home() {
             </motion.div>
 
             <div className={styles.pyqsList}>
-              {pyqs.map((pyq) => (
+              {faqs.map((faq: FAQItem) => (
                 <motion.div
-                  key={pyq.id}
-                  className={`${styles.pyqItem} ${activePyq === pyq.id ? styles.pyqOpen : ""}`}
+                  key={faq.id}
+                  className={`${styles.pyqItem} ${activePyq === faq.id ? styles.pyqOpen : ""}`}
                   initial={{ opacity: 0, y: 20 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.5 }}
@@ -208,21 +205,18 @@ export default function Home() {
                 >
                   <div
                     className={styles.pyqQuestion}
-                    onClick={() => togglePyq(pyq.id)}
+                    onClick={() => togglePyq(faq.id)}
                   >
-                    <h3>
-                      <span className={styles.pyqYear}>{pyq.year}</span> {pyq.title}
-                    </h3>
+                    <h3>{faq.title}</h3>
                     <FaChevronDown
                       className={`${styles.pyqChevron} ${
-                        activePyq === pyq.id ? styles.rotateChevron : ""
+                        activePyq === faq.id ? styles.rotateChevron : ""
                       }`}
                     />
                   </div>
                   <div className={styles.pyqAnswer}>
-                    <p className={styles.pyqQuestion}>{pyq.question}</p>
                     <p className={styles.pyqAnswerText}>
-                      <strong>Answer:</strong> {pyq.answer}
+                      {faq.answer}
                     </p>
                   </div>
                 </motion.div>

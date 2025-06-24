@@ -34,37 +34,58 @@ export default function FAQPage() {
     },
     {
       id: 3,
-      title: "Ongoing Missions",
-      question: "Are we involved in any ongoing or upcoming space missions?",
-      answer: "Yes, we're scaling from a 10 km proof-of-concept rocket to a 100 km model, with sub-orbital and orbital missions planned. We also participate in national-level rocketry and CanSat competitions.",
-      category: "Missions"
+      title: "Space Sector Challenges",
+      question: "What challenges is 3Space addressing in the space sector?",
+      answer: "3Space tackles high launch costs, limited small payload access, complex regulations, and lack of affordable providers. By offering reusable rockets and customer-centric solutions, they aim to make space more accessible, scalable, and reliable for global users.",
+      category: "Challenges"
     },
     {
       id: 4,
+      title: "Innovations",
+      question: "What innovations set 3Space apart from others?",
+      answer: "Key innovations include reusable first and second-stage rockets, cryogenic engines, active stabilization, and precision staging. These advancements enable lower costs, higher reliability, and efficient payload delivery, setting 3Space apart in India's growing private space sector.",
+      category: "Innovation"
+    },
+    {
+      id: 5,
+      title: "Ongoing Missions",
+      question: "Are we involved in any ongoing or upcoming space missions?",
+      answer: "We are currently working on our Proof of Concept (PoC) rocket. The tentative launch date is 27th August as we continue testing and development to ensure mission success.",
+      category: "Missions"
+    },
+    {
+      id: 6,
+      title: "Future Goals",
+      question: "What are 3Space Tech's future goals?",
+      answer: "3Space aims to cross the Karman Line in the first year, achieve sub-orbital launches by year two, and complete orbital reusable launches by year five—positioning themselves as leaders in India and Asia for vertical landing and satellite deployment.",
+      category: "Vision"
+    },
+    {
+      id: 7,
       title: "Collaboration Opportunities",
       question: "How can organizations collaborate with 3Space Tech?",
       answer: "Organizations can collaborate via payload launches, research partnerships, sponsorships, or joint tech development. We're open to alliances in simulation, engineering, and manufacturing to accelerate innovation together.",
       category: "Partnerships"
     },
     {
-      id: 5,
+      id: 8,
       title: "Career Opportunities",
       question: "Are there internship or career opportunities at 3Space Tech?",
       answer: "We welcome interns and enthusiasts passionate about space. While not formally listed, opportunities may exist in rocketry, payload, design, and R&D—reach out to explore roles.",
       category: "Careers"
     },
     {
-      id: 6,
+      id: 9,
       title: "Sustainability",
       question: "What is our approach to space sustainability and responsible innovation?",
       answer: "We prioritize reusability, minimize launch costs, and promote inclusive innovation through education and partnerships—ensuring sustainable growth in space exploration and community engagement.",
       category: "Sustainability"
     },
     {
-      id: 7,
+      id: 10,
       title: "Contact Information",
       question: "How can I contact the 3Space Tech team?",
-      answer: "Contact our team via official communication platforms or social media. Leadership includes CEO Yashraj Patel and other key team members ready to discuss business or technical opportunities.",
+      answer: "You can contact us using the email addresses provided below, or simply fill out the contact form with your query—we’ll get back to you as soon as possible.",
       category: "Contact"
     }
   ]);
