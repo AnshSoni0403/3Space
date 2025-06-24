@@ -21,11 +21,11 @@ export default function Home() {
     {
       id: 1,
       // year: "2024",
-      title: "Space Propulsion Systems",
+      title: "Core Offerings of 3SPACE",
       question:
-        "Explain the principles of ion propulsion and its applications in deep space missions.",
+        "What are our main products and services?",
       answer:
-        "Ion propulsion accelerates ions using electrical fields to create thrust. It's ideal for deep space missions due to high specific impulse and fuel efficiency, used in missions like NASA's Dawn and JAXA's Hayabusa.",
+        "3SPACE provides affordable satellite launches using reusable rockets and self-landing cryogenic engine technology.",
       difficulty: "Advanced",
     },
     {

@@ -27,14 +27,15 @@ export default function BlogsPage() {
     },
     {
       id: 2,
+      slug: "blog2",
       title: "Women in Indian Space: A Journey of Excellence and Empowerment",
       excerpt:
         "Indian women are redefining space science — at 3SPACE, we celebrate their legacy and fuel the dreams of future pioneers.",
       date: "June 24, 2024",
       author: "3Space",
       readTime: "1 min read",
-      category: "industry",
-      image: "/images/blog-satellite.jpg",
+      category: "technology",
+      image: "/images/Blogs/blog2.jpg",
     },
     // ...other blogs
   ]

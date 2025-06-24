@@ -20,75 +20,52 @@ export default function FAQPage() {
   const [faqs] = useState<FAQ[]>([
     {
       id: 1,
-      // year: "2024",
-      title: "Space Propulsion Systems",
-      question: "What are the differences between electric, chemical, and nuclear propulsion?",
-      answer: "Electric uses electricity to accelerate ions, chemical burns fuel for high thrust, and nuclear uses nuclear reactions for propulsion.",
-      // difficulty: "Advanced",
-      category: "Propulsion"
+      title: "3Space Tech Overview",
+      question: "What does AnjaniSutah 3Space Tech do in the space technology sector?",
+      answer: "3Space Tech develops reusable rockets and cost-effective launch solutions to make space exploration accessible, sustainable, and affordable, aiming to position India as a global leader in space innovation and deep-space travel.",
+      category: "About Us"
     },
     {
       id: 2,
-      // year: "2023",
-      title: "Orbital Mechanics",
-      question: "How do gravitational slingshots (gravity assists) work?",
-      answer: "Gravitational slingshots use a planet's gravity and motion to change a spacecraft’s speed and direction without using extra fuel.",
-      // difficulty: "Intermediate",
-      category: "Orbital Mechanics"
+      title: "Our Products and Services",
+      question: "What services and products does 3Space Tech offer?",
+      answer: "We offer reusable rocket systems, cost-effective satellite launches, custom payload support, simulation-driven design, educational rocketry kits, and partnership-based engineering solutions tailored to commercial, research, and community needs.",
+      category: "Products"
     },
     {
       id: 3,
-      // year: "2023",
-      title: "Spacecraft Materials",
-      question: "What materials are used for thermal protection systems (TPS)?",
-      answer: "Thermal protection systems use materials like reinforced carbon-carbon, ablative composites, silica tiles, and ceramic blankets to withstand extreme heat during re-entry.",
-      // difficulty: "Advanced",
-      category: "Materials"
+      title: "Ongoing Missions",
+      question: "Are we involved in any ongoing or upcoming space missions?",
+      answer: "Yes, we're scaling from a 10 km proof-of-concept rocket to a 100 km model, with sub-orbital and orbital missions planned. We also participate in national-level rocketry and CanSat competitions.",
+      category: "Missions"
     },
     {
       id: 4,
-      // year: "2022",
-      title: "Satellite Communication",
-      question: "How is signal delay managed in deep space communication?",
-      answer: "Signal delay in deep space communication is managed by using pre-programmed commands, autonomous systems, and time-tagged instructions.",
-      // difficulty: "Intermediate",
-      category: "Communications"
+      title: "Collaboration Opportunities",
+      question: "How can organizations collaborate with 3Space Tech?",
+      answer: "Organizations can collaborate via payload launches, research partnerships, sponsorships, or joint tech development. We're open to alliances in simulation, engineering, and manufacturing to accelerate innovation together.",
+      category: "Partnerships"
     },
     {
       id: 5,
-      // year: "2024",
-      title: "Rocket Engine Design",
-      question: "How do liquid and solid rocket engines compare in terms of performance characteristics?",
-      answer: "Liquid engines offer throttling capability, restart capability, and higher specific impulse but are more complex. Solid engines are simpler, more reliable, and have instant ignition but cannot be throttled or restarted once ignited.",
-      // difficulty: "Intermediate",
-      category: "Propulsion"
+      title: "Career Opportunities",
+      question: "Are there internship or career opportunities at 3Space Tech?",
+      answer: "We welcome interns and enthusiasts passionate about space. While not formally listed, opportunities may exist in rocketry, payload, design, and R&D—reach out to explore roles.",
+      category: "Careers"
     },
     {
       id: 6,
-      // year: "2022",
-      title: "Aerodynamics",
-      question: "What is boundary layer transition and how does it affect high-speed flight?",
-      answer: "Boundary layer transition is the change from smooth laminar flow to turbulent flow over a surface, increasing skin friction and heat during high-speed flight.",
-      // difficulty: "Advanced",
-      category: "Aerodynamics"
+      title: "Sustainability",
+      question: "What is our approach to space sustainability and responsible innovation?",
+      answer: "We prioritize reusability, minimize launch costs, and promote inclusive innovation through education and partnerships—ensuring sustainable growth in space exploration and community engagement.",
+      category: "Sustainability"
     },
     {
       id: 7,
-      // year: "2023",
-      title: "Guidance and Control",
-      question: "What is the difference between open-loop and closed-loop guidance?",
-      answer: "Open-loop guidance follows a preset path without feedback, while closed-loop guidance uses real-time data to adjust the trajectory.",
-      // difficulty: "Intermediate",
-      category: "Navigation"
-    },
-    {
-      id: 8,
-      // year: "2024",
-      title: "Mission Planning",
-      question: "What is a planetary launch window and how is it calculated?",
-      answer: "Requirements, mission duration, and arrival conditions. Optimal windows minimize delta-v requirements and occur when planets are favorably positioned, typically every 26 months for Mars missions.",
-      // difficulty: "Beginner",
-      category: "Mission Planning"
+      title: "Contact Information",
+      question: "How can I contact the 3Space Tech team?",
+      answer: "Contact our team via official communication platforms or social media. Leadership includes CEO Yashraj Patel and other key team members ready to discuss business or technical opportunities.",
+      category: "Contact"
     }
   ]);
 

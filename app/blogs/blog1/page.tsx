@@ -18,6 +18,16 @@ export default function BlogPost() {
           <header className={styles.blogHeader}>
             <h1>From Fire Arrows to the Moon: India's Rocket Journey Through Time</h1>
             <p className={styles.subtitle}>How India carved out its space in the stars - from ancient dreams to modern missions</p>
+            <div className={styles.blogImageWrapper}>
+              <img
+                src="/images/Blogs/download.jpg"
+                alt="Women in Indian Space"
+                className={styles.blogMainImage}
+              />
+              <span className={styles.imageCaption}>
+               India's Rocket Journey Through Time
+              </span>
+            </div>
           </header>
 
           <section className={styles.introSection}>
