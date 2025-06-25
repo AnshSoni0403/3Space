@@ -68,13 +68,13 @@ export default function BlogPost() {
         </main>
 
         <aside className={styles.blogSidebar}>
-          <div className={styles.authorInfo}>
+          {/* <div className={styles.authorInfo}>
             <div className={styles.authorAvatar}>3S</div>
             <div className={styles.authorDetails}>
               <h4>3SPACE Team</h4>
               <p>Space Technology & Innovation</p>
             </div>
-          </div>
+          </div> */}
 
           <div className={styles.sidebarCard}>
             <h3> Mission Stats</h3>
