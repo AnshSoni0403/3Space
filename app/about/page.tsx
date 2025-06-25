@@ -42,7 +42,7 @@ export default function AboutPage() {
     {
       title: "What we do",
       content: [
-        "100km Rocket: From proof-of-concept to commercial launch systems.Community Growth: Building a vibrant space ecosystem.Global Partnerships: Collaborating worldwide to fast-track innovation.",
+        "We are currently developing a proof-of-concept rocket aimed at a 10 km launch while fostering a space innovation community and building global partnerships for future advancements.",
         
       ]
     }
@@ -62,7 +62,7 @@ export default function AboutPage() {
             className={styles.heroContent}
           >
             <h1>About 3SPACE</h1>
-            <p>Pioneering the future of space exploration</p>
+            <p>Learn why we are called 3SPACE</p>
           </motion.div>
         </div>
       </section>
