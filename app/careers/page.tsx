@@ -48,6 +48,7 @@ export default function CareersPage() {
         "Understanding of signal integrity, power electronics, and embedded systems.",
         "Familiar with aerospace standards and testing."
       ],
+      isCurrentOpening: false,
     },
     {
       id: 2,
@@ -57,7 +58,6 @@ export default function CareersPage() {
       type: "Full-time",
       description:
         "Develop and implement firmware/software for embedded systems in real-time and resource-constrained environments. Work on microcontroller-based applications across aerospace, automotive, or IoT domains.",
-
       responsibilities: [
        "Write and debug embedded C/C++ code for MCUs (ARM, AVR, etc.).",
         "Develop drivers, middleware, and application logic.",
@@ -72,6 +72,7 @@ export default function CareersPage() {
         "Experience with IDEs, debuggers, and hardware tools (oscilloscope, logic analyzer).",
         "Familiar with version control (Git) and real-time systems.",
       ],
+      isCurrentOpening: false,
     },
     {
       id: 3,
@@ -81,7 +82,6 @@ export default function CareersPage() {
       type: "Full-time",
       description:
         "Design, model, and implement control systems for dynamic systems for rockets. Ensure system stability, accuracy, and performance under varying conditions.",
-
       responsibilities: [
        "Develop control algorithms (PID, state-space, adaptive, etc.).",
         "Model and simulate systems using MATLAB/Simulink or equivalent tools.",
@@ -95,7 +95,34 @@ export default function CareersPage() {
         "Experience with MATLAB/Simulink and real-time implementation.",
         "Familiar with sensors, actuators, and embedded control systems."
       ],
-
+      isCurrentOpening: false,
+    },
+    {
+      id: 4,
+      title: "Telemetry and Telecommand Software Engineer",
+      department: "Current Openings",
+      location: "Remote",
+      type: "Full-time",
+      description:
+      "We are looking for a highly motivated TTC Software Intern to join our Space Systems team and contribute to the development of telemetry and telecommand protocols for launch vehicles or satellite platforms. This internship offers a unique opportunity to work on real-world space communication systems and gain hands-on experience in the aerospace domain.",
+      responsibilities: [
+        " Assist in the development and simulation of TTC software modules.",
+        "Contribute to protocol design for reliable uplink/downlink communication.",
+        "Work with engineering teams to integrate TTC software with onboard systems.",
+        " Test and debug communication flows using tools and simulators.",
+        "Document technical processes, code, and system behavior."
+      ],
+      requirements: [
+        " Bachelor’s or Master’s in Electronics, Electrical, or a related electronics field",
+        "Basic understanding of wireless communication protocols.",
+        "Strong grasp of error detection/correction techniques like CRC, ARQ, and Sliding Window Protocol.",
+        "Familiar with microcontroller protocols such as SPI, I2C, and UART.",
+        "Knowledge of embedded C/C++ and low-level programming is a plus.",
+        "Comfortable using IDEs, debuggers, and hardware tools (e.g., oscilloscope, logic analyzer).",
+        "Experience with version control systems like Git.",
+        "Familiar with version control (Git) and real-time systems."
+      ],
+      isCurrentOpening: true,
     }
   ]
 
@@ -122,7 +149,8 @@ export default function CareersPage() {
           description: job.description,
           responsibilities: job.responsibilities || [],
           requirements: job.requirements || [],
-          isFromAPI: true // Flag to identify API jobs
+          isFromAPI: true, // Flag to identify API jobs
+          isCurrentOpening: job.Field === "Current Openings" // Mark as current opening if department matches
         }))
         
         setApiJobs(transformedJobs)
@@ -149,6 +177,7 @@ export default function CareersPage() {
       job.location.toLowerCase().includes(searchTerm.toLowerCase())
 
     if (activeTab === "all") return matchesSearch
+    if (activeTab === "Current Openings") return job.isCurrentOpening && matchesSearch
     return job.department.toLowerCase() === activeTab.toLowerCase() && matchesSearch
   })
 
@@ -203,6 +232,13 @@ export default function CareersPage() {
                 onClick={() => setActiveTab("all")}
               >
                 All
+              </button>
+              <button
+                className={`${styles.tab} ${activeTab === "Current Openings" ? styles.active : ""}`}
+                onClick={() => setActiveTab("Current Openings")}
+              >
+                Current Openings
+
               </button>
               <button
                 className={`${styles.tab} ${activeTab === "engineering" ? styles.active : ""}`}
@@ -306,9 +342,15 @@ export default function CareersPage() {
                       </div>
 
                       <div className={styles.applySection}>
-                        <Link href={`https://forms.zohopublic.in/3space/form/Jobapplication/formperma/SK8629fXnU96aYIryG-GWZRdAgcJJz7wd3fqufv4qfw`} className={styles.applyButton}>
-                          Apply Now
-                        </Link>
+                        {job.isCurrentOpening ? (
+                          <Link href={`https://forms.zohopublic.in/3space/form/Jobapplication/formperma/SK8629fXnU96aYIryG-GWZRdAgcJJz7wd3fqufv4qfw`} className={styles.applyButton} target="_blank" rel="noopener noreferrer">
+                            Apply Now
+                          </Link>
+                        ) : (
+                          <button className={styles.applyButton} disabled>
+                            Apply Now
+                          </button>
+                        )}
                       </div>
                     </motion.div>
                   )}

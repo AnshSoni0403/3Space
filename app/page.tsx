@@ -51,7 +51,7 @@ export default function Home() {
       id: 4,
       title: "How can you contact our team for business or technical inquiries?",
       question: "How can you contact our team for business or technical inquiries?",
-      answer: "Reach out to our core team—Yashraj Patel (CEO), Aayushi Thakkar (CFO), and others—via official channels or social media for collaboration, technical discussions, or business inquiries.",
+      answer: "You can contact us using the email addresses provided below, or simply fill out the contact form with your query—we’ll get back to you as soon as possible.",
       difficulty: "Contact",
     },
   ];
