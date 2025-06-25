@@ -67,6 +67,38 @@ export default function AboutPage() {
         </div>
       </section>
 
+      {/* <section className={`section ${styles.aboutContent}`}>
+        <div className="container">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className={styles.aboutText}
+          >
+            <h2 className={styles.sectionTitle}>More Than a Name — This is 3SPACE</h2>
+            <div className={styles.justifiedText}>
+              <p>
+                The "3" in 3SPACE isn't just a number — it's our identity. It stands for the three frontiers we aim to conquer: 
+                Earth and Near-Earth space, where our journey begins; our Solar System, where curiosity leads; and beyond, into 
+                the depths of deep space.
+              </p>
+              <p>
+                It's also a tribute to three legends who shaped India's space story — Dr. Vikram Sarabhai, Dr. A.P.J. Abdul Kalam, 
+                and Prof. Satish Dhawan — whose vision fuels our mission.
+              </p>
+              <p>
+                Rooted in the timeless cycle of Creation, Preservation, and Transformation, 3SPACE is more than a name — 
+                it's a belief that space should be free for ideas, free for innovation, and free for those who dare to dream beyond boundaries.
+              </p>
+            </div>
+            <blockquote className={styles.quote}>
+              "3SPACE — because space isn't the final frontier. It's just the beginning."
+            </blockquote>
+          </motion.div>
+        </div>
+      </section> */}
+
       <section className={`section ${styles.timelineSection}`}>
         <div className={styles.timelineContainer}>
           <div className={styles.timelineLine}>
@@ -134,113 +166,35 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className={`section ${styles.valuesSection}`}>
+      <section className={`section ${styles.aboutContent}`}>
         <div className="container">
-          <h2 className="section-title">Our Core Values</h2>
-          <p className="section-subtitle">The principles that guide everything we do</p>
-
-          <div className="grid grid-3">
-            <motion.div
-              className={styles.valueCard}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              viewport={{ once: true }}
-            >
-              <div className={styles.valueIcon}>
-                <Target size={30} />
-              </div>
-              <h3>Innovation</h3>
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            viewport={{ once: true }}
+            className={styles.aboutText}
+          >
+            <h2 className={styles.sectionTitle}>More Than a Name — This is 3SPACE</h2>
+            <div className={styles.justifiedText}>
               <p>
-                We constantly push the boundaries of what's possible, challenging conventional thinking and developing
-                breakthrough technologies.
+                The "3" in 3SPACE isn't just a number — it's our identity. It stands for the three frontiers we aim to conquer: 
+                Earth and Near-Earth space, where our journey begins; our Solar System, where curiosity leads; and beyond, into 
+                the depths of deep space.
               </p>
-            </motion.div>
-
-            <motion.div
-              className={styles.valueCard}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.2 }}
-              viewport={{ once: true }}
-            >
-              <div className={styles.valueIcon}>
-                <Globe size={30} />
-              </div>
-              <h3>Sustainability</h3>
               <p>
-                We're committed to developing technologies and practices that protect our home planet while enabling us
-                to explore beyond it.
+                It's also a tribute to three legends who shaped India's space story — Dr. Vikram Sarabhai, Dr. A.P.J. Abdul Kalam, 
+                and Prof. Satish Dhawan — whose vision fuels our mission.
               </p>
-            </motion.div>
-
-            <motion.div
-              className={styles.valueCard}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.3 }}
-              viewport={{ once: true }}
-            >
-              <div className={styles.valueIcon}>
-                <Users size={30} />
-              </div>
-              <h3>Collaboration</h3>
               <p>
-                We believe in the power of working together, fostering partnerships across industries and borders to
-                achieve our shared goals.
+                Rooted in the timeless cycle of Creation, Preservation, and Transformation, 3SPACE is more than a name — 
+                it's a belief that space should be free for ideas, free for innovation, and free for those who dare to dream beyond boundaries.
               </p>
-            </motion.div>
-
-            <motion.div
-              className={styles.valueCard}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.4 }}
-              viewport={{ once: true }}
-            >
-              <div className={styles.valueIcon}>
-                <Award size={30} />
-              </div>
-              <h3>Excellence</h3>
-              <p>
-                We hold ourselves to the highest standards in everything we do, from engineering to customer service.
-              </p>
-            </motion.div>
-
-            <motion.div
-              className={styles.valueCard}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.5 }}
-              viewport={{ once: true }}
-            >
-              <div className={styles.valueIcon}>
-                <Rocket size={30} />
-              </div>
-              <h3>Exploration</h3>
-              <p>
-                We're driven by an insatiable curiosity and a desire to explore the unknown, pushing humanity further
-                into the cosmos.
-              </p>
-            </motion.div>
-
-            <motion.div
-              className={styles.valueCard}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.5, delay: 0.6 }}
-              viewport={{ once: true }}
-            >
-              <div className={styles.valueIcon}>
-                <Zap size={30} />
-              </div>
-              <h3>Resilience</h3>
-              <p>
-                We embrace challenges and setbacks as opportunities to learn and grow, always persevering in the face of
-                adversity.
-              </p>
-            </motion.div>
-          </div>
+            </div>
+            <blockquote className={styles.quote}>
+              "3SPACE — because space isn't the final frontier. It's just the beginning."
+            </blockquote>
+          </motion.div>
         </div>
       </section>
 
