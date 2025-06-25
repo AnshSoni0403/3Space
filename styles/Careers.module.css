@@ -134,7 +134,6 @@
   justify-content: space-between;
   align-items: center;
   padding: 1.5rem;
-  cursor: none;
   transition: background-color 0.3s ease;
 }
 
