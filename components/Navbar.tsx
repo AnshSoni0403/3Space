@@ -3,7 +3,7 @@
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
-import { Menu, X, Mail } from "lucide-react"
+import { Menu, X, ShoppingCart } from "lucide-react"
 import styles from "@/styles/components/Navbar.module.css" // Adjust path as needed
 
 export default function Navbar() {
@@ -40,15 +40,15 @@ export default function Navbar() {
   return (
     <header className={`${styles.navbar} ${isScrolled ? styles.scrolled : ""}`}>
       <div className={styles.container}>
-        {/* Email Button - Icon Only */}
-        <a 
-          href="mailto:contactus@3spacecorp.com" 
+        {/* Cart Button - Icon Only */}
+        <Link 
+          href="/products" 
           className={styles.emailIconButton}
-          aria-label="Email us at contactus@3spacecorp.com"
-          title="Email us at contactus@3spacecorp.com"
+          aria-label="View products"
+          title="View products"
         >
-          <Mail size={20} />
-        </a>
+          <ShoppingCart size={20} />
+        </Link>
         
         {/* Centered Logo */}
         <div className={styles.logoCenter}>
