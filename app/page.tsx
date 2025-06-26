@@ -119,7 +119,15 @@ export default function Home() {
                 <h1>Welcome to 3SPACE</h1>
                 <p>Building Tomorrow's Launch Technologies, Today — with reusable rockets and next-gen aerospace systems.</p>
                 <div className={styles.heroBtns}>
-                  <a href="/competition" className="btn btn-primary">Next Launch</a>
+                  <a href="/competition" className="btn btn-primary">
+                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4em' }}>
+                      Competition
+                      <span style={{ display: 'inline-flex', alignItems: 'center', height: '1em' }}>
+                        {/* Small white trophy icon */}
+                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ verticalAlign: 'middle' }}><path d="M8 21h8M12 17v4M17 5V3H7v2M17 5a5 5 0 0 1-10 0M17 5h2a2 2 0 0 1 2 2c0 3.87-3.13 7-7 7s-7-3.13-7-7a2 2 0 0 1 2-2h2"/></svg>
+                      </span>
+                    </span>
+                  </a>
                   {/* <a href="/products" className="btn btn-secondary">Explore Rockets</a> */}
                 </div>
               </motion.div>
