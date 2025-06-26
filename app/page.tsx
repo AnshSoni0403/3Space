@@ -58,27 +58,27 @@ export default function Home() {
 
   // competion popup
   const [activePyq, setActivePyq] = useState<number | null>(null);
-  const [showCompetitionPopup, setShowCompetitionPopup] = useState(true);
+  // const [showCompetitionPopup, setShowCompetitionPopup] = useState(true);
 
   const togglePyq = (id: number) => {
     setActivePyq((prev) => (prev === id ? null : id));
   };
 
   // Optional: Prevent background scroll when popup is open
-  useEffect(() => {
-    if (showCompetitionPopup) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-    return () => {
-      document.body.style.overflow = "auto";
-    };
-  }, [showCompetitionPopup]);
+  // useEffect(() => {
+  //   if (showCompetitionPopup) {
+  //     document.body.style.overflow = "hidden";
+  //   } else {
+  //     document.body.style.overflow = "auto";
+  //   }
+  //   return () => {
+  //     document.body.style.overflow = "auto";
+  //   };
+  // }, [showCompetitionPopup]);
 
   return (
     <>
-      {showCompetitionPopup && (
+      {/* {showCompetitionPopup && (
         <div className={styles.competitionPopupOverlay}>
           <div className={styles.competitionPopup}>
             <button className={styles.closePopupBtn} onClick={() => setShowCompetitionPopup(false)}>&times;</button>
@@ -92,7 +92,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-      )}
+      )} */}
 
       {/* popup competion ends here */}
       <Navbar />
@@ -116,10 +116,10 @@ export default function Home() {
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.2 }}
               >
-                <h1>3SPACE</h1>
+                <h1>Welcome to 3SPACE</h1>
                 <p>Building Tomorrow's Launch Technologies, Today — with reusable rockets and next-gen aerospace systems.</p>
                 <div className={styles.heroBtns}>
-                  <a href="#countdown" className="btn btn-primary">Next Launch</a>
+                  <a href="/competition" className="btn btn-primary">Next Launch</a>
                   {/* <a href="/products" className="btn btn-secondary">Explore Rockets</a> */}
                 </div>
               </motion.div>

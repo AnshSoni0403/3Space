@@ -54,14 +54,14 @@ const CompetitionPage = () => {
                 <span className={styles.infoLabel}>Registration Fee:</span>
                 <span className={styles.infoValue}>₹1000 per team</span>
               </div>
-              <div className={styles.infoItem}>
+              {/* <div className={styles.infoItem}>
                 <span className={styles.infoLabel}>Platform:</span>
                 <span className={styles.infoValue}>(website link)</span>
-              </div>
-              <div className={styles.infoItem}>
+              </div> */}
+              {/* <div className={styles.infoItem}>
                 <span className={styles.infoLabel}>Rulebook:</span>
                 <span className={styles.infoValue}>Shared after registration</span>
-              </div>
+              </div> */}
             </div>
           </div>
         </section>
@@ -93,7 +93,7 @@ const CompetitionPage = () => {
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>Beyond the Competition</h2>
           <p>
-            This challenge is primarily conducted in online mode, making it accessible nationwide.<br />
+            This challenge is primarily conducted in online mode, making it accessible nationwide.
             However, the top 3 selected teams will go beyond virtual boundaries:
           </p>
           <ul className={styles.featureList}>
@@ -124,24 +124,31 @@ const CompetitionPage = () => {
 
         {/* Call to Action Section */}
         <section className={styles.ctaSection}>
-          <h2 className={styles.ctaTitle}>Make Your Mark</h2>
-          <p className={styles.ctaDescription}>
+        <h2 className={styles.ctaTitle}>Make Your Mark</h2>
+        <p className={styles.ctaDescription}>
             This is more than just a challenge—it's an invitation to build, learn, and lead.<br />
             Whether you're an aspiring engineer, innovator, or changemaker—this is your chance to be part of something bigger.
-          </p>
-          <div className={styles.ctaBox}>
+        </p>
+        <div className={styles.ctaBox}>
             <span className={styles.ctaStatus}>Registrations are now open.</span>
-            <a href="#" className={styles.ctaButton}>
-              Register Now
-            </a>
-          </div>
-          <p className={styles.ctaFooter}>
+            <div className={styles.buttonContainer}>
+                <a href="#" className={styles.ctaButton}>
+                    <span className={styles.buttonIcon}>🚀</span>
+                    Register Now
+                </a>
+                <a href="#" className={styles.rulebookButton}>
+                    <span className={styles.buttonIcon}>📋</span>
+                    Rulebook
+                </a>
+            </div>
+        </div>
+        <p className={styles.ctaFooter}>
             Take the leap. Compete with the best. Build the future with 3Space Tech.
-          </p>
-          <div className={styles.contactBox}>
+        </p>
+        <div className={styles.contactBox}>
             <b>For any queries, contact us at:</b> <span>[contact details]</span>
-          </div>
-        </section>
+        </div>
+    </section>
       </main>
     </div>
   );
