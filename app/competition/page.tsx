@@ -127,7 +127,7 @@ const CompetitionPage = () => {
         <div className={styles.ctaBox}>
             <span className={styles.ctaStatus}>Registrations are now open.</span>
             <div className={styles.buttonContainer}>
-                <a href="#" className={styles.ctaButton}>
+                <a href="https://docs.google.com/forms/d/1Fite0usqcwhtk-XX5Dgz9Qcfp8r2jwZ0AZgcaus2tT4" className={styles.ctaButton}>
                     <span className={styles.buttonIcon}>🚀</span>
                     Register Now
                 </a>
