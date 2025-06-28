@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import LaunchCountdown from "@/components/LaunchCountdown";
@@ -8,8 +8,260 @@ import LaunchCountdown from "@/components/LaunchCountdown";
 import styles from "@/styles/Home.module.css";
 import { motion } from "framer-motion";
 import { FaFlask, FaChevronDown } from "react-icons/fa";
-import { Rocket, Satellite } from "lucide-react";
+import { Rocket, Satellite, Trophy } from "lucide-react";
 import Image from "next/image";
+
+function FireworkEffect() {
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  React.useEffect(() => {
+    const canvas = canvasRef.current as HTMLCanvasElement | null;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
+    let W = window.innerWidth;
+    let H = window.innerHeight;
+    canvas.width = W;
+    canvas.height = H;
+    interface IFirework {
+      x: number;
+      y: number;
+      targetY: number;
+      color: string;
+      radius: number;
+      speed: number;
+      exploded: boolean;
+      particles: IParticle[];
+      update: () => void;
+      draw: () => void;
+    }
+    interface IParticle {
+      x: number;
+      y: number;
+      color: string;
+      radius: number;
+      angle: number;
+      speed: number;
+      alpha: number;
+      decay: number;
+      update: () => void;
+      draw: () => void;
+    }
+    let fireworks: IFirework[] = [];
+    let particles: IParticle[] = [];
+    function randomColor(): string {
+      const colors = ["#fff200", "#ff3838", "#00eaff", "#ffb300", "#aaff00", "#ff00e0", "#00ffb3", "#ff5e00"];
+      return colors[Math.floor(Math.random() * colors.length)];
+    }
+    function Firework(this: IFirework) {
+      this.x = Math.random() * W;
+      this.y = H;
+      this.targetY = 150 + Math.random() * (H / 2 - 150);
+      this.color = randomColor();
+      this.radius = 2 + Math.random() * 2;
+      this.speed = 6 + Math.random() * 2;
+      this.exploded = false;
+      this.particles = [];
+      this.update = function () {
+        if (!this.exploded) {
+          this.y -= this.speed;
+          if (this.y <= this.targetY) {
+            this.exploded = true;
+            for (let i = 0; i < 32; i++) {
+              this.particles.push(new (Particle as any)(this.x, this.y, this.color));
+            }
+          }
+        }
+      };
+      this.draw = function () {
+        if (!this.exploded) {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+          ctx.fillStyle = this.color;
+          ctx.shadowColor = this.color;
+          ctx.shadowBlur = 16;
+          ctx.fill();
+          ctx.shadowBlur = 0;
+        }
+      };
+    }
+    function Particle(this: IParticle, x: number, y: number, color: string) {
+      this.x = x;
+      this.y = y;
+      this.color = color;
+      this.radius = 1.2 + Math.random() * 1.2;
+      this.angle = Math.random() * 2 * Math.PI;
+      this.speed = 2 + Math.random() * 3;
+      this.alpha = 1;
+      this.decay = 0.012 + Math.random() * 0.012;
+      this.update = function () {
+        this.x += Math.cos(this.angle) * this.speed;
+        this.y += Math.sin(this.angle) * this.speed + 0.5;
+        this.alpha -= this.decay;
+      };
+      this.draw = function () {
+        ctx.save();
+        ctx.globalAlpha = Math.max(this.alpha, 0);
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+        ctx.fillStyle = this.color;
+        ctx.shadowColor = this.color;
+        ctx.shadowBlur = 8;
+        ctx.fill();
+        ctx.shadowBlur = 0;
+        ctx.restore();
+      };
+    }
+    function animate() {
+      ctx.clearRect(0, 0, W, H);
+      if (fireworks.length < 4 && Math.random() > 0.85) {
+        fireworks.push(new (Firework as any)());
+      }
+      for (let i = fireworks.length - 1; i >= 0; i--) {
+        const fw = fireworks[i];
+        fw.update();
+        fw.draw();
+        if (fw.exploded) {
+          particles.push(...fw.particles);
+          fireworks.splice(i, 1);
+        }
+      }
+      for (let i = particles.length - 1; i >= 0; i--) {
+        const p = particles[i];
+        p.update();
+        p.draw();
+        if (p.alpha <= 0) particles.splice(i, 1);
+      }
+      if (Date.now() - startTime < 2200 || particles.length > 0 || fireworks.length > 0) {
+        requestAnimationFrame(animate);
+      } else {
+        ctx.clearRect(0, 0, W, H);
+        canvas.style.display = "none";
+      }
+    }
+    let startTime = Date.now();
+    animate();
+    const resizeHandler = () => {
+      W = window.innerWidth;
+      H = window.innerHeight;
+      canvas.width = W;
+      canvas.height = H;
+    };
+    window.addEventListener("resize", resizeHandler);
+    // Clean up
+    return () => {
+      window.removeEventListener("resize", resizeHandler);
+    };
+  }, []);
+  return (
+    <canvas
+      ref={canvasRef}
+      style={{
+        position: "fixed",
+        top: 0,
+        left: 0,
+        width: "100vw",
+        height: "100vh",
+        pointerEvents: "none",
+        zIndex: 99999,
+      }}
+    />
+  );
+}
+
+function CompetitionFireworkEffect() {
+  const canvasRef = useRef<HTMLCanvasElement | null>(null);
+  useEffect(() => {
+    const canvas = canvasRef.current as HTMLCanvasElement | null;
+    if (!canvas) return;
+    const ctx = canvas.getContext("2d") as CanvasRenderingContext2D;
+    const W = 120;
+    const H = 60;
+    canvas.width = W;
+    canvas.height = H;
+    interface IParticle {
+      x: number;
+      y: number;
+      color: string;
+      radius: number;
+      angle: number;
+      speed: number;
+      alpha: number;
+      decay: number;
+      update: () => void;
+      draw: () => void;
+    }
+    let particles: IParticle[] = [];
+    function randomColor(): string {
+      const colors = ["#fff200", "#ff3838", "#00eaff", "#ffb300", "#aaff00", "#ff00e0", "#00ffb3", "#ff5e00"];
+      return colors[Math.floor(Math.random() * colors.length)];
+    }
+    function Particle(this: IParticle, x: number, y: number, color: string) {
+      this.x = x;
+      this.y = y;
+      this.color = color;
+      this.radius = 1.2 + Math.random() * 1.2;
+      this.angle = Math.random() * 2 * Math.PI;
+      this.speed = 1.5 + Math.random() * 1.5;
+      this.alpha = 1;
+      this.decay = 0.018 + Math.random() * 0.012;
+      this.update = function () {
+        this.x += Math.cos(this.angle) * this.speed;
+        this.y += Math.sin(this.angle) * this.speed;
+        this.alpha -= this.decay;
+      };
+      this.draw = function () {
+        ctx.save();
+        ctx.globalAlpha = Math.max(this.alpha, 0);
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.radius, 0, 2 * Math.PI);
+        ctx.fillStyle = this.color;
+        ctx.shadowColor = this.color;
+        ctx.shadowBlur = 8;
+        ctx.fill();
+        ctx.shadowBlur = 0;
+        ctx.restore();
+      };
+    }
+    // Center of the button
+    const centerX = W / 2;
+    const centerY = H / 2 + 6;
+    for (let i = 0; i < 32; i++) {
+      particles.push(new (Particle as any)(centerX, centerY, randomColor()));
+    }
+    function animate() {
+      ctx.clearRect(0, 0, W, H);
+      for (let i = particles.length - 1; i >= 0; i--) {
+        const p = particles[i];
+        p.update();
+        p.draw();
+        if (p.alpha <= 0) particles.splice(i, 1);
+      }
+      if (particles.length > 0) {
+        requestAnimationFrame(animate);
+      } else {
+        ctx.clearRect(0, 0, W, H);
+        canvas.style.display = "none";
+      }
+    }
+    animate();
+  }, []);
+  return (
+    <canvas
+      ref={canvasRef}
+      width={120}
+      height={60}
+      style={{
+        position: "absolute",
+        left: "50%",
+        top: "50%",
+        transform: "translate(-50%, -60%)",
+        pointerEvents: "none",
+        zIndex: 10,
+        width: 120,
+        height: 60,
+      }}
+    />
+  );
+}
 
 export default function Home() {
   const iconStyle = {
@@ -96,6 +348,7 @@ export default function Home() {
 
       {/* popup competion ends here */}
       <Navbar />
+      <FireworkEffect />
       <main>
         {/* Hero Section */}
         <section className={styles.hero}>
@@ -118,16 +371,18 @@ export default function Home() {
               >
                 <h1>Welcome to 3SPACE</h1>
                 <p>Building Tomorrow's Launch Technologies, Today — with reusable rockets and next-gen aerospace systems.</p>
-                <div className={styles.heroBtns}>
-                  <a href="/competition" className="btn btn-primary">
+                <div className={styles.heroBtns} style={{ position: 'relative', display: 'inline-block' }}>
+                  <a href="/competition" className="btn btn-primary" style={{ position: 'relative', zIndex: 2 }}>
                     <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4em' }}>
-                      Competition
+                      National Level Payload Competition :
+                      <span className={styles.blinkingLive} style={{ marginLeft: 4, marginRight: 2 }}>LIVE</span>
                       <span style={{ display: 'inline-flex', alignItems: 'center', height: '1em' }}>
-                        {/* Small white trophy icon */}
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" style={{ verticalAlign: 'middle' }}><path d="M8 21h8M12 17v4M17 5V3H7v2M17 5a5 5 0 0 1-10 0M17 5h2a2 2 0 0 1 2 2c0 3.87-3.13 7-7 7s-7-3.13-7-7a2 2 0 0 1 2-2h2"/></svg>
+                        {/* Modern trophy icon */}
+                        <Trophy size={16} color="#fff" strokeWidth={2} style={{ verticalAlign: 'middle' }} />
                       </span>
                     </span>
                   </a>
+                  <CompetitionFireworkEffect />
                   {/* <a href="/products" className="btn btn-secondary">Explore Rockets</a> */}
                 </div>
               </motion.div>

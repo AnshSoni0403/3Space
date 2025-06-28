@@ -933,6 +933,19 @@
   transform: scale(1.08);
 }
 
+.blinkingLive {
+  color: #ffffff;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  animation: blinkLive 1s steps(2, start) infinite;
+  text-shadow: 0 0 8px #ff3838, 0 0 2px #fff;
+}
+
+@keyframes blinkLive {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.15; }
+}
+
 @media (max-width: 900px) {
   .competitionPopup {
     max-width: 99vw;

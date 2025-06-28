@@ -1,10 +1,15 @@
 import React from 'react';
 import Image from 'next/image';
 import styles from './competition.module.css';
+import Header from '@/components/Navbar';
+import Footer from '@/components/Footer';
 
 const CompetitionPage = () => {
   return (
+   
+  
     <div className={styles.competitionContainer}>
+        
       <main className={styles.competitionMain}>
         {/* Hero Section */}
         <section className={styles.heroSection}>
@@ -146,7 +151,7 @@ const CompetitionPage = () => {
             Take the leap. Compete with the best. Build the future with 3Space Tech.
         </p>
         <div className={styles.contactBox}>
-            <b>For any queries, contact us at:</b> <span>[contact details]</span>
+            <b>For any queries, contact us at:</b> <span>contactus@3spacecorp.com</span>
         </div>
     </section>
       </main>
