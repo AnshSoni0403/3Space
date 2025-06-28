@@ -42,31 +42,22 @@ const CompetitionPage = () => {
           </div>
         </section>
 
-        {/* Timeline Section */}
-        <section className={styles.timelineSection}>
-          <h2>Competition Timeline</h2>
-          <ol className={styles.timelineList}>
-            <li className={styles.timelineItem}><div className={styles.timelineCard}><span className={styles.stepNumber}>1</span> Registration</div></li>
-            <li className={styles.timelineItem}><div className={styles.timelineCard}><span className={styles.stepNumber}>2</span> Instruction Webinar</div></li>
-            <li className={styles.timelineItem}><div className={styles.timelineCard}><span className={styles.stepNumber}>3</span> First Round (Online)</div></li>
-            <li className={styles.timelineItem}><div className={styles.timelineCard}><span className={styles.stepNumber}>4</span> Result Discussion</div></li>
-            <li className={styles.timelineItem}><div className={styles.timelineCard}><span className={styles.stepNumber}>5</span> Result Announcement + Webinar</div></li>
-            <li className={styles.timelineItem}><div className={styles.timelineCard}><span className={styles.stepNumber}>6</span> Final Results + Internship Opportunities</div></li>
-          </ol>
-          <div className={styles.timelineInfo}>
-            <div className={styles.infoGrid}>
-              <div className={styles.infoItem}>
-                <span className={styles.infoLabel}>Registration Fee:</span>
-                <span className={styles.infoValue}>₹1000 per team</span>
-              </div>
-              {/* <div className={styles.infoItem}>
-                <span className={styles.infoLabel}>Platform:</span>
-                <span className={styles.infoValue}>(website link)</span>
-              </div> */}
-              {/* <div className={styles.infoItem}>
-                <span className={styles.infoLabel}>Rulebook:</span>
-                <span className={styles.infoValue}>Shared after registration</span>
-              </div> */}
+        {/* Competition Image Section */}
+        <section className={styles.competitionImageSection}>
+          <div className={styles.competitionImageWrapper}>
+            <Image
+              src="/compitition.jpg"
+              alt="3Space Tech Competition"
+              width={1200}
+              height={675}
+              className={styles.competitionImage}
+              priority
+            />
+          </div>
+          <div className={styles.competitionInfo}>
+            <div className={styles.infoItem}>
+              <span className={styles.infoLabel}>Registration Fee:</span>
+              <span className={styles.infoValue}>₹1000 per team</span>
             </div>
           </div>
         </section>
