@@ -78,9 +78,9 @@ const CompetitionPage = () => {
             <div className={styles.benefitCard}>
               <h3>Top 3 Teams Will Gain:</h3>
               <ul>
-                <li>Direct internship opportunities at 3Space Tech</li>
-                <li>Certificate of Merit</li>
-                <li>Hands-on involvement in real aerospace projects</li>
+                <li>Hands-on Experience in aerospace design</li>
+                <li>Direct Industry Exposure with real engineers</li>
+                <li>Boost Your Resume with a national-level project</li>
               </ul>
             </div>
             <div className={styles.benefitCard}>
@@ -97,14 +97,13 @@ const CompetitionPage = () => {
         {/* Beyond Competition Section */}
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>Beyond the Competition</h2>
-          <p>
-            This challenge is primarily conducted in online mode, making it accessible nationwide.
-            However, the top 3 selected teams will go beyond virtual boundaries:
+          <p>       
+            While the challenge is primarily conducted online to ensure nationwide accessibility, the journey doesn’t end there for the top-performing teams:
           </p>
           <ul className={styles.featureList}>
-            <li className={styles.featureItem}><span className={styles.featureIcon}>🚀</span><span className={styles.featureText}>Collaborate with the 3Space Tech team in both online and offline formats</span></li>
-            <li className={styles.featureItem}><span className={styles.featureIcon}>🚀</span><span className={styles.featureText}>Receive an exclusive invitation to the live launch site</span></li>
-            <li className={styles.featureItem}><span className={styles.featureIcon}>🚀</span><span className={styles.featureText}>If chosen, witness and assist in launching their own payload alongside our launch vehicle.</span></li>
+            <li className={styles.featureItem}><span className={styles.featureIcon}>🚀</span><span className={styles.featureText}>Collaborate closely with the 3Space Tech team through hybrid (online + offline) formats</span></li>
+            <li className={styles.featureItem}><span className={styles.featureIcon}>🚀</span><span className={styles.featureText}>Get an exclusive on-site experience at the launch facility</span></li>
+            <li className={styles.featureItem}><span className={styles.featureIcon}>🚀</span><span className={styles.featureText}>Assist in real-time payload integration and potentially witness the live launch of your designed payload.</span></li>
           </ul>
         </section>
 
@@ -122,8 +121,8 @@ const CompetitionPage = () => {
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>Important Notes</h2>
           <ul className={styles.featureList}>
-            <li className={styles.featureItem}><span className={styles.featureIcon}>⚠️</span><span className={styles.featureText}>Publicity for the challenge is being carried out digitally across India</span></li>
-            <li className={styles.featureItem}><span className={styles.featureIcon}>⚠️</span><span className={styles.featureText}>All participants must strictly adhere to timelines for each competition phase</span></li>
+            <li className={styles.featureItem}><span className={styles.featureIcon}>⚠️</span><span className={styles.featureText}>Participants must follow the schedule strictly—delays in submission or attendance during key phases may lead to disqualification</span></li>
+            <li className={styles.featureItem}><span className={styles.featureIcon}>⚠️</span><span className={styles.featureText}>All updates, results, and instructions will be shared via official communication channels—stay alert and responsive.</span></li>
           </ul>
         </section>
 
