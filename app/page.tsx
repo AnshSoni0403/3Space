@@ -374,7 +374,7 @@ export default function Home() {
                 <div className={styles.heroBtns} style={{ position: 'relative', display: 'inline-block' }}>
                   <a href="/competition" className="btn btn-primary" style={{ position: 'relative', zIndex: 2 }}>
                     <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4em' }}>
-                      National Level Payload Competition :
+                      National Level Payload Design Competition :
                       <span className={styles.blinkingLive} style={{ marginLeft: 4, marginRight: 2 }}>LIVE</span>
                       <span style={{ display: 'inline-flex', alignItems: 'center', height: '1em' }}>
                         {/* Modern trophy icon */}
