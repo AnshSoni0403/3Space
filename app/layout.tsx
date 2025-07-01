@@ -10,9 +10,9 @@ export const metadata = {
   description:
     "Making India a global leader in space exploration through cost-effective satellite launches and reusable rockets.",
   icons: {
-    icon: "/fevicon.jpg",
-    shortcut: "/fevicon.jpg",
-    apple: "/fevicon.jpg",
+    icon: "/favicon.jpg",
+    shortcut: "/favicon.jpg",
+    apple: "/favicon.jpg",
   },
   manifest: "/site.webmanifest",
 }
