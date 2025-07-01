@@ -119,7 +119,8 @@
   text-align: center;
   max-width: 100%;
   border-radius: 4px;
- 
+  box-sizing: border-box;
+  white-space: normal;
 }
 
 .competitionButtonContent {
@@ -131,13 +132,13 @@
 }
 
 .competitionText {
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  white-space: normal;
+  word-wrap: break-word;
   max-width: 100%;
   display: block;
   font-size: 0.9em;
-  line-height: 1.1;
+  line-height: 1.2;
+  text-align: center;
 }
 
 .liveBadge {
@@ -173,25 +174,60 @@
   }
 }
 
-@media (max-width: 480px) {
+@media (max-width: 600px) {
   .heroBtns .btn {
-    padding: 0.25rem 0.6rem;
+    padding: 0.3rem 0.6rem;
+    font-size: 0.75rem;
+    width: 100%;
+  }
+  
+  .competitionText {
+    font-size: 0.75em;
+    line-height: 1.2;
+    white-space: normal;
+    word-break: break-word;
+  }
+  
+  .liveBadge {
+    font-size: 0.7em;
+    gap: 0.25rem;
+    margin-top: 0.1rem;
+  }
+  
+  .blinkingLive {
+    font-size: 0.85em;
+  }
+}
+
+@media (max-width: 500px) {
+  .heroBtns .btn {
+    padding: 0.25rem 0.5rem;
     font-size: 0.7rem;
   }
   
   .competitionText {
-    font-size: 0.8em;
-    white-space: normal;
+    font-size: 0.7em;
     line-height: 1.1;
   }
   
   .liveBadge {
     font-size: 0.65em;
     gap: 0.2rem;
+    margin-top: 0.05rem;
   }
   
   .blinkingLive {
     font-size: 0.8em;
+  }
+  
+  .heroContent h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+  }
+  
+  .heroContent p {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
   }
 }
 
@@ -1092,3 +1128,296 @@
     border-radius: 0 0 1.1rem 1.1rem;
   }
 }
+
+/* Hero Buttons - Base Styles */
+.heroBtns {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  margin: 0 0.5rem;
+  box-sizing: border-box;
+  position: relative;
+}
+
+.heroBtns .btn {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.8rem;
+  line-height: 1.2;
+  display: inline-block;
+  text-align: center;
+  max-width: 100%;
+  border-radius: 4px;
+  box-sizing: border-box;
+  white-space: normal;
+  position: relative;
+  z-index: 2;
+}
+
+.competitionButtonContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  padding: 0.1rem 0;
+}
+
+.competitionText {
+  white-space: normal;
+  word-wrap: break-word;
+  max-width: 100%;
+  display: block;
+  font-size: 0.9em;
+  line-height: 1.2;
+  text-align: center;
+}
+
+.liveBadge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  font-size: 0.75em;
+  margin-top: 0.05rem;
+}
+
+.blinkingLive {
+  color: #ff4444;
+  font-weight: bold;
+  animation: blink 1.5s infinite;
+  font-size: 0.9em;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+/* Tablet and small desktop - 481px to 992px */
+@media (min-width: 481px) and (max-width: 992px) {
+  .competitionButtonContent {
+    flex-direction: row;
+    gap: 0.4rem;
+  }
+  
+  .liveBadge {
+    margin-top: 0;
+  }
+  
+  .heroBtns {
+    margin: 0 auto;
+    justify-content: center;
+  }
+}
+
+/* Mobile landscape and small tablets - 601px to 768px */
+@media (min-width: 601px) and (max-width: 768px) {
+  .heroBtns {
+    margin-left: 15%;
+    margin-right: auto;
+    justify-content: flex-start;
+  }
+  
+  .heroBtns .btn {
+    padding: 0.35rem 0.7rem;
+    font-size: 0.75rem;
+  }
+}
+
+/* Critical Mobile Breakpoint - Below 600px */
+@media (max-width: 600px) {
+  .heroBtns {
+    margin: 0 auto;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 95%;
+    max-width: 320px;
+    padding: 0 0.5rem;
+  }
+  
+  .heroBtns .btn {
+    padding: 0.3rem 0.6rem;
+    font-size: 0.75rem;
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+  }
+  
+  .competitionText {
+    font-size: 0.75em;
+    line-height: 1.2;
+    white-space: normal;
+    word-break: break-word;
+  }
+  
+  .liveBadge {
+    font-size: 0.7em;
+    gap: 0.25rem;
+    margin-top: 0.1rem;
+  }
+  
+  .blinkingLive {
+    font-size: 0.85em;
+  }
+  
+  .competitionButtonContent {
+    flex-direction: column;
+    gap: 0.2rem;
+    padding: 0.05rem 0;
+  }
+}
+
+/* Small Mobile - Below 500px */
+@media (max-width: 500px) {
+  .heroBtns {
+    margin: 0 auto;
+    width: 90%;
+    max-width: 280px;
+    padding: 0 0.25rem;
+  }
+  
+  .heroBtns .btn {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.7rem;
+    width: 100%;
+  }
+  
+  .competitionText {
+    font-size: 0.7em;
+    line-height: 1.1;
+  }
+  
+  .liveBadge {
+    font-size: 0.65em;
+    gap: 0.2rem;
+    margin-top: 0.05rem;
+  }
+  
+  .blinkingLive {
+    font-size: 0.8em;
+  }
+}
+
+/* Extra Small Mobile - Below 400px */
+@media (max-width: 400px) {
+  .heroBtns {
+    margin: 0 auto;
+    width: 85%;
+    max-width: 250px;
+  }
+  
+  .heroBtns .btn {
+    padding: 0.2rem 0.4rem;
+    font-size: 0.65rem;
+  }
+  
+  .competitionText {
+    font-size: 0.65em;
+    line-height: 1.1;
+  }
+  
+  .liveBadge {
+    font-size: 0.6em;
+    gap: 0.15rem;
+  }
+  
+  .blinkingLive {
+    font-size: 0.75em;
+  }
+}
+
+/* Additional Hero Content Responsive Positioning */
+@media (max-width: 768px) {
+  .heroContent {
+    margin-top: 20%;
+    margin-left: 0;
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  .heroContent h1 {
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .heroContent p {
+    margin-left: 0;
+    text-align: center;
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .heroContent {
+    margin-top: 25%;
+    padding: 0 0.5rem;
+  }
+  
+  .heroContent h1 {
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .heroContent p {
+    margin-left: 0;
+    text-align: center;
+    padding: 0 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroContent {
+    margin-top: 30%;
+    padding: 0 0.25rem;
+  }
+}
+/* Additional Hero Content Responsive Positioning */
+@media (max-width: 768px) {
+  .heroContent {
+    margin-top: 20%;
+    margin-left: 0;
+    text-align: center;
+    padding: 0 1rem;
+  }
+
+  .heroContent h1 {
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .heroContent p {
+    margin-left: 0;
+    text-align: center;
+    max-width: 100%;
+    padding: 0 1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  .heroContent {
+    margin-top: 25%;
+    padding: 0 0.5rem;
+  }
+  
+  .heroContent h1 {
+    margin-left: 0;
+    text-align: center;
+  }
+
+  .heroContent p {
+    margin-left: 0;
+    text-align: center;
+    padding: 0 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroContent {
+    margin-top: 30%;
+    padding: 0 0.25rem;
+  }
+}
+
