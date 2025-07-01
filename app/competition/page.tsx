@@ -44,6 +44,7 @@ const CompetitionPage = () => {
 
         {/* Competition Image Section */}
         <section className={styles.competitionImageSection}>
+          <h1 className={styles.timelineHeading}>Timeline</h1>
           <div className={styles.competitionImageWrapper}>
             <Image
               src="/compitition.jpg"
