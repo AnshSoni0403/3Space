@@ -21,13 +21,23 @@
 /* Earth image container - Adjusted to not extend beyond navbar */
 .earthImageContainer {
   position: absolute;
-  width: 75%;
-  height: 120%;
-  top: 64%;
-  left: -8%;
+  width: 60%;
+  height: 100%;
+  top: 55%;
+  left: 0%;
   transform: translateY(-50%);
   z-index: 1;
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.earthImageContainer video {
+  width: 100%;
+  height: auto;
+  max-height: 100%;
+  object-fit: contain;
 }
 
 .earthImageContainer img{
