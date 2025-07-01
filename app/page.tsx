@@ -349,14 +349,13 @@ export default function Home() {
                 <p>Building Tomorrow's Launch Technologies, Today — with reusable rockets and next-gen aerospace systems.</p>
                 <div className={styles.heroBtns} style={{ position: 'relative', display: 'inline-block' }}>
                   <a href="/competition" className="btn btn-primary" style={{ position: 'relative', zIndex: 2 }}>
-                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.4em' }}>
-                      National Level Payload Design Competition :
-                      <span className={styles.blinkingLive} style={{ marginLeft: 4, marginRight: 2 }}>LIVE</span>
-                      <span style={{ display: 'inline-flex', alignItems: 'center', height: '1em' }}>
-                        {/* Modern trophy icon */}
-                        <Trophy size={16} color="#fff" strokeWidth={2} style={{ verticalAlign: 'middle' }} />
+                    <div className={styles.competitionButtonContent}>
+                      <span className={styles.competitionText}>National Level Payload Design Competition</span>
+                      <span className={styles.liveBadge}>
+                        <span className={styles.blinkingLive}>LIVE</span>
+                        <Trophy size={14} color="#fff" strokeWidth={2} />
                       </span>
-                    </span>
+                    </div>
                   </a>
                   <CompetitionFireworkEffect />
                   {/* <a href="/products" className="btn btn-secondary">Explore Rockets</a> */}

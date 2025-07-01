@@ -101,8 +101,98 @@
 
 .heroBtns {
   display: flex;
-  gap: 1.5rem;
+  gap: 1rem;
   justify-content: center;
+  width: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  margin: 0 0.5rem;
+  box-sizing: border-box;
+  
+}
+
+.heroBtns .btn {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.8rem;
+  line-height: 1.2;
+  display: inline-block;
+  text-align: center;
+  max-width: 100%;
+  border-radius: 4px;
+ 
+}
+
+.competitionButtonContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.15rem;
+  padding: 0.1rem 0;
+}
+
+.competitionText {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 100%;
+  display: block;
+  font-size: 0.9em;
+  line-height: 1.1;
+}
+
+.liveBadge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.3rem;
+  font-size: 0.75em;
+  margin-top: 0.05rem;
+}
+
+.blinkingLive {
+  color: #ff4444;
+  font-weight: bold;
+  animation: blink 1.5s infinite;
+  font-size: 0.9em;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.6; }
+}
+
+/* Mobile-first approach */
+@media (min-width: 481px) {
+  .competitionButtonContent {
+    flex-direction: row;
+    gap: 0.4rem;
+  }
+  
+  .liveBadge {
+    margin-top: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .heroBtns .btn {
+    padding: 0.25rem 0.6rem;
+    font-size: 0.7rem;
+  }
+  
+  .competitionText {
+    font-size: 0.8em;
+    white-space: normal;
+    line-height: 1.1;
+  }
+  
+  .liveBadge {
+    font-size: 0.65em;
+    gap: 0.2rem;
+  }
+  
+  .blinkingLive {
+    font-size: 0.8em;
+  }
 }
 
 /* Ensure floating elements are on top of Earth but behind text */
