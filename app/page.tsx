@@ -316,37 +316,13 @@ export default function Home() {
     setActivePyq((prev) => (prev === id ? null : id));
   };
 
-  // Optional: Prevent background scroll when popup is open
-  // useEffect(() => {
-  //   if (showCompetitionPopup) {
-  //     document.body.style.overflow = "hidden";
-  //   } else {
-  //     document.body.style.overflow = "auto";
-  //   }
-  //   return () => {
-  //     document.body.style.overflow = "auto";
-  //   };
-  // }, [showCompetitionPopup]);
+
 
   return (
     <>
-      {/* {showCompetitionPopup && (
-        <div className={styles.competitionPopupOverlay}>
-          <div className={styles.competitionPopup}>
-            <button className={styles.closePopupBtn} onClick={() => setShowCompetitionPopup(false)}>&times;</button>
-            <div className={styles.competitionPosterBg}>
-              <img src="/images/poster.jpg" alt="Competition Poster" className={styles.competitionPosterImg} />
-              <div className={styles.competitionPopupContent}>
-                <h2>🚀 3SPACE Competition is Live!</h2>
-                <p>Showcase your talent and win exciting prizes. Click below to know more and participate!</p>
-                <a href="/competition" className={styles.competitionBtn}>View Competition Details</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      )} */}
+      
 
-      {/* popup competion ends here */}
+      
       <Navbar />
       <FireworkEffect />
       <main>
