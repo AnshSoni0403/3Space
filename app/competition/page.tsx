@@ -54,12 +54,12 @@ const CompetitionPage = () => {
               priority
             />
           </div>
-          <div className={styles.competitionInfo}>
+          {/* <div className={styles.competitionInfo}>
             <div className={styles.infoItem}>
               <span className={styles.infoLabel}>Registration Fee:</span>
               <span className={styles.infoValue}>₹1000 per team</span>
             </div>
-          </div>
+          </div> */}
         </section>
 
         {/* Benefits Section */}
@@ -125,7 +125,7 @@ const CompetitionPage = () => {
             Whether you're an aspiring engineer, innovator, or changemaker—this is your chance to be part of something bigger.
         </p>
         <div className={styles.ctaBox}>
-            <span className={styles.ctaStatus}>Registrations are now open.</span>
+            <span className={styles.ctaStatus}>Registration fees: ₹1000/- per team</span>
             <div className={styles.buttonContainer}>
                 <a href="https://docs.google.com/forms/d/1Fite0usqcwhtk-XX5Dgz9Qcfp8r2jwZ0AZgcaus2tT4" className={styles.ctaButton}>
                     <span className={styles.buttonIcon}>🚀</span>
