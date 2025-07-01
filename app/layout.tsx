@@ -9,6 +9,12 @@ export const metadata = {
   title: "3SPACE - Leading Space Exploration",
   description:
     "Making India a global leader in space exploration through cost-effective satellite launches and reusable rockets.",
+  icons: {
+    icon: "/fevicon.jpg",
+    shortcut: "/fevicon.jpg",
+    apple: "/fevicon.jpg",
+  },
+  manifest: "/site.webmanifest",
 }
 
 export default function RootLayout({
