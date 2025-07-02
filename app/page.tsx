@@ -347,13 +347,13 @@ export default function Home() {
                 style={{
                   objectFit: 'cover',
                   objectPosition: 'center',
-                  width: '100%',
+                  width: '70%',
                   height: '100%',
                   opacity: 1,
                   filter: 'brightness(1.15) contrast(1.1)'
                 }}
               >
-                <source src="/image/MarsV.mp4" type="video/mp4" />
+                <source src="/image/MarsV2.mp4" type="video/mp4" />
                 Your browser does not support the video tag.
               </video>
             </div>
