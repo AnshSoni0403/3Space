@@ -83,7 +83,7 @@ export default function Navbar() {
               <Link href="/products" className={styles.navLink} onClick={handleLinkClick}>Products</Link>
               <Link href="/blogs" className={styles.navLink} onClick={handleLinkClick}>Blogs</Link>
               <Link href="/careers" className={styles.navLink} onClick={handleLinkClick}>Careers</Link>
-              
+              <Link href="/competition" className={styles.navLink} onClick={handleLinkClick}>Competition</Link>              
             </div>
           )}
         </nav>
@@ -106,6 +106,7 @@ export default function Navbar() {
               <Link href="/products" className={styles.navLink} onClick={handleLinkClick}>Products</Link>
               <Link href="/blogs" className={styles.navLink} onClick={handleLinkClick}>Blogs</Link>
               <Link href="/careers" className={styles.navLink} onClick={handleLinkClick}>Careers</Link>
+              <Link href="/competition" className={styles.navLink} onClick={handleLinkClick}>Competition</Link>
               
             </div>
           )}

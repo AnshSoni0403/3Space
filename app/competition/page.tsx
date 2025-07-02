@@ -1,12 +1,14 @@
 import React from 'react';
 import Image from 'next/image';
 import styles from './competition.module.css';
-import Header from '@/components/Navbar';
+import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
 const CompetitionPage = () => {
   return (
-   
+    <>
+    <Navbar />
+    
   
     <div className={styles.competitionContainer}>
         
@@ -149,6 +151,8 @@ const CompetitionPage = () => {
     </section>
       </main>
     </div>
+    <Footer />
+    </>
   );
 };
 
