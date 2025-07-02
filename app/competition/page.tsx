@@ -103,7 +103,7 @@ const CompetitionPage = () => {
         <section className={styles.section}>
           <h2 className={styles.sectionTitle}>Who Can Apply</h2>
           <ul className={styles.featureList}>
-            <li className={styles.featureItem}><span className={styles.featureIcon}>👥</span><span className={styles.featureText}>Students from Aerospace Engineering or related technical branches</span></li>
+            <li className={styles.featureItem}><span className={styles.featureIcon}>👥</span><span className={styles.featureText}>Open for all: Aerospace Engineering or related branches preferred</span></li>
             <li className={styles.featureItem}><span className={styles.featureIcon}>👥</span><span className={styles.featureText}>Individuals with a strong drive for innovation and problem-solving</span></li>
             <li className={styles.featureItem}><span className={styles.featureIcon}>👥</span><span className={styles.featureText}>Teams seeking real-world project experience and national recognition.</span></li>
           </ul>
@@ -115,6 +115,7 @@ const CompetitionPage = () => {
           <ul className={styles.featureList}>
             <li className={styles.featureItem}><span className={styles.featureIcon}>⚠️</span><span className={styles.featureText}>Participants must follow the schedule strictly—delays in submission or attendance during key phases may lead to disqualification</span></li>
             <li className={styles.featureItem}><span className={styles.featureIcon}>⚠️</span><span className={styles.featureText}>All updates, results, and instructions will be shared via official communication channels—stay alert and responsive.</span></li>
+            <li className={styles.featureItem}><span className={styles.featureIcon}>⚠️</span><span className={styles.featureText}>Last date for registration: 10 July 2025</span></li>
           </ul>
         </section>
 
