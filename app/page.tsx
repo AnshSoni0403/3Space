@@ -330,23 +330,7 @@ export default function Home() {
 
   return (
     <>
-      {/* {showCompetitionPopup && (
-        <div className={styles.competitionPopupOverlay}>
-          <div className={styles.competitionPopup}>
-            <button className={styles.closePopupBtn} onClick={() => setShowCompetitionPopup(false)}>&times;</button>
-            <div className={styles.competitionPosterBg}>
-              <img src="/images/poster.jpg" alt="Competition Poster" className={styles.competitionPosterImg} />
-              <div className={styles.competitionPopupContent}>
-                <h2>🚀 3SPACE Competition is Live!</h2>
-                <p>Showcase your talent and win exciting prizes. Click below to know more and participate!</p>
-                <a href="/competition" className={styles.competitionBtn}>View Competition Details</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      )} */}
-
-      {/* popup competion ends here */}
+      
       <Navbar />
       <FireworkEffect />
       <main>
@@ -354,13 +338,24 @@ export default function Home() {
         <section className={styles.hero}>
           <div className={styles.heroFlexContainer}>
             <div className={styles.earthImageContainer}>
-              <Image
-                src="/image/mars.png"
-                alt="Earth from space"
-                fill
+              <video
+                autoPlay
+                loop
+                muted
+                playsInline
                 className={styles.earthImage}
-                priority
-              />
+                style={{
+                  objectFit: 'cover',
+                  objectPosition: 'center',
+                  width: '100%',
+                  height: '100%',
+                  opacity: 1,
+                  filter: 'brightness(1.15) contrast(1.1)'
+                }}
+              >
+                <source src="/image/MarsV.mp4" type="video/mp4" />
+                Your browser does not support the video tag.
+              </video>
             </div>
             <div className={styles.heroContentWrapper}>
               <motion.div
