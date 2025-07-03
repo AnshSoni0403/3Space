@@ -1,158 +1,635 @@
-import React from 'react';
+"use client";
+import React, { useState, useEffect } from 'react';
 
-const Blog3 = () => {
+const Axiom4Mission = () => {
+  const [scrollProgress, setScrollProgress] = useState(0);
+  const [visibleElements, setVisibleElements] = useState(new Set());
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrollTop = window.pageYOffset;
+      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = (scrollTop / scrollHeight) * 100;
+      setScrollProgress(progress);
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            setVisibleElements(prev => new Set([...prev, entry.target.id]));
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+    );
+
+    document.querySelectorAll('.fade-in').forEach(el => {
+      observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  }, []);
+
+  const missionStats = [
+    { number: 'June 25', label: 'Launch Date 2025' },
+    { number: '4', label: 'Crew Members' },
+    { number: '14', label: 'Days in Space' },
+    { number: '60+', label: 'Experiments' }
+  ];
+
+  const timeline = [
+    { date: 'June 25, 2025', event: 'Launch from Kennedy Space Center' },
+    { date: 'June 26, 2025', event: 'Docking with ISS' },
+    { date: 'June 27 - July 8', event: 'Scientific experiments' },
+    { date: 'July 9, 2025', event: 'Return to Earth' }
+  ];
+
+  const keyFacts = [
+    { label: 'Mission Duration', value: '14 days' },
+    { label: 'Crew Size', value: '4 astronauts' },
+    { label: 'Countries Involved', value: '31 nations' },
+    { label: 'Total Experiments', value: '60+' }
+  ];
+
   return (
-    <div className="min-h-screen bg-black text-white">
-      {/* Hero Section */}
-      <div className="relative overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-blue-900/20 to-black/60"></div>
-        <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-16 pb-20">
-          <div className="text-center">
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 bg-gradient-to-r from-blue-400 via-purple-500 to-pink-400 bg-clip-text text-transparent leading-tight">
-              Axiom-4 Mission
-            </h1>
-            <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto leading-relaxed">
-              India's Grand Return to Space
-            </p>
-          </div>
-        </div>
-      </div>
-
-      {/* Main Content */}
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        
-        {/* Featured Image */}
-        <div className="relative mb-16 group">
-          <div className="absolute inset-0 bg-gradient-to-r from-blue-600/20 to-purple-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
-          <div className="relative overflow-hidden rounded-2xl border border-gray-800/50 shadow-2xl">
-            <img 
-              src="/images/Blogs/axiom4.jpg" 
-              alt="Axiom-4 Mission Launch" 
-              className="w-full h-[400px] md:h-[500px] object-cover transition-transform duration-700 group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-            <div className="absolute bottom-6 left-6 right-6">
-              <p className="text-sm text-gray-300 font-medium">Axiom-4 Mission Launch - June 25, 2025</p>
+    <div style={styles.body}>
+      <style>{cssStyles}</style>
+      
+      <div className="scroll-indicator" style={{
+        ...styles.scrollIndicator,
+        transform: `scaleX(${scrollProgress / 100})`
+      }} />
+      
+      <div className="container" style={styles.container}>
+        {/* Hero Section */}
+        <section className="hero-section" style={styles.heroSection}>
+          <div className="hero-content" style={styles.heroContent}>
+            <div className="mission-badge" style={styles.missionBadge}>
+              🚀 SPACE MISSION COVERAGE
+            </div>
+            <h1 className="hero-title" style={styles.heroTitle}>Axiom-4 Mission</h1>
+            <p className="hero-subtitle" style={styles.heroSubtitle}>India's Grand Return to Space</p>
+            
+            <div className="mission-stats" style={styles.missionStats}>
+              {missionStats.map((stat, index) => (
+                <div key={index} className="stat-card" style={styles.statCard}>
+                  <div className="stat-number" style={styles.statNumber}>{stat.number}</div>
+                  <div className="stat-label" style={styles.statLabel}>{stat.label}</div>
+                </div>
+              ))}
             </div>
           </div>
-        </div>
+        </section>
 
         {/* Content Section */}
-        <div className="prose prose-lg prose-invert max-w-none">
+        <section className="content-section" style={styles.contentSection}>
+          {/* Featured Video */}
+          <div className={`fade-in video-container ${visibleElements.has('video') ? 'visible' : ''}`} 
+               id="video" 
+               style={styles.videoContainer}>
+            <video 
+              style={styles.featuredVideo}
+              controls
+              poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 400'%3E%3Crect width='800' height='400' fill='%23000'/%3E%3Ctext x='400' y='200' text-anchor='middle' fill='%23fff' font-size='24' font-family='Arial'%3EAxiom-4 Mission Launch%3C/text%3E%3C/svg%3E"
+            >
+              <source src="https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+            </video>
+            <div style={styles.videoCaption}>
+              Axiom-4 Mission Launch - Historic moment of India's return to space
+            </div>
+          </div>
           
-          {/* Opening paragraph with special styling */}
-          <div className="relative mb-12 p-8 rounded-2xl bg-gradient-to-r from-blue-900/30 to-purple-900/30 border border-blue-500/20 backdrop-blur-sm">
-            <div className="absolute top-4 left-4 w-1 h-16 bg-gradient-to-b from-blue-400 to-purple-500 rounded-full"></div>
-            <p className="text-lg md:text-xl leading-relaxed text-gray-100 ml-6">
-              It was on June 25, 2025, that the world saw one of the most significant moments in space history when Axiom Space sent its fourth private crewed mission, Axiom-4 (Ax-4), to the International Space Station (ISS). This mission not only advanced Axiom's ambitious project of commercializing low-Earth orbit but also bore with it the aspirations of more than a billion Indians. On board the Crew Dragon spacecraft, under the control of SpaceX's Falcon 9 rocket, was Group Captain Shubhanshu Shukla, who made history by becoming the first Indian to step on the ISS.
+          <div className={`fade-in opening-quote ${visibleElements.has('quote') ? 'visible' : ''}`} 
+               id="quote" 
+               style={styles.openingQuote}>
+            <p style={styles.quoteText}>
+              It was on June 25, 2025, that the world saw one of the most significant moments in space history when Axiom Space sent its fourth private crewed mission, Axiom-4 (Ax-4), to the International Space Station (ISS). This mission not only advanced Axiom's ambitious project of commercializing low-Earth orbit but also bore with it the aspirations of more than a billion Indians.
             </p>
           </div>
 
-          {/* ISS Image */}
-          <div className="relative mb-12 group">
-            <div className="absolute inset-0 bg-gradient-to-r from-green-600/20 to-blue-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
-            <div className="relative overflow-hidden rounded-2xl border border-gray-800/50 shadow-2xl">
-              <img 
-                src="/images/Blogs/iss-station.jpg" 
-                alt="International Space Station" 
-                className="w-full h-[350px] md:h-[400px] object-cover transition-transform duration-700 group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-              <div className="absolute bottom-6 left-6 right-6">
-                <p className="text-sm text-gray-300 font-medium">International Space Station - Destination of Axiom-4</p>
+          <div className="content-grid" style={styles.contentGrid}>
+            <div className="main-content" style={styles.mainContent}>
+              <p className={`fade-in ${visibleElements.has('p1') ? 'visible' : ''}`} id="p1" style={styles.paragraph}>
+                But Axiom-4 is so much more than a national moment of pride. It was a significant step in the transformation of the global space industry from government-supported missions towards commercial and collaborative efforts. Axiom Space, a private US-based spaceflight company, has been at the forefront of making such missions possible through its vision of establishing the first commercial space station.
+              </p>
+
+              <p className={`fade-in ${visibleElements.has('p2') ? 'visible' : ''}`} id="p2" style={styles.paragraph}>
+                The crew of the mission is made up of four astronauts from various nations and institutions, carefully chosen for their experience, scientific acumen, and role in international space objectives. India's Shubhanshu Shukla was not chosen by ISRO but through collaboration with Axiom Space. With him came a decade of experience as an Indian Air Force test pilot, extensive training for deep space on the ISRO's Gaganyaan program, and a fervent enthusiasm to take India's footprint further into the universe.
+              </p>
+
+              <div className={`fade-in highlight-box ${visibleElements.has('highlight') ? 'visible' : ''}`} 
+                   id="highlight" 
+                   style={styles.highlightBox}>
+                <p style={styles.highlightText}>
+                  What is unique about Ax-4 is the magnitude and variance of its research agenda. Over 60 experiments from 31 nations are being performed in this mission, one of the most scientifically demanding private spaceflights ever.
+                </p>
               </div>
-            </div>
-          </div>
 
-          {/* Regular content paragraphs */}
-          <div className="space-y-8">
-            <p className="text-gray-300 leading-relaxed">
-              But Axiom-4 is so much more than a national moment of pride. It was a significant step in the transformation of the global space industry from government-supported missions towards commercial and collaborative efforts. Axiom Space, a private US-based spaceflight company, has been at the forefront of making such missions possible through its vision of establishing the first commercial space station. Ax-4 is an extension of that vision — intended to accelerate scientific inquiry, global collaboration, and the expanding potential of low-Earth orbit as a place for innovation and industry.
-            </p>
+              <p className={`fade-in ${visibleElements.has('p3') ? 'visible' : ''}`} id="p3" style={styles.paragraph}>
+                The Axiom-4 mission is scheduled for a 14-day trip on the ISS, where the astronauts are performing an array of cutting-edge experiments. These include research into muscle atrophy in microgravity, a key topic with missions by space agencies underway to lengthier trips to the Moon and Mars. The team is also researching biological resilience, plant development, and micro-algae cultivation.
+              </p>
 
-            <p className="text-gray-300 leading-relaxed">
-              The crew of the mission is made up of four astronauts from various nations and institutions, carefully chosen for their experience, scientific acumen, and role in international space objectives. India's Shubhanshu Shukla was not chosen by ISRO but through collaboration with Axiom Space. With him came a decade of experience as an Indian Air Force test pilot, extensive training for deep space on the ISRO's Gaganyaan program, and a fervent enthusiasm to take India's footprint further into the universe.
-            </p>
-
-            {/* Mission Video */}
-            <div className="relative mb-12 group">
-              <div className="absolute inset-0 bg-gradient-to-r from-orange-600/20 to-red-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
-              <div className="relative overflow-hidden rounded-2xl border border-gray-800/50 shadow-2xl">
-                <video 
-                  controls 
-                  className="w-full h-[350px] md:h-[400px] object-cover bg-black"
-                  poster="/images/Blogs/mission-video-poster.jpg"
-                >
-                  <source src="/videos/Blogs/axiom4-mission.mp4" type="video/mp4" />
-                  Your browser does not support the video tag.
-                </video>
-                <div className="absolute bottom-6 left-6 right-6">
-                  <p className="text-sm text-gray-300 font-medium">Axiom-4 Mission Overview</p>
+              <div className={`fade-in image-gallery ${visibleElements.has('gallery') ? 'visible' : ''}`} 
+                   id="gallery" 
+                   style={styles.imageGallery}>
+                <div className="gallery-item" style={styles.galleryItem}>
+                  <img 
+                    src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23000'/%3E%3Ctext x='200' y='125' text-anchor='middle' fill='%23fff' font-size='16' font-family='Arial'%3EISS Station%3C/text%3E%3C/svg%3E"
+                    alt="International Space Station" 
+                    style={styles.galleryImage}
+                  />
+                  <div className="gallery-caption" style={styles.galleryCaption}>
+                    International Space Station - The destination of Axiom-4 mission
+                  </div>
+                </div>
+                <div className="gallery-item" style={styles.galleryItem}>
+                  <img 
+                    src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23000'/%3E%3Ctext x='200' y='125' text-anchor='middle' fill='%23fff' font-size='16' font-family='Arial'%3ECrew Members%3C/text%3E%3C/svg%3E"
+                    alt="Shubhanshu Shukla and crew" 
+                    style={styles.galleryImage}
+                  />
+                  <div className="gallery-caption" style={styles.galleryCaption}>
+                    Group Captain Shubhanshu Shukla and the Axiom-4 crew
+                  </div>
                 </div>
               </div>
-            </div>
 
-            <p className="text-gray-300 leading-relaxed">
-              The Axiom-4 mission is scheduled for a 14-day trip on the ISS, where the astronauts are performing an array of cutting-edge experiments. These include research into muscle atrophy in microgravity, a key topic with missions by space agencies underway to lengthier trips to the Moon and Mars. The team is also researching biological resilience, plant development, and micro-algae cultivation — all fields that have applicability both to space sustainability and to addressing issues on Earth such as food security and health in extreme environments.
-            </p>
+              <p className={`fade-in ${visibleElements.has('p4') ? 'visible' : ''}`} id="p4" style={styles.paragraph}>
+                The launch itself was a picture-perfect show of SpaceX's now commonplace but still breathtaking technology. The Falcon 9 rocket took off from Kennedy Space Center in Florida, delivering the Crew Dragon capsule into orbit. Within 24 hours of the launch, the capsule docked successfully with the ISS, where the crew was greeted by astronauts who were already on board.
+              </p>
 
-            {/* Highlighted section */}
-            <div className="relative p-6 rounded-xl bg-gradient-to-r from-purple-900/20 to-pink-900/20 border border-purple-500/20 backdrop-blur-sm">
-              <div className="absolute top-3 left-3 w-2 h-2 bg-purple-400 rounded-full animate-pulse"></div>
-              <p className="text-gray-200 leading-relaxed font-medium">
-                What is unique about Ax-4 is the magnitude and variance of its research agenda. Over 60 experiments from 31 nations are being performed in this mission, one of the most scientifically demanding private spaceflights ever. Not only are these experiments being sponsored by space agencies, but also by universities, biotechnology companies, and innovation laboratories, illustrating a trend to democratize access to space research.
+              <p className={`fade-in ${visibleElements.has('p5') ? 'visible' : ''}`} id="p5" style={styles.paragraph}>
+                For India, Shubhanshu Shukla's place in this mission is symbolically significant. He might not be on board ISRO's Gaganyaan launch yet, but his contribution to an international mission demonstrates the nation's willingness to join the global space community. It also provides ISRO with a rich foresight of how Indian astronauts can work together in multinational environments.
+              </p>
+
+              <p className={`fade-in ${visibleElements.has('p6') ? 'visible' : ''}`} id="p6" style={styles.paragraph}>
+                The Ax-4 mission also points toward the future of space exploration — one that is commercial, collaborative, and continuous. It is not merely about getting to space; it's about remaining there, working there, and making it a frontier for science, commerce, and diplomacy.
               </p>
             </div>
 
-            <p className="text-gray-300 leading-relaxed">
-              The launch itself was a picture-perfect show of SpaceX's now commonplace but still breathtaking technology. The Falcon 9 rocket took off from Kennedy Space Center in Florida, delivering the Crew Dragon capsule into orbit. Within 24 hours of the launch, the capsule docked successfully with the ISS, where the crew was greeted by astronauts who were already on board. The mission is being tracked by NASA and manned by ground control teams from different countries.
-            </p>
+            <div className="sidebar" style={styles.sidebar}>
+              <h3 style={styles.sidebarTitle}>Mission Timeline</h3>
+              <ul className="mission-timeline" style={styles.missionTimeline}>
+                {timeline.map((item, index) => (
+                  <li key={index} style={styles.timelineItem}>
+                    <div className="timeline-date" style={styles.timelineDate}>{item.date}</div>
+                    <div className="timeline-event" style={styles.timelineEvent}>{item.event}</div>
+                  </li>
+                ))}
+              </ul>
 
-            {/* Crew Image */}
-            <div className="relative mb-12 group">
-              <div className="absolute inset-0 bg-gradient-to-r from-indigo-600/20 to-cyan-600/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-300"></div>
-              <div className="relative overflow-hidden rounded-2xl border border-gray-800/50 shadow-2xl">
-                <img 
-                  src="/images/Blogs/shubhanshu-crew.jpg" 
-                  alt="Group Captain Shubhanshu Shukla and Axiom-4 Crew" 
-                  className="w-full h-[350px] md:h-[400px] object-cover transition-transform duration-700 group-hover:scale-105"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
-                <div className="absolute bottom-6 left-6 right-6">
-                  <p className="text-sm text-gray-300 font-medium">Group Captain Shubhanshu Shukla and the Axiom-4 Crew</p>
-                </div>
-              </div>
+              <h3 style={{...styles.sidebarTitle, marginTop: '2rem'}}>Key Facts</h3>
+              <ul style={styles.keyFactsList}>
+                {keyFacts.map((fact, index) => (
+                  <li key={index} style={styles.keyFactItem}>
+                    <strong style={styles.keyFactLabel}>{fact.label}:</strong> {fact.value}
+                  </li>
+                ))}
+              </ul>
             </div>
-
-            <p className="text-gray-300 leading-relaxed">
-              For India, Shubhanshu Shukla's place in this mission is symbolically significant. He might not be on board ISRO's Gaganyaan launch yet, but his contribution to an international mission demonstrates the nation's willingness to join the global space community. It also provides ISRO with a rich foresight of how Indian astronauts can work together in multinational environments, handle scientific duties on the ISS, and add to sophisticated research in real-time.
-            </p>
-
-            <p className="text-gray-300 leading-relaxed">
-              The Ax-4 mission also points toward the future of space exploration — one that is commercial, collaborative, and continuous. It is not merely about getting to space; it's about remaining there, working there, and making it a frontier for science, commerce, and diplomacy.
-            </p>
-
-            {/* Closing section */}
-            <div className="relative p-8 rounded-2xl bg-gradient-to-r from-blue-900/30 to-indigo-900/30 border border-blue-500/20 backdrop-blur-sm">
-              <div className="absolute top-4 right-4 w-1 h-16 bg-gradient-to-b from-blue-400 to-indigo-500 rounded-full"></div>
-              <p className="text-gray-100 leading-relaxed text-lg mr-6">
-                As Shukla sent his inaugural message from the ISS, a warm "Namaskar" to planet Earth. It was more than a salutation. It was an indication that India is not on the sidelines observing space missions anymore. It is joining in, giving back, and writing its own script. The success of Axiom-4 provides a window into a future where borders melt away in light years and humanity progresses together among the stars.
-              </p>
-            </div>
-
-            <p className="text-xl text-center text-gray-200 font-semibold mt-12 mb-8">
-              India's return to space has started — not with one step, but as one of a multitude of steps into a common cosmic future.
-            </p>
           </div>
-        </div>
+        </section>
 
-        {/* Decorative elements */}
-        <div className="absolute top-20 left-10 w-1 h-1 bg-blue-400 rounded-full animate-pulse opacity-60"></div>
-        <div className="absolute top-40 right-20 w-1 h-1 bg-purple-400 rounded-full animate-pulse opacity-40"></div>
-        <div className="absolute bottom-40 left-20 w-1 h-1 bg-pink-400 rounded-full animate-pulse opacity-50"></div>
+        {/* Conclusion Section */}
+        <section className="conclusion-section" style={styles.conclusionSection}>
+          <h2 style={styles.conclusionTitle}>A New Chapter in Space History</h2>
+          <p style={styles.conclusionText}>
+            As Shukla sent his inaugural message from the ISS, a warm "Namaskar" to planet Earth, it was more than a salutation. It was an indication that India is not on the sidelines observing space missions anymore. It is joining in, giving back, and writing its own script. The success of Axiom-4 provides a window into a future where borders melt away in light years and humanity progresses together among the stars.
+          </p>
+          
+          <p style={styles.conclusionFinalText}>
+            India's return to space has started — not with one step, but as one of a multitude of steps into a common cosmic future.
+          </p>
+        </section>
       </div>
     </div>
   );
 };
 
-export default Blog3; 
+const styles = {
+  body: {
+    fontFamily: "'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+    lineHeight: 1.6,
+    color: '#e0e0e0',
+    background: '#0a0a0a',
+    minHeight: '100vh',
+    margin: 0,
+    padding: 0,
+    boxSizing: 'border-box'
+  },
+  
+  scrollIndicator: {
+    position: 'fixed',
+    top: 0,
+    left: 0,
+    width: '100%',
+    height: '4px',
+    background: 'linear-gradient(90deg, #ffffff, #cccccc)',
+    transformOrigin: 'left',
+    transition: 'transform 0.1s ease',
+    zIndex: 1000
+  },
+  
+  container: {
+    maxWidth: '1200px',
+    margin: '0 auto',
+    background: '#1a1a1a',
+    boxShadow: '0 20px 60px rgba(0, 0, 0, 0.5)',
+    borderRadius: '20px',
+    overflow: 'hidden',
+    marginTop: '2rem',
+    marginBottom: '2rem',
+    border: '1px solid #333'
+  },
+  
+  heroSection: {
+    background: 'linear-gradient(135deg, #000000 0%, #1a1a1a 100%)',
+    color: 'white',
+    padding: '4rem 2rem',
+    textAlign: 'center',
+    position: 'relative',
+    overflow: 'hidden',
+    borderBottom: '1px solid #333'
+  },
+  
+  heroContent: {
+    position: 'relative',
+    zIndex: 2
+  },
+  
+  missionBadge: {
+    background: 'rgba(255, 255, 255, 0.05)',
+    border: '2px solid rgba(255, 255, 255, 0.1)',
+    borderRadius: '50px',
+    padding: '0.5rem 1.5rem',
+    fontSize: '0.9rem',
+    fontWeight: 600,
+    marginBottom: '2rem',
+    display: 'inline-block',
+    backdropFilter: 'blur(10px)',
+    color: '#ffffff'
+  },
+  
+  heroTitle: {
+    fontSize: '4rem',
+    fontWeight: 900,
+    marginBottom: '1rem',
+    background: 'linear-gradient(45deg, #ffffff, #cccccc)',
+    WebkitBackgroundClip: 'text',
+    WebkitTextFillColor: 'transparent',
+    backgroundClip: 'text',
+    lineHeight: 1.1
+  },
+  
+  heroSubtitle: {
+    fontSize: '1.5rem',
+    marginBottom: '2rem',
+    opacity: 0.9,
+    fontWeight: 300
+  },
+  
+  missionStats: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+    gap: '2rem',
+    marginTop: '3rem'
+  },
+  
+  statCard: {
+    background: 'rgba(255, 255, 255, 0.05)',
+    padding: '1.5rem',
+    borderRadius: '15px',
+    textAlign: 'center',
+    backdropFilter: 'blur(10px)',
+    border: '1px solid rgba(255, 255, 255, 0.1)',
+    transition: 'transform 0.3s ease, box-shadow 0.3s ease',
+    cursor: 'pointer'
+  },
+  
+  statNumber: {
+    fontSize: '2rem',
+    fontWeight: 'bold',
+    color: '#ffffff',
+    marginBottom: '0.5rem'
+  },
+  
+  statLabel: {
+    fontSize: '0.9rem',
+    opacity: 0.7,
+    color: '#cccccc'
+  },
+  
+  contentSection: {
+    padding: '4rem 2rem',
+    background: '#1a1a1a'
+  },
+  
+  videoContainer: {
+    position: 'relative',
+    marginBottom: '3rem',
+    borderRadius: '20px',
+    overflow: 'hidden',
+    boxShadow: '0 15px 40px rgba(0, 0, 0, 0.3)'
+  },
+  
+  featuredVideo: {
+    width: '100%',
+    height: '400px',
+    objectFit: 'cover',
+    borderRadius: '20px',
+    transition: 'transform 0.3s ease'
+  },
+  
+  videoCaption: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    background: 'linear-gradient(transparent, rgba(0, 0, 0, 0.9))',
+    color: 'white',
+    padding: '2rem 1.5rem 1.5rem',
+    fontSize: '1rem',
+    fontWeight: 500
+  },
+  
+  openingQuote: {
+    background: 'linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%)',
+    color: 'white',
+    padding: '3rem',
+    borderRadius: '20px',
+    marginBottom: '3rem',
+    position: 'relative',
+    overflow: 'hidden',
+    border: '1px solid #333'
+  },
+  
+  quoteText: {
+    fontSize: '1.2rem',
+    lineHeight: 1.8,
+    margin: 0,
+    position: 'relative',
+    zIndex: 2
+  },
+  
+  contentGrid: {
+    display: 'grid',
+    gridTemplateColumns: '1fr 300px',
+    gap: '4rem',
+    marginTop: '3rem'
+  },
+  
+  mainContent: {
+    fontSize: '1.1rem',
+    lineHeight: 1.8,
+    color: '#e0e0e0'
+  },
+  
+  paragraph: {
+    marginBottom: '2rem'
+  },
+  
+  highlightBox: {
+    background: 'linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%)',
+    color: 'white',
+    padding: '2rem',
+    borderRadius: '15px',
+    margin: '2rem 0',
+    border: '1px solid #444'
+  },
+  
+  highlightText: {
+    margin: 0,
+    fontWeight: 500
+  },
+  
+  imageGallery: {
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+    gap: '2rem',
+    margin: '3rem 0'
+  },
+  
+  galleryItem: {
+    position: 'relative',
+    borderRadius: '15px',
+    overflow: 'hidden',
+    boxShadow: '0 10px 30px rgba(0, 0, 0, 0.5)',
+    transition: 'transform 0.3s ease',
+    border: '1px solid #333'
+  },
+  
+  galleryImage: {
+    width: '100%',
+    height: '250px',
+    objectFit: 'cover'
+  },
+  
+  galleryCaption: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    background: 'linear-gradient(transparent, rgba(0, 0, 0, 0.9))',
+    color: 'white',
+    padding: '2rem 1.5rem 1.5rem',
+    fontSize: '0.9rem'
+  },
+  
+  sidebar: {
+    background: '#222',
+    padding: '2rem',
+    borderRadius: '20px',
+    height: 'fit-content',
+    position: 'sticky',
+    top: '2rem',
+    border: '1px solid #333'
+  },
+  
+  sidebarTitle: {
+    color: '#ffffff',
+    marginBottom: '1.5rem',
+    fontSize: '1.3rem'
+  },
+  
+  missionTimeline: {
+    listStyle: 'none',
+    padding: 0,
+    margin: 0
+  },
+  
+  timelineItem: {
+    padding: '1rem 0',
+    borderLeft: '3px solid #ffffff',
+    paddingLeft: '1.5rem',
+    marginBottom: '1rem',
+    position: 'relative'
+  },
+  
+  timelineDate: {
+    fontSize: '0.9rem',
+    color: '#cccccc',
+    fontWeight: 600
+  },
+  
+  timelineEvent: {
+    fontSize: '1rem',
+    color: '#e0e0e0',
+    marginTop: '0.5rem'
+  },
+  
+  keyFactsList: {
+    listStyle: 'none',
+    padding: 0,
+    margin: 0
+  },
+  
+  keyFactItem: {
+    padding: '0.5rem 0',
+    borderBottom: '1px solid #333',
+    color: '#e0e0e0'
+  },
+  
+  keyFactLabel: {
+    color: '#ffffff'
+  },
+  
+  conclusionSection: {
+    background: 'linear-gradient(135deg, #000000 0%, #1a1a1a 100%)',
+    color: 'white',
+    padding: '4rem 2rem',
+    textAlign: 'center',
+    marginTop: '4rem',
+    borderTop: '1px solid #333'
+  },
+  
+  conclusionTitle: {
+    fontSize: '2.5rem',
+    marginBottom: '1.5rem',
+    fontWeight: 700
+  },
+  
+  conclusionText: {
+    fontSize: '1.2rem',
+    maxWidth: '800px',
+    margin: '0 auto',
+    lineHeight: 1.8
+  },
+  
+  conclusionFinalText: {
+    marginTop: '2rem',
+    fontSize: '1.4rem',
+    fontWeight: 600,
+    maxWidth: '800px',
+    margin: '2rem auto 0',
+    lineHeight: 1.8
+  }
+};
+
+const cssStyles = `
+  .fade-in {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+  }
+  
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .stat-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(255, 255, 255, 0.1);
+  }
+  
+  .gallery-item:hover {
+    transform: translateY(-10px);
+  }
+  
+  .featured-video:hover {
+    transform: scale(1.02);
+  }
+  
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -8px;
+    top: 1.5rem;
+    width: 12px;
+    height: 12px;
+    background: #ffffff;
+    border-radius: 50%;
+  }
+  
+  .opening-quote::before {
+    content: '"';
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    font-size: 8rem;
+    opacity: 0.2;
+    font-family: serif;
+    color: #ffffff;
+  }
+  
+  .hero-section::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.05)"/></svg>') repeat;
+    animation: float 20s infinite linear;
+  }
+  
+  @keyframes float {
+    0% { transform: translateY(0px) rotate(0deg); }
+    100% { transform: translateY(-20px) rotate(360deg); }
+  }
+  
+  @media (max-width: 768px) {
+    .container {
+      margin: 1rem;
+      border-radius: 15px;
+    }
+    
+    .hero-title {
+      font-size: 2.5rem !important;
+    }
+    
+    .hero-subtitle {
+      font-size: 1.2rem !important;
+    }
+    
+    .content-grid {
+      grid-template-columns: 1fr !important;
+      gap: 2rem !important;
+    }
+    
+    .sidebar {
+      position: static !important;
+    }
+    
+    .mission-stats {
+      grid-template-columns: repeat(2, 1fr) !important;
+    }
+    
+    .content-section {
+      padding: 2rem 1rem !important;
+    }
+    
+    .hero-section {
+      padding: 2rem 1rem !important;
+    }
+  }
+`;
+
+export default Axiom4Mission;
