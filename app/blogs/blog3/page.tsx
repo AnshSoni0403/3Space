@@ -97,9 +97,11 @@ const Axiom4Mission = () => {
                id="video" 
                style={styles.videoContainer}>
             <video 
-              style={styles.featuredVideo}
-              controls
-              poster="/images/Blogs/blogvideo-poster.jpg"
+              style={{...styles.featuredVideo, height: 600}}
+              autoPlay
+              loop
+              muted
+              playsInline
             >
               <source src="/images/Blogs/blogvideo.mp4" type="video/mp4" />
               Your browser does not support the video tag.
@@ -345,9 +347,9 @@ const styles = {
   
   featuredVideo: {
     width: '100%',
-    height: '400px',
-    objectFit: 'cover',
-    borderRadius: '20px',
+    height: 600,
+    objectFit: 'cover' as React.CSSProperties['objectFit'],
+    borderRadius: 20,
     transition: 'transform 0.3s ease'
   },
   
