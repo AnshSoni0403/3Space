@@ -47,7 +47,7 @@ export default function BlogsPage() {
       author: "3Space",
       readTime: "1 min read",
       category: "technology",
-      image: "/images/Blogs/blog2.jpg",
+      image: "/images/Blogs/blog3.jpg"
     }
   ]
 

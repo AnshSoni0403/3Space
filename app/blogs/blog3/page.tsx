@@ -1,5 +1,7 @@
 "use client";
 import React, { useState, useEffect } from 'react';
+import Navbar from '@/components/Navbar';
+import Footer from '@/components/Footer';
 
 const Axiom4Mission = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
@@ -59,6 +61,7 @@ const Axiom4Mission = () => {
 
   return (
     <div style={styles.body}>
+      <Navbar />
       <style>{cssStyles}</style>
       
       <div className="scroll-indicator" style={{
@@ -96,9 +99,9 @@ const Axiom4Mission = () => {
             <video 
               style={styles.featuredVideo}
               controls
-              poster="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 800 400'%3E%3Crect width='800' height='400' fill='%23000'/%3E%3Ctext x='400' y='200' text-anchor='middle' fill='%23fff' font-size='24' font-family='Arial'%3EAxiom-4 Mission Launch%3C/text%3E%3C/svg%3E"
+              poster="/images/Blogs/blogvideo-poster.jpg"
             >
-              <source src="https://sample-videos.com/zip/10/mp4/SampleVideo_1280x720_1mb.mp4" type="video/mp4" />
+              <source src="/images/Blogs/blogvideo.mp4" type="video/mp4" />
               Your browser does not support the video tag.
             </video>
             <div style={styles.videoCaption}>
@@ -141,7 +144,7 @@ const Axiom4Mission = () => {
                    style={styles.imageGallery}>
                 <div className="gallery-item" style={styles.galleryItem}>
                   <img 
-                    src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23000'/%3E%3Ctext x='200' y='125' text-anchor='middle' fill='%23fff' font-size='16' font-family='Arial'%3EISS Station%3C/text%3E%3C/svg%3E"
+                    src="/images/Blogs/blog3.jpg"
                     alt="International Space Station" 
                     style={styles.galleryImage}
                   />
@@ -151,7 +154,7 @@ const Axiom4Mission = () => {
                 </div>
                 <div className="gallery-item" style={styles.galleryItem}>
                   <img 
-                    src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 400 250'%3E%3Crect width='400' height='250' fill='%23000'/%3E%3Ctext x='200' y='125' text-anchor='middle' fill='%23fff' font-size='16' font-family='Arial'%3ECrew Members%3C/text%3E%3C/svg%3E"
+                    src="/images/Blogs/crew.jpg"
                     alt="Shubhanshu Shukla and crew" 
                     style={styles.galleryImage}
                   />
@@ -209,6 +212,7 @@ const Axiom4Mission = () => {
           </p>
         </section>
       </div>
+      <Footer />
     </div>
   );
 };
