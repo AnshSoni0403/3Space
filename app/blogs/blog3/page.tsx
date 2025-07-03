@@ -154,7 +154,7 @@ const Axiom4Mission = () => {
                 </div>
                 <div className="gallery-item" style={styles.galleryItem}>
                   <img 
-                    src="/images/Blogs/crew.jpg"
+                    src="/images/Blogs/3.jpg"
                     alt="Shubhanshu Shukla and crew" 
                     style={styles.galleryImage}
                   />
