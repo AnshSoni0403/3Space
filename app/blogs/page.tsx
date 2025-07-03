@@ -15,18 +15,30 @@ export default function BlogsPage() {
   const blogs = [
     {
       id: 1,
+      slug: "blog3",
+      title: "Axiom-4 Mission: India's Grand Return to Space",
+      excerpt:
+        "India's historic return to human spaceflight through the Axiom-4 mission, marking a new era in international space collaboration.",
+      date: "July 3, 2025",
+      author: "3Space",
+      readTime: "4 min read",
+      category: "technology",
+      image: "/images/Blogs/axiom4.jpg",
+    },
+    {
+      id: 2,
       slug: "blog1",
       title: "From Fire Arrows to the Moon: India's Rocket Journey Through Time",
       excerpt:
         "How India carved out its space in the stars - from ancient dreams to modern missions",
-      date: "Aug 27, 2025",
+      date: "June 27, 2025",
       author: "3Space",
       readTime: "2 min read",
       category: "technology",
       image: "/images/Blogs/download.jpg",
     },
     {
-      id: 2,
+      id: 3,
       slug: "blog2",
       title: "Women in Indian Space: A Journey of Excellence and Empowerment",
       excerpt:
@@ -36,8 +48,7 @@ export default function BlogsPage() {
       readTime: "1 min read",
       category: "technology",
       image: "/images/Blogs/blog2.jpg",
-    },
-    // ...other blogs
+    }
   ]
 
   const filteredBlogs =
