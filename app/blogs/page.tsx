@@ -23,7 +23,7 @@ export default function BlogsPage() {
       author: "3Space",
       readTime: "4 min read",
       category: "technology",
-      image: "/images/Blogs/axiom4.jpg",
+      image: "/images/Blogs/blog3.jpg",
     },
     {
       id: 2,
@@ -47,7 +47,7 @@ export default function BlogsPage() {
       author: "3Space",
       readTime: "1 min read",
       category: "technology",
-      image: "/images/Blogs/blog3.jpg"
+      image: "/images/Blogs/blog2.jpg"
     }
   ]
 
