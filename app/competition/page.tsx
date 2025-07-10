@@ -133,11 +133,11 @@ const CompetitionPage = () => {
             <span className={styles.ctaStatus}>Registration fees: ₹1000/- per team</span>
             <p>Registration deadline: 10 July 2025</p>
             <div className={styles.buttonContainer}>
-                <a href="https://forms.gle/EjfsFQG2Fdt1kcvr7" className={styles.ctaButton}>
+                <a href="https://forms.gle/EjfsFQG2Fdt1kcvr7" className={styles.ctaButton} target="_blank" rel="noopener noreferrer">
                     <span className={styles.buttonIcon}>🚀</span>
                     Register Now
                 </a>
-                <a href="./rulebook.pdf" className={styles.rulebookButton}>
+                <a href="./rulebook.pdf" className={styles.rulebookButton} target="_blank" rel="noopener noreferrer">
                     <span className={styles.buttonIcon}>📋</span>
                     Rulebook
                 </a>
