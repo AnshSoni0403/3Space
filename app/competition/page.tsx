@@ -118,7 +118,7 @@ const CompetitionPage = () => {
             <li className={styles.featureItem}><span className={styles.featureIcon}>⚠️</span><span className={styles.featureText}>Design a 1kg / 2kg / 3kg suborbital payload for a sounding launch mission reaching 10km altitude</span></li>
             <li className={styles.featureItem}><span className={styles.featureIcon}>⚠️</span><span className={styles.featureText}>Participants must follow the schedule strictly—delays in submission or attendance during key phases may lead to disqualification</span></li>
             <li className={styles.featureItem}><span className={styles.featureIcon}>⚠️</span><span className={styles.featureText}>All updates, results, and instructions will be shared via official communication channels—stay alert and responsive.</span></li>
-            <li className={styles.featureItem}><span className={styles.featureIcon}>⚠️</span><span className={styles.featureText}>Last date for registration: 15 July 2025</span></li>
+            <li className={styles.featureItem}><span className={styles.featureIcon}>⚠️</span><span className={styles.featureText}>Last date for registration: 10 July 2025</span></li>
           </ul>
         </section>
 
@@ -131,7 +131,7 @@ const CompetitionPage = () => {
         </p>
         <div className={styles.ctaBox}>
             <span className={styles.ctaStatus}>Registration fees: ₹1000/- per team</span>
-            <p>Registration deadline: 15 July 2025</p>
+            <p>Registration deadline: 10 July 2025</p>
             <div className={styles.buttonContainer}>
                 <a href="https://forms.gle/EjfsFQG2Fdt1kcvr7" className={styles.ctaButton}>
                     <span className={styles.buttonIcon}>🚀</span>
