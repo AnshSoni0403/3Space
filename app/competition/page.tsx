@@ -137,7 +137,7 @@ const CompetitionPage = () => {
                     <span className={styles.buttonIcon}>🚀</span>
                     Register Now
                 </a>
-                <a href="./rulebook.pdf" className={styles.rulebookButton} target="_blank" rel="noopener noreferrer">
+                <a href="./NLPD_Ideathon_2025.pdf" className={styles.rulebookButton} target="_blank" rel="noopener noreferrer">
                     <span className={styles.buttonIcon}>📋</span>
                     Rulebook
                 </a>
