@@ -131,7 +131,7 @@ const CompetitionPage = () => {
         </p>
         <div className={styles.ctaBox}>
             <span className={styles.ctaStatus}>Registration fees: ₹1000/- per team</span>
-            <p>Registration deadline: 10 July 2025</p>
+            <p>Registration deadline: <s>10 July 2025</s> <span className="ml-2 font-semibold text-green-600">19 July 2025</span></p>
             <div className={styles.buttonContainer}>
                 <a href="https://forms.gle/EjfsFQG2Fdt1kcvr7" className={styles.ctaButton} target="_blank" rel="noopener noreferrer">
                     <span className={styles.buttonIcon}>🚀</span>
