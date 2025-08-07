@@ -106,23 +106,6 @@ export default function Rockets() {
     return "Featured";
   };
 
-  const getFeatures = (product: Product) => {
-    const features = [];
-    if (product.tags?.includes("beginner")) features.push("Beginner Friendly");
-    if (product.tags?.includes("multi-stage")) features.push("Multi-Stage");
-    if (product.tags?.includes("reusable")) features.push("Reusable Parts");
-    if (product.tags?.includes("high-altitude")) features.push("High Altitude");
-    if (product.tags?.includes("pro-grade")) features.push("Pro Grade");
-    if (product.tags?.includes("telemetry")) features.push("Telemetry Ready");
-    
-    // Default features if no tags
-    if (features.length === 0) {
-      features.push("Safe Launch", "Quick Assembly");
-    }
-    
-    return features;
-  };
-
   if (loading) {
     return (
       <div className={showcase.bgStarfield}>
@@ -260,9 +243,29 @@ export default function Rockets() {
                   <h3 className={showcase.productName}>{product.name}</h3>
                   <p className={showcase.productDesc}>{product.description}</p>
                   <ul className={showcase.featureList}>
-                    {getFeatures(product).map((feature, i) => (
-                      <li key={i} className={showcase.featureItem}>• {feature}</li>
-                    ))}
+                    {(() => {
+                      let tags: string[] = [];
+                      if (Array.isArray(product.tags)) {
+                        tags = product.tags.filter(t => typeof t === 'string');
+                      } else if (typeof product.tags === "string") {
+                        try {
+                          const parsed = JSON.parse(product.tags);
+                          if (Array.isArray(parsed) && parsed.every(t => typeof t === 'string')) {
+                            tags = parsed;
+                          } else {
+                            tags = [product.tags];
+                          }
+                        } catch {
+                          tags = [product.tags];
+                        }
+                      }
+                      if (!tags || tags.length === 0) {
+                        tags = ["Safe Launch", "Quick Assembly"];
+                      }
+                      return tags.map((tag, i) => (
+                        <li key={i} className={showcase.featureItem}>• {tag}</li>
+                      ));
+                    })()}
                   </ul>
                   <Button variant="secondary" className={showcase.ctaBtn}>
                     <Rocket className={showcase.rocketIcon} /> View Details
