@@ -140,7 +140,7 @@ export default function Rockets() {
           <div className="flex items-center justify-center min-h-[400px]">
             <div className="flex flex-col items-center gap-4">
               <Loader2 className="h-8 w-8 animate-spin text-blue-500" />
-              <p className="text-lg text-gray-300">Loading products...</p>
+              <p className="text-lg text-gray-300">Loading products....</p>
             </div>
           </div>
         </main>
