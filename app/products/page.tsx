@@ -232,9 +232,9 @@ export default function Rockets() {
                       {fallbackSVG}
                     </div>
                     <div className={showcase.priceTag}>
-                      <span>${product.price.toFixed(2)}</span>
+                      <span>₹{product.price.toFixed(2)}</span>
                       {product.oldPrice && (
-                        <span className={showcase.oldPrice}>${product.oldPrice.toFixed(2)}</span>
+                        <span className={showcase.oldPrice}>₹{product.oldPrice.toFixed(2)}</span>
                       )}
                     </div>
                   </AspectRatio>
