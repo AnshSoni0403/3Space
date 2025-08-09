@@ -12,6 +12,7 @@ import Image from "next/image";
 import { Rocket, Loader2 } from "lucide-react";
 import styles from "@/styles/components/RocketModel.module.css";
 import showcase from "@/styles/ProductShowcase.module.css";
+import Link from "next/link";
 
 // API URL from your backend
 const API_URL = 'https://threespacebackend.onrender.com';
@@ -28,6 +29,11 @@ interface Product {
   createdAt: string;
   updatedAt: string;
 }
+
+const truncateText = (text: string, maxLength: number) => {
+  if (!text) return "";
+  return text.length > maxLength ? text.slice(0, maxLength - 1) + "…" : text;
+};
 
 const fallbackSVG = (
   <svg width="100%" height="100%" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -241,7 +247,12 @@ export default function Rockets() {
                 </div>
                 <div className={showcase.cardContent}>
                   <h3 className={showcase.productName}>{product.name}</h3>
-                  <p className={showcase.productDesc}>{product.description}</p>
+                  <div style={{ marginBottom: 8 }}>
+                    <span style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}>
+                      <span style={{ background: '#23234a', color: '#b4b4ff', padding: '2px 8px', borderRadius: 8, fontSize: 12 }}>Description</span>
+                      <span className={showcase.productDesc}>{truncateText(product.description, 140)}</span>
+                    </span>
+                  </div>
                   <ul className={showcase.featureList}>
                     {(() => {
                       let tags: string[] = [];
@@ -267,9 +278,11 @@ export default function Rockets() {
                       ));
                     })()}
                   </ul>
-                  <Button variant="secondary" className={showcase.ctaBtn}>
-                    <Rocket className={showcase.rocketIcon} /> View Details
-                  </Button>
+                  <Link href={`/products/${product._id}`}>
+                    <Button variant="secondary" className={showcase.ctaBtn}>
+                      <Rocket className={showcase.rocketIcon} /> View Details
+                    </Button>
+                  </Link>
                 </div>
               </div>
             ))}
