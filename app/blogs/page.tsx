@@ -48,6 +48,18 @@ export default function BlogsPage() {
       readTime: "1 min read",
       category: "technology",
       image: "/images/Blogs/blog2.jpg"
+    },
+    {
+      id: 4,
+      slug: "blog4",
+      title: "What If Gen Z Ran Space Missions?",
+      excerpt:
+        "Imagine you’re hurtling toward Mars, your favorite playlist still pumping through the cabin. At 3space, we believe the next generation’s take on space exploration would look—and feel—completely different. ",
+      date: "Aug 10, 2024",
+      author: "3Space",
+      readTime: "1 min read",
+      category: "technology",
+      image: "/images/Blogs/blog4.jpg"
     }
   ]
 
