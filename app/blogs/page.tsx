@@ -15,6 +15,18 @@ export default function BlogsPage() {
   const blogs = [
     {
       id: 1,
+      slug: "blog4",
+      title: "What If Gen Z Ran Space Missions?",
+      excerpt:
+        "Imagine you’re hurtling toward Mars, your favorite playlist still pumping through the cabin. At 3space, we believe the next generation’s take on space exploration would look—and feel—completely different. ",
+      date: "Aug 10, 2024",
+      author: "3Space",
+      readTime: "1 min read",
+      category: "technology",
+      image: "/images/Blogs/blog4.jpg"
+    },
+    {
+      id: 2,
       slug: "blog3",
       title: "Axiom-4 Mission: India's Grand Return to Space",
       excerpt:
@@ -26,7 +38,7 @@ export default function BlogsPage() {
       image: "/images/Blogs/blog3.jpg",
     },
     {
-      id: 2,
+      id: 3,
       slug: "blog1",
       title: "From Fire Arrows to the Moon: India's Rocket Journey Through Time",
       excerpt:
@@ -38,7 +50,7 @@ export default function BlogsPage() {
       image: "/images/Blogs/download.jpg",
     },
     {
-      id: 3,
+      id: 4,
       slug: "blog2",
       title: "Women in Indian Space: A Journey of Excellence and Empowerment",
       excerpt:
@@ -48,19 +60,8 @@ export default function BlogsPage() {
       readTime: "1 min read",
       category: "technology",
       image: "/images/Blogs/blog2.jpg"
-    },
-    {
-      id: 4,
-      slug: "blog4",
-      title: "What If Gen Z Ran Space Missions?",
-      excerpt:
-        "Imagine you’re hurtling toward Mars, your favorite playlist still pumping through the cabin. At 3space, we believe the next generation’s take on space exploration would look—and feel—completely different. ",
-      date: "Aug 10, 2024",
-      author: "3Space",
-      readTime: "1 min read",
-      category: "technology",
-      image: "/images/Blogs/blog4.jpg"
     }
+    
   ]
 
   const filteredBlogs =
