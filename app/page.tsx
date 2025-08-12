@@ -97,13 +97,11 @@ export default function Home() {
                 <h1>Welcome to 3SPACE</h1>
                 <p>Building Tomorrow's Launch Technologies, Today — with reusable rockets and next-gen aerospace systems.</p>
                 <div className={styles.heroBtns} style={{ position: 'relative', display: 'inline-block' }}>
-                  <a href="/competition" className="btn btn-primary" style={{ position: 'relative', zIndex: 2 }}>
+                  <a href="/about" className="btn btn-primary" style={{ position: 'relative', zIndex: 2 }}>
                     <div className={styles.competitionButtonContent}>
-                      <span className={styles.competitionText}>National Level Payload Design Competition</span>
-                      <span className={styles.liveBadge}>
-                        <span className={styles.blinkingLive}>LIVE</span>
-                        <Trophy size={14} color="#fff" strokeWidth={2} />
-                      </span>
+                      <span className={styles.competitionText}>About Us</span>
+                     
+                        
                     </div>
                   </a>
                   {/* CompetitionFireworkEffect removed */}

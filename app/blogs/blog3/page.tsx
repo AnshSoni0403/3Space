@@ -398,7 +398,8 @@ const styles = {
   },
   
   paragraph: {
-    marginBottom: '2rem'
+    marginBottom: '2rem',
+    textAlign: 'justify'
   },
   
   highlightBox: {
@@ -412,7 +413,8 @@ const styles = {
   
   highlightText: {
     margin: 0,
-    fontWeight: 500
+    fontWeight: 500,
+    textAlign: 'justify'
   },
   
   imageGallery: {
