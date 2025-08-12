@@ -156,7 +156,7 @@ export default function ProductDetailsPage() {
 
             {/* Add to bag / Buy now */}
             <div style={{ display:'grid', gap:10, gridTemplateColumns:'1fr' }}>
-              <button style={{ background:'#000', color:'#fff', padding:'0.8rem 1rem', border:'1px solid #2a2a4a', borderRadius:10, cursor:'pointer' }}>Add to Bag</button>
+              
               <button style={{ background:'transparent', color:'#e9e9ff', padding:'0.8rem 1rem', border:'1px solid #2a2a4a', borderRadius:10, cursor:'pointer' }}>Buy Now</button>
             </div>
 
