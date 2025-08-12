@@ -257,22 +257,38 @@ export default function Rockets() {
                     {(() => {
                       let tags: string[] = [];
                       if (Array.isArray(product.tags)) {
-                        tags = product.tags.filter(t => typeof t === 'string');
+                        // If tags is already an array, clean each tag
+                        tags = product.tags
+                          .filter(tag => tag && typeof tag === 'string')
+                          .map(tag => tag.replace(/[\[\]"]/g, '').trim())
+                          .filter(tag => tag.length > 0);
                       } else if (typeof product.tags === "string") {
                         try {
+                          // Try to parse as JSON array
                           const parsed = JSON.parse(product.tags);
-                          if (Array.isArray(parsed) && parsed.every(t => typeof t === 'string')) {
-                            tags = parsed;
+                          if (Array.isArray(parsed)) {
+                            tags = parsed
+                              .filter(tag => tag && typeof tag === 'string')
+                              .map(tag => tag.replace(/[\[\]"]/g, '').trim())
+                              .filter(tag => tag.length > 0);
+                          } else if (typeof parsed === 'string') {
+                            // Handle case where it's a single string tag
+                            tags = [parsed.replace(/[\[\]"]/g, '').trim()];
                           } else {
-                            tags = [product.tags];
+                            tags = [];
                           }
                         } catch {
-                          tags = [product.tags];
+                          // If not valid JSON, treat as a single tag
+                          tags = [product.tags.replace(/[\[\]"]/g, '').trim()];
                         }
                       }
+                      
+                      // Use default tags if none available
                       if (!tags || tags.length === 0) {
                         tags = ["Safe Launch", "Quick Assembly"];
                       }
+                      
+                      // Render each tag as a list item
                       return tags.map((tag, i) => (
                         <li key={i} className={showcase.featureItem}>• {tag}</li>
                       ));

@@ -104,7 +104,7 @@ export default function ProductDetailsPage() {
   return (
     <div style={{ background:'#0f0f1a', color:'#e9e9ff', minHeight:'100vh' }}>
       <Navbar />
-      <main style={{ maxWidth:1200, margin:'0 auto', padding:'2rem 1rem' }}>
+      <main style={{ maxWidth:1200, margin:'3.5rem auto 0', padding:'2rem 1rem' }}>
         <button onClick={() => router.back()} style={{ background:'none', border:'1px solid #2a2a4a', color:'#b4b4ff', padding:'0.4rem 0.8rem', borderRadius:10, cursor:'pointer', marginBottom:16 }}>← Back</button>
 
         <div style={{ display:'grid', gridTemplateColumns:'1.2fr 1fr', gap:24 }}>
@@ -131,7 +131,7 @@ export default function ProductDetailsPage() {
           {/* Details area - structured like reference */}
           <section style={{ background:'#141426', border:'1px solid #21214a', borderRadius:18, padding:'1.25rem 1.25rem 1.5rem' }}>
             <div style={{ marginBottom:12 }}>
-              <div style={{ fontSize:12, letterSpacing:1, color:'#8a8abf', textTransform:'uppercase' }}>Perfume</div>
+              {/* <div style={{ fontSize:12, letterSpacing:1, color:'#8a8abf', textTransform:'uppercase' }}>Perfume</div> */}
               <h1 style={{ fontSize:26, fontWeight:800, margin:'6px 0 6px' }}>{product.name}</h1>
               <div style={{ display:'flex', alignItems:'baseline', gap:10 }}>
                 <span style={{ fontSize:22, color:'#b4b4ff' }}>₹{product.price.toFixed(2)}</span>
