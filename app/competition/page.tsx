@@ -144,7 +144,7 @@ const CompetitionPage = () => {
             </div>
         </div>
         <p className={styles.ctaFooter}>
-            Take the leap. Compete with the best. Build the future with 3Space Tech.
+            Take the STEPPPPP Compete with the best. Build the future with 3Space Tech.
         </p>
         <div className={styles.contactBox}>
             <b>For any queries, contact us at:</b> <span>contactus@3spacecorp.com</span>
