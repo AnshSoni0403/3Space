@@ -174,7 +174,7 @@ export default function ProductDetailsPage() {
                       <div>Brand</div><div style={{ color:'#d6d6ff' }}>3SPACE</div>
                       <div>Collection</div><div style={{ color:'#d6d6ff' }}>{year}</div>
                       <div>Item no</div><div style={{ color:'#d6d6ff' }}>{itemNo}</div>
-                      <div>Tags</div><div style={{ color:'#d6d6ff' }}>{tagList.join(', ')}</div>
+                      <div>Tags</div><div style={{ color:'#d6d6ff' }}>{tagList.map(tag => tag.replace(/[\[\]]/g, '')).join(', ')}</div>
                     </div>
                   </div>
                 )}
