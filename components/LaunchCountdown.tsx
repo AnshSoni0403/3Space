@@ -13,7 +13,7 @@ export default function LaunchCountdown() {
   const [isLaunched, setIsLaunched] = useState(false)
 
   useEffect(() => {
-    const launchDate = new Date("2025-08-27T00:00:00") // Fixed launch date
+    const launchDate = new Date("2025-10-15T00:00:00") // Fixed launch date
 
     const interval = setInterval(() => {
       const now = new Date()
